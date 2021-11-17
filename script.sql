@@ -1,29 +1,30 @@
 create table author
 (
-    Author_ID   int          not null
+    Author_ID   int  not null
         primary key,
-    Author_Name varchar(255) not null
+    Author_Name text not null
 );
 
 create table book_banner
 (
     ID      int auto_increment
         primary key,
-    Book_ID int null
+    Book_ID int  null,
+    Img     text null
 );
 
 create table book_category
 (
-    Type_ID   int          not null
+    Category_ID   int  not null
         primary key,
-    Type_Name varchar(255) not null
+    Category_Name text not null
 );
 
 create table book_language
 (
-    Language_ID   int          not null
+    Language_ID   int  not null
         primary key,
-    Language_Name varchar(255) not null
+    Language_Name text not null
 );
 
 create table customer
@@ -31,18 +32,18 @@ create table customer
     Customer_ID int          not null
         primary key,
     First_Name  varchar(255) not null,
-    Email       varchar(255) not null,
-    Last_Name   varchar(255) not null,
-    Password    varchar(255) not null
+    Email       text         not null,
+    Last_Name   text         not null,
+    Password    text         not null
 );
 
 create table address
 (
-    Address_ID   int          not null
+    Address_ID   int  not null
         primary key,
-    Phone_Number varchar(255) not null,
-    Full_Address varchar(255) not null,
-    Customer_ID  int          not null,
+    Phone_Number text not null,
+    Full_Address text not null,
+    Customer_ID  int  not null,
     constraint address_ibfk_1
         foreign key (Customer_ID) references customer (Customer_ID)
 );
@@ -66,30 +67,30 @@ create index Customer_ID
 
 create table publisher
 (
-    Publisher_ID   int          not null
+    Publisher_ID   int  not null
         primary key,
-    Publisher_Name varchar(255) not null
+    Publisher_Name text not null
 );
 
 create table books
 (
-    Book_ID          int          not null
+    Book_ID          int  not null
         primary key,
-    Title            varchar(255) not null,
-    Pages            int          not null,
-    Publication_Date date         not null,
-    Description      varchar(255) not null,
-    Price            int          not null,
-    Discount         int          not null,
-    Language_ID      int          not null,
-    Type_ID          int          not null,
-    Publisher_ID     int          not null,
-    Author_ID        int          not null,
-    Img              varchar(255) null,
+    Title            text not null,
+    Pages            int  not null,
+    Publication_Date date not null,
+    Description      text not null,
+    Price            int  not null,
+    Discount         int  not null,
+    Language_ID      int  not null,
+    Category_ID      int  not null,
+    Publisher_ID     int  not null,
+    Author_ID        int  not null,
+    Img              text null,
     constraint books_ibfk_1
         foreign key (Language_ID) references book_language (Language_ID),
     constraint books_ibfk_2
-        foreign key (Type_ID) references book_category (Category_ID),
+        foreign key (Category_ID) references book_category (Category_ID),
     constraint books_ibfk_3
         foreign key (Publisher_ID) references publisher (Publisher_ID),
     constraint books_ibfk_4
