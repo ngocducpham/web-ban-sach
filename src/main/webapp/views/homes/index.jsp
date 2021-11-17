@@ -17,7 +17,7 @@
                 </a>
                 <a href="#"
                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Ngoại Văn
+                    Sách Mới Phát Hành
                     <i class="fas fa-chevron-right"></i></a>
                 <a href="#"
                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
@@ -66,7 +66,7 @@
 
         <div class="container main-content mt-5">
             <div class="category-list">
-                <%--Sách bán chạy--%>
+                    <%--Sách bán chạy--%>
                 <c:if test="${books.size() != 0}">
                     <div class="specific-category mb-5">
                         <div class="category-header d-flex justify-content-between align-items-center mb-4">
@@ -95,10 +95,12 @@
                                             <div class="discount">-${b.discount}%</div>
                                             <div class="price">
                                                 <div class="price-origin">
-                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price}" /> đ
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0"
+                                                                      value="${b.price}"/> đ
                                                 </div>
                                                 <div class="price-after">
-                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price*(100-b.discount)/100}" /> đ
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0"
+                                                                      value="${b.price*(100-b.discount)/100}"/> đ
                                                 </div>
                                             </div>
 
@@ -110,7 +112,7 @@
                     </div>
                 </c:if>
 
-                <%--Sách theo thể loại--%>
+                    <%--Sách theo thể loại--%>
                 <c:if test="${newBooks.size()!=0}">
                     <div class="specific-category mb-5">
                         <div class="category-header d-flex justify-content-between align-items-center mb-4">
@@ -139,10 +141,12 @@
                                             <div class="discount">-${b.discount}%</div>
                                             <div class="price">
                                                 <div class="price-origin">
-                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price}" /> đ
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0"
+                                                                      value="${b.price}"/> đ
                                                 </div>
                                                 <div class="price-after">
-                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price*(100-b.discount)/100}" /> đ
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0"
+                                                                      value="${b.price*(100-b.discount)/100}"/> đ
                                                 </div>
                                             </div>
 
@@ -154,8 +158,8 @@
                     </div>
                 </c:if>
 
-                <%--Sách theo thể loại--%>
-                <%--Sách theo thể loại--%>
+                    <%--Sách theo thể loại--%>
+                    <%--Sách theo thể loại--%>
             </div>
 
         </div>
