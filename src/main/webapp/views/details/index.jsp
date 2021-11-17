@@ -5,5 +5,6 @@
 
 <t:main>
     <jsp:body>
+            <p class="hehe"> hehe</p>
     </jsp:body>
 </t:main>
