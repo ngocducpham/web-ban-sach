@@ -89,7 +89,7 @@ create table books
     constraint books_ibfk_1
         foreign key (Language_ID) references book_language (Language_ID),
     constraint books_ibfk_2
-        foreign key (Type_ID) references book_category (Type_ID),
+        foreign key (Type_ID) references book_category (Category_ID),
     constraint books_ibfk_3
         foreign key (Publisher_ID) references publisher (Publisher_ID),
     constraint books_ibfk_4
@@ -106,7 +106,7 @@ create index Publisher_ID
     on books (Publisher_ID);
 
 create index Type_ID
-    on books (Type_ID);
+    on books (Category_ID);
 
 create table order_detail
 (

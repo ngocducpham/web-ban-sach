@@ -92,6 +92,12 @@ body {
     margin-top: 10px;
     font-weight: bolder;
     font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 10px;
+    text-overflow: ellipsis;
 }
 
 .book-author {
