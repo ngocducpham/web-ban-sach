@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("views/details/index.jsp", request,response);
+        ServletUtils.forward("views/cart/index.jsp", request,response);
     }
 
     @Override
