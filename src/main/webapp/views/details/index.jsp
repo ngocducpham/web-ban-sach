@@ -1,16 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: huynh
-  Date: 11/17/2021
-  Time: 8:24 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Detail pages</title>
-</head>
-<body>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-</body>
-</html>
+<t:main>
+    <jsp:body>
+    </jsp:body>
+</t:main>
