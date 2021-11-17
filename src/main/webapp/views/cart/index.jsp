@@ -2,99 +2,99 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <%--<link rel="stylesheet" href="../../public/styles/cart.css">--%>
-<link rel="stylesheet" type="text/css" href="../public/styles/cart.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/cart.css">
 
-<style>
-    .container {
-        display: flex;
-    }
+<%--<style>--%>
+<%--    .container {--%>
+<%--        display: flex;--%>
+<%--    }--%>
 
-    .headerProduct {
-        color: green;
-    }
+<%--    .headerProduct {--%>
+<%--        color: green;--%>
+<%--    }--%>
 
-    .headerCart {
-        color: green;
-        text-align: center;
-    }
+<%--    .headerCart {--%>
+<%--        color: green;--%>
+<%--        text-align: center;--%>
+<%--    }--%>
 
-    .productBox {
-        width: 800px;
-        border: 1px solid gray;
-    }
+<%--    .productBox {--%>
+<%--        width: 800px;--%>
+<%--        border: 1px solid gray;--%>
+<%--    }--%>
 
-    .quantityProduct {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
+<%--    .quantityProduct {--%>
+<%--        display: flex;--%>
+<%--        justify-content: space-around;--%>
+<%--        align-items: center;--%>
+<%--    }--%>
 
-    .quantityBook {
-        width: 30px;
-    }
+<%--    .quantityBook {--%>
+<%--        width: 30px;--%>
+<%--    }--%>
 
-    .money {
+<%--    .money {--%>
 
-    }
-
-
-    .briefOder {
-        width: 500px;
-        border: 1px solid gray;
-        margin-left: 20px;
-        align-self: flex-start;
-    }
-
-    .headerOrder {
-        background-color: green;
-        color: aliceblue;
-        text-align: center;
-    }
-
-    .row {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .rowProduct {
-        display: flex;
-    }
-
-    .colProduct {
-        width: 200px;
-        padding-left: 20px;
-    }
-
-    .colJS {
-        text-align: end;
-        padding-right: 10px;
-    }
+<%--    }--%>
 
 
-    .total {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+<%--    .briefOder {--%>
+<%--        width: 500px;--%>
+<%--        border: 1px solid gray;--%>
+<%--        margin-left: 20px;--%>
+<%--        align-self: flex-start;--%>
+<%--    }--%>
 
-    .p__Total {
-        padding-left: 20px;
-    }
+<%--    .headerOrder {--%>
+<%--        background-color: green;--%>
+<%--        color: aliceblue;--%>
+<%--        text-align: center;--%>
+<%--    }--%>
 
-    .moneyTotal {
-        padding-right: 10px;
+<%--    .row {--%>
+<%--        display: flex;--%>
+<%--        justify-content: space-between;--%>
+<%--    }--%>
 
-    }
+<%--    .rowProduct {--%>
+<%--        display: flex;--%>
+<%--    }--%>
 
-    .containerBtn {
-        margin-top: 50px;
-        text-align: center;
-    }
+<%--    .colProduct {--%>
+<%--        width: 200px;--%>
+<%--        padding-left: 20px;--%>
+<%--    }--%>
 
-    .pay {
-        background-color: rgb(172, 172, 41);
-    }
-</style>
+<%--    .colJS {--%>
+<%--        text-align: end;--%>
+<%--        padding-right: 10px;--%>
+<%--    }--%>
+
+
+<%--    .total {--%>
+<%--        display: flex;--%>
+<%--        justify-content: space-between;--%>
+<%--        align-items: center;--%>
+<%--    }--%>
+
+<%--    .p__Total {--%>
+<%--        padding-left: 20px;--%>
+<%--    }--%>
+
+<%--    .moneyTotal {--%>
+<%--        padding-right: 10px;--%>
+
+<%--    }--%>
+
+<%--    .containerBtn {--%>
+<%--        margin-top: 50px;--%>
+<%--        text-align: center;--%>
+<%--    }--%>
+
+<%--    .pay {--%>
+<%--        background-color: rgb(172, 172, 41);--%>
+<%--    }--%>
+<%--</style>--%>
 
 <t:main>
     <jsp:body>

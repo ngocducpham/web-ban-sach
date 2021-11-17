@@ -7,5 +7,4 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/public/*</url-pattern>
     </servlet-mapping>
-
 </web-app>
