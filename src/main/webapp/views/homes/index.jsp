@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <jsp:useBean id="books" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
 <jsp:useBean id="newBooks" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
@@ -66,79 +67,93 @@
         <div class="container main-content mt-5">
             <div class="category-list">
                 <%--Sách bán chạy--%>
-                <div class="specific-category mb-5">
-                    <div class="category-header d-flex justify-content-between align-items-center mb-4">
-                        <div class="category-name">Sách Bán Chạy</div>
-                        <div class="view-category-detail">
-                            <a href="#">Xem thêm</a>
-                            <i class="fas fa-chevron-right ms-2"></i>
+                <c:if test="${books.size() != 0}">
+                    <div class="specific-category mb-5">
+                        <div class="category-header d-flex justify-content-between align-items-center mb-4">
+                            <div class="category-name">Sách Bán Chạy</div>
+                            <div class="view-category-detail">
+                                <a href="#">Xem thêm</a>
+                                <i class="fas fa-chevron-right ms-2"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-specific">
-                        <c:forEach items="${books}" var="b">
-                            <div class="book-card">
-                                <div class="book-card-container">
-                                    <div class="card-main-content">
-                                        <img class="card-img"
-                                             src="${pageContext.request.contextPath}/public/imgs/${b.img}" alt=""
-                                             width="88px"
-                                             height="160px">
-                                        <div class="card-content">
-                                            <div class="book-name">${b.title}</div>
-                                            <div class="book-author">by Richard Russo</div>
-                                            <div class="card-descript">${b.description}</div>
+                        <div class="book-specific">
+                            <c:forEach items="${books}" var="b">
+                                <div class="book-card">
+                                    <div class="book-card-container">
+                                        <div class="card-main-content">
+                                            <img class="card-img"
+                                                 src="${pageContext.request.contextPath}/public/imgs/${b.img}" alt=""
+                                                 width="88px"
+                                                 height="160px">
+                                            <div class="card-content">
+                                                <div class="book-name">${b.title}</div>
+                                                <div class="book-author">by Richard Russo</div>
+                                                <div class="card-descript">${b.description}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card-price">
-                                        <div class="discount">-${b.discount}%</div>
-                                        <div class="price">
-                                            <div class="price-origin">${b.price} đ</div>
-                                            <div class="price-after">${b.price*(100-b.discount)/100} đ</div>
-                                        </div>
+                                        <div class="card-price">
+                                            <div class="discount">-${b.discount}%</div>
+                                            <div class="price">
+                                                <div class="price-origin">
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price}" /> đ
+                                                </div>
+                                                <div class="price-after">
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price*(100-b.discount)/100}" /> đ
+                                                </div>
+                                            </div>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:forEach>
+                            </c:forEach>
+                        </div>
                     </div>
-                </div>
+                </c:if>
+
                 <%--Sách theo thể loại--%>
-                <div class="specific-category mb-5">
-                    <div class="category-header d-flex justify-content-between align-items-center mb-4">
-                        <div class="category-name">Sách Mới Nhập Về</div>
-                        <div class="view-category-detail">
-                            <a href="#">Xem thêm</a>
-                            <i class="fas fa-chevron-right ms-2"></i>
+                <c:if test="${newBooks.size()!=0}">
+                    <div class="specific-category mb-5">
+                        <div class="category-header d-flex justify-content-between align-items-center mb-4">
+                            <div class="category-name">Sách Mới Nhập Về</div>
+                            <div class="view-category-detail">
+                                <a href="#">Xem thêm</a>
+                                <i class="fas fa-chevron-right ms-2"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-specific">
-                        <c:forEach items="${newBooks}" var="b">
-                            <div class="book-card">
-                                <div class="book-card-container">
-                                    <div class="card-main-content">
-                                        <img class="card-img"
-                                             src="${pageContext.request.contextPath}/public/imgs/${b.img}" alt=""
-                                             width="88px"
-                                             height="160px">
-                                        <div class="card-content">
-                                            <div class="book-name">${b.title}</div>
-                                            <div class="book-author">by Richard Russo</div>
-                                            <div class="card-descript">${b.description}</div>
+                        <div class="book-specific">
+                            <c:forEach items="${newBooks}" var="b">
+                                <div class="book-card">
+                                    <div class="book-card-container">
+                                        <div class="card-main-content">
+                                            <img class="card-img"
+                                                 src="${pageContext.request.contextPath}/public/imgs/${b.img}" alt=""
+                                                 width="88px"
+                                                 height="160px">
+                                            <div class="card-content">
+                                                <div class="book-name">${b.title}</div>
+                                                <div class="book-author">by Richard Russo</div>
+                                                <div class="card-descript">${b.description}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card-price">
-                                        <div class="discount">-${b.discount}%</div>
-                                        <div class="price">
-                                            <div class="price-origin">${b.price} đ</div>
-                                            <div class="price-after">${b.price*(100-b.discount)/100} đ</div>
-                                        </div>
+                                        <div class="card-price">
+                                            <div class="discount">-${b.discount}%</div>
+                                            <div class="price">
+                                                <div class="price-origin">
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price}" /> đ
+                                                </div>
+                                                <div class="price-after">
+                                                    <fmt:formatNumber type="number" maxFractionDigits="0" value="${b.price*(100-b.discount)/100}" /> đ
+                                                </div>
+                                            </div>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:forEach>
+                            </c:forEach>
+                        </div>
                     </div>
-                </div>
+                </c:if>
+
                 <%--Sách theo thể loại--%>
                 <%--Sách theo thể loại--%>
             </div>
