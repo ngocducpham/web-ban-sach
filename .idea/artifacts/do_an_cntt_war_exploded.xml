@@ -17,6 +17,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-spec:1.2.5" />
           <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5" />
+          <element id="library" level="project" name="Maven: org.sql2o:sql2o:1.6.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
