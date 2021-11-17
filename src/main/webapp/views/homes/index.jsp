@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
+<jsp:useBean id="book" scope="request" type="com.doancntt.beans.Book"/>
+
 <t:main>
     <jsp:body>
         <div class="container main-banner">
