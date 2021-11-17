@@ -1,6 +1,6 @@
-package com.doancntt.doancntt.controllers;
+package com.doancntt.controllers;
 
-import com.doancntt.doancntt.utils.ServletUtils;
+import com.doancntt.utils.ServletUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

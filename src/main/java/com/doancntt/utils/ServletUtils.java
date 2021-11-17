@@ -1,4 +1,4 @@
-package com.doancntt.doancntt.utils;
+package com.doancntt.utils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
