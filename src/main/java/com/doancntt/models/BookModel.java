@@ -1,6 +1,8 @@
 package com.doancntt.models;
 
 import com.doancntt.beans.Book;
+import com.doancntt.utils.DBUtils;
+import org.sql2o.Connection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,5 +42,23 @@ public class BookModel {
                                 "yeu-em-bang-mat-giu-em-bang-tim.jpg")
                 )
         );
+    }
+
+    public static List<Book> findAll(){
+        final String query = "select *from books";
+        try (Connection conn = DBUtils.createConnection()) {
+            return conn.createQuery(query).executeAndFetch(Book.class);
+        }
+    }
+
+    public static Book FindProId(int id) {
+        final String findQuery = "select *from books where Book_ID=:Book_ID";
+        try (Connection conn = DBUtils.createConnection()) {
+            List<Book> list = conn.createQuery(findQuery).
+                    addParameter("CatID", id).
+                    executeAndFetch(Book.class);
+            if (list.size() == 0) return null;
+            else return list.get(0);
+        }
     }
 }
