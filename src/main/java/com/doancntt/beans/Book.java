@@ -3,21 +3,31 @@ package com.doancntt.beans;
 import java.util.Date;
 
 public class Book {
-    private int Book_ID;
+
     private String Title;
     private int Pages;
     private String Publication_Date;
     private String Description;
     private int Price;
     private int Discount;
-    private int Language_ID;
-    private int Category_ID;
-    private int Publisher_ID;
-    private int Author_ID;
+    private String Language_Name;
+    private String Category_Name;
+    private String Publisher_Name;
+    private String Author_Name;
     private String Img;
 
-    public int getBook_ID() {
-        return Book_ID;
+    public Book(String title, int pages, String publication_Date, String description, int price, int discount, String language_Name, String category_Name, String publisher_Name, String author_Name, String img) {
+        Title = title;
+        Pages = pages;
+        Publication_Date = publication_Date;
+        Description = description;
+        Price = price;
+        Discount = discount;
+        Language_Name = language_Name;
+        Category_Name = category_Name;
+        Publisher_Name = publisher_Name;
+        Author_Name = author_Name;
+        Img = img;
     }
 
     public String getTitle() {
@@ -44,39 +54,24 @@ public class Book {
         return Discount;
     }
 
-    public int getLanguage_ID() {
-        return Language_ID;
+    public String getLanguage_Name() {
+        return Language_Name;
     }
 
-    public int getCategory_ID() {
-        return Category_ID;
+    public String getCategory_Name() {
+        return Category_Name;
     }
 
-    public int getPublisher_ID() {
-        return Publisher_ID;
+    public String getPublisher_Name() {
+        return Publisher_Name;
     }
 
-    public int getAuthor_ID() {
-        return Author_ID;
+    public String getAuthor_Name() {
+        return Author_Name;
     }
 
     public String getImg() {
         return Img;
-    }
-
-    public Book(int book_ID, String title, int pages, String publication_Date, String description, int price, int discount, int language_ID, int category_ID, int publisher_ID, int author_ID, String img) {
-        Book_ID = book_ID;
-        Title = title;
-        Pages = pages;
-        Publication_Date = publication_Date;
-        Description = description;
-        Price = price;
-        Discount = discount;
-        Language_ID = language_ID;
-        Category_ID = category_ID;
-        Publisher_ID = publisher_ID;
-        Author_ID = author_ID;
-        Img = img;
     }
 }
 
