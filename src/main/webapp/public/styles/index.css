@@ -216,9 +216,9 @@ body {
 }
 
 .logo{
-    width: 190px;
-    height: 80px;
-    margin-left: -30px;
+    width: 252px;
+    height: 33px;
+    margin-left: 10px;
 }
 
 .search-title{
@@ -247,4 +247,9 @@ body {
     height: 458px;
     position: absolute;
     z-index: 999;
+}
+
+.search-data{
+    margin-left: 50px;
+    width: 500px;
 }

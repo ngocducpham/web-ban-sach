@@ -14,9 +14,8 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="${pageContext.request.contextPath}/public/imgs/Readbook-logos_transparent.png" width="110"
-                 height="110" alt="" srcset="">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}">
+            <img class="logo" src="${pageContext.request.contextPath}/public/imgs/logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
