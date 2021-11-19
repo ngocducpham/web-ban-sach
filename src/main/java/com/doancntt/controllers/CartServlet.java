@@ -7,11 +7,12 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "DetailServlet", value = "/Detail")
-public class DetailServlet extends HttpServlet {
+@WebServlet(name = "CartServlet", value = "/Cart")
+public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("views/details/index.jsp", request,response);
+        ServletUtils.forward("views/cart/index.jsp", request,response);
+
     }
 
     @Override

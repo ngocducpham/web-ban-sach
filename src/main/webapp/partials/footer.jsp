@@ -2,7 +2,7 @@
 <footer class="mt-5 text-center text-lg-start bg-light text-muted">
     <section class="footer-head d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
+            <span>Kết nối với chúng tôi:</span>
         </div>
         <div>
             <a href="" class="me-4 text-reset">
@@ -27,8 +27,8 @@
                         <i class="fas fa-gem me-3"></i>WingBook
                     </h6>
                     <p>
-                        Here you can use rows and columns to organize your footer content. Lorem ipsum
-                        dolor sit amet, consectetur adipisicing elit.
+                        Vinabook có tất cả
+                        Với sách từ các thương hiệu, cửa hàng uy tín, có rất nhiều thể loại cho bạn lựa chọn.
                     </p>
                 </div>
 
@@ -39,7 +39,7 @@
                     <p><i class="fas fa-home me-3"></i> TP.HCM, Thủ Đức, Việt Nam</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                        info@example.com
+                        vinabook@gmail.com
                     </p>
                     <p><i class="fas fa-phone me-3"></i> + 84 969 969 96</p>
                     <p><i class="fas fa-print me-3"></i> + 84 696 696 69</p>

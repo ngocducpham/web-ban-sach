@@ -1,0 +1,12 @@
+.contentBook {
+    display: flex;
+}
+
+hr {
+    text-decoration: dotted;
+}
+
+.navbarInfo {
+    display: flex;
+    justify-content: space-between;
+}
