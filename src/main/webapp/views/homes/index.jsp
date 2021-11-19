@@ -7,6 +7,7 @@
 <jsp:useBean id="vanhocmoi" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
 <jsp:useBean id="kinhtemoi" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
 <jsp:useBean id="doisongmoi" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
+<jsp:useBean id="link" scope="request" type="java.util.List<java.lang.String>"/>
 
 <t:main>
     <jsp:body>
@@ -74,7 +75,7 @@
                         <div class="category-header d-flex justify-content-between align-items-center mb-4">
                             <div class="category-name">Sách Mới Nhập Về</div>
                             <div class="view-category-detail">
-                                <a href="#">Xem thêm</a>
+                                <a href="${pageContext.request.contextPath}/search?q=${link.get(0)}">Xem thêm</a>
                                 <i class="fas fa-chevron-right ms-2"></i>
                             </div>
                         </div>
@@ -118,7 +119,7 @@
                         <div class="category-header d-flex justify-content-between align-items-center mb-4">
                             <div class="category-name">Sách Văn Học Mới</div>
                             <div class="view-category-detail">
-                                <a href="#">Xem thêm</a>
+                                <a href="${pageContext.request.contextPath}/search?q=${link.get(1)}">Xem thêm</a>
                                 <i class="fas fa-chevron-right ms-2"></i>
                             </div>
                         </div>
@@ -164,7 +165,7 @@
                         <div class="category-header d-flex justify-content-between align-items-center mb-4">
                             <div class="category-name">Sách Kinh Tế Mới</div>
                             <div class="view-category-detail">
-                                <a href="#">Xem thêm</a>
+                                <a href="${pageContext.request.contextPath}/search?q=${link.get(2)}">Xem thêm</a>
                                 <i class="fas fa-chevron-right ms-2"></i>
                             </div>
                         </div>
@@ -210,7 +211,7 @@
                         <div class="category-header d-flex justify-content-between align-items-center mb-4">
                             <div class="category-name">Sách Thường Thức - Đời Sống Mới</div>
                             <div class="view-category-detail">
-                                <a href="#">Xem thêm</a>
+                                <a href="${pageContext.request.contextPath}/search?q=${link.get(3)}">Xem thêm</a>
                                 <i class="fas fa-chevron-right ms-2"></i>
                             </div>
                         </div>

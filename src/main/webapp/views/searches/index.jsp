@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <jsp:useBean id="search" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
+<jsp:useBean id="searchText" scope="request" type="java.lang.String"/>
 
 <t:main>
     <jsp:body>
@@ -51,7 +52,7 @@
             </div>
         </div>
         <div class="container main-content">
-            <div class='container search-title mt-5 mb-5'>Kết quả tìm kiếm:</div>
+            <div class='container search-title mt-5 mb-5'>Kết quả tìm kiếm: ${searchText}</div>
             <div class="book-specific">
                 <c:forEach items="${search}" var="b">
                     <div class="book-card">
@@ -100,9 +101,6 @@
             dropcategory.addEventListener('blur', () => {
                 books_category.classList.add('hide');
             });
-
-            let search_title = document.querySelector(".search-title");
-            search_title.innerText += " " + localStorage.getItem("searchData");
 
         </script>
     </jsp:body>

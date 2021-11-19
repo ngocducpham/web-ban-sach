@@ -25,7 +25,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex mt-3" method="get" action="/do_an_cntt/search">
+            <form class="d-flex mt-3" method="get" action="${pageContext.request.contextPath}/search">
                 <input class="form-control me-2 search-data" name="q" type="search" placeholder="Tìm sách" aria-label="Search">
                 <button class="btn btn-outline-success btn-search" type="submit">Tìm</button>
             </form>
