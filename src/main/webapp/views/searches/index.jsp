@@ -8,7 +8,7 @@
 <t:main>
     <jsp:body>
         <div class="container container-category">
-            <div class="list-group hide">
+            <div class="list-group list-category hide">
                 <a href="#"
                    class=" list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                     Sách Bán Chạy
@@ -89,10 +89,13 @@
 
         <script>
             let dropcategory = document.querySelector('.dropcategory');
-            let books_category = document.querySelector('.category-list');
+            let books_category = document.querySelector('.list-category');
             dropcategory.addEventListener('focus', () => {
                 books_category.classList.toggle('hide');
             });
+            dropcategory.addEventListener('click', ()=>{
+                books_category.classList.toggle('hide');
+            })
 
             dropcategory.addEventListener('blur', () => {
                 books_category.classList.add('hide');
@@ -100,8 +103,6 @@
 
             let search_title = document.querySelector(".search-title");
             search_title.innerText += " " + localStorage.getItem("searchData");
-            let list_group = document.querySelector(".list-group");
-            list_group.classList.add("category-list");
 
         </script>
     </jsp:body>
