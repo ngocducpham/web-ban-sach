@@ -208,8 +208,43 @@ body {
     font-size: 14px;
 }
 
-.main-content {
-    display: flex;
-    column-gap: 100px;
+.dropcategory{
+    background-color: #087b39;
+    outline: none;
+    border: none;
+    color: white;
 }
 
+.logo{
+    width: 190px;
+    height: 80px;
+    margin-left: -30px;
+}
+
+.search-title{
+    color: #087b39;
+    font-size: 18px;
+    border-bottom: 1px #087b3a83 dashed;
+}
+
+.page-nav{
+    margin-left: auto;
+    font-size: 14px;
+}
+
+.container-pagenav{
+    border-top: 1px dashed #087b3a83;
+    height: 50px;
+}
+
+.page-item{
+    margin-right: 10px;
+}
+
+.category-list {
+    font-size: 14px;
+    width: 324px;
+    height: 458px;
+    position: absolute;
+    z-index: 999;
+}

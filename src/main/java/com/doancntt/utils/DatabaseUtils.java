@@ -5,7 +5,7 @@ import org.sql2o.Sql2o;
 
 public class DatabaseUtils{
     public static Connection createConnection(){
-        Sql2o sql2o = new Sql2o("jdbc:mysql://localhost:3306/bookstore", "root", "");
+        Sql2o sql2o = new Sql2o("jdbc:mysql://localhost:3306/bookstore", "root", "123456");
         return sql2o.open();
     }
 }

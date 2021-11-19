@@ -25,9 +25,9 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex mt-3">
-                <input class="form-control me-2" type="search" placeholder="Tìm sách" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Tìm</button>
+            <form class="d-flex mt-3" method="get" action="/do_an_cntt/search">
+                <input class="form-control me-2 search-data" name="q" type="search" placeholder="Tìm sách" aria-label="Search">
+                <button class="btn btn-outline-success btn-search" type="submit">Tìm</button>
             </form>
             <ul class="navbar-nav mb-lg-0 ms-auto">
                 <li class="nav-item d-flex flex-column align-items-center me-5">
@@ -49,10 +49,10 @@
 </nav>
 <div class="container-fluid banner-info p-3">
     <div class="container d-flex">
-        <div class="d-flex align-items-center">
+        <button class="d-flex align-items-center dropcategory">
             <i class="fas fa-stream me-5 ms-1"></i>
             Danh mục sách
-        </div>
+        </button>
         <div class="d-flex align-items-center ms-auto">
             <i class="fas fa-phone-alt me-2"></i>
             Hotline: 09996699

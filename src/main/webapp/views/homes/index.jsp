@@ -252,16 +252,5 @@
             </div>
 
         </div>
-
-        <script>
-            let discount = document.querySelectorAll(".discount");
-            let price_origin = document.querySelectorAll(".price-origin")
-            for (let i = 0; i < discount.length; i++) {
-                if(discount[i].innerText == "-0%"){
-                    discount[i].classList.add("hide");
-                    price_origin[i].classList.add("hide");
-                }
-            }
-        </script>
     </jsp:body>
 </t:main>

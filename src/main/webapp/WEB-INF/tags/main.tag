@@ -31,6 +31,20 @@
 <script>
     let badgeEm = document.querySelector('.badge');
     badgeEm.classList.add('d-none');
+
+    let search_data = document.querySelector(".search-data");
+    let search_btn = document.querySelector(".btn-search");
+    search_btn.addEventListener("click", ()=>{
+       localStorage.setItem("searchData", search_data.value)
+    });
+    let discount = document.querySelectorAll(".discount");
+    let price_origin = document.querySelectorAll(".price-origin")
+    for (let i = 0; i < discount.length; i++) {
+        if(discount[i].innerText == "-0%"){
+            discount[i].classList.add("hide");
+            price_origin[i].classList.add("hide");
+        }
+    }
 </script>
 </body>
 </html>
