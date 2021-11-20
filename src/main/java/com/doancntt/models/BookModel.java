@@ -89,11 +89,11 @@ public class BookModel {
         }
     }
 
-    public static Book FindProId(int id) {
-        final String findQuery = "select *from books where Book_ID=:Book_ID";
+    public static Book FindBookById(int id) {
+        final String findQuery = "select *from books where Book_ID=:ID";
         try (Connection conn = DatabaseUtils.createConnection()) {
             List<Book> list = conn.createQuery(findQuery).
-                    addParameter("Book_ID", id).
+                    addParameter("ID", id).
                     executeAndFetch(Book.class);
             if (list.size() == 0) return null;
             else return list.get(0);

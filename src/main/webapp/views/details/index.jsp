@@ -2,14 +2,19 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="book" scope="request" type="com.doancntt.beans.Book" />
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/detail.css">
+
+
 
 <t:main>
     <jsp:body>
         <div class="container">
             <div class="contentBook">
-                <figure class="bookImage"> <img src="$" alt="Book Image"></figure>
+<%--                <figure class="bookImage"> <img src="#" alt="Book Image"></figure>--%>
                 <div class="detailBook">
-                    <h4 class="bookName"> Ten sach</h4>
+                    <h4 class="bookName"> ${book.title} </h4>
                     <p class="author"> Tác giả: <span class="authorName"> Dương Thụy </span></p>
                     <p class="publishingCompany"> Nhà xuất bản: <span class="publishingCompanyName"> Nxb Trẻ </span></p>
                     <p class="publisher"> Nhà phát hành: <span class="publisherName"> Nxb Trẻ </span></p>
@@ -22,7 +27,7 @@
                 <div class="navbarInfo">
                     <div class="introBook"> Giới thiệu sách </div>
                     <div class="detailBook"> Thông tin chi tiết </div>
-                    <div class="introBook"> Đánh giá & Bình luận </div>
+<%--                    <div class="introBook"> Đánh giá & Bình luận </div>--%>
                 </div>
                 <div class="introBookDetail">
                     <h5 class="titleBook"> Tên sách </h5>
