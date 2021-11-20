@@ -10,35 +10,58 @@
     <jsp:body>
         <div class="container">
             <div class="contentBook">
-                <figure class="bookImage"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}" alt="Book Image"></figure>
+                <figure class="bookImage"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"
+                                               alt="Book Image"></figure>
                 <div class="detailBook">
                     <h4 class="bookName"> ${book.title} </h4>
                     <p class="author"> Tác giả: <span class="authorName">${book.author_Name}</span></p>
-                    <p class="publishingCompany"> Nhà xuất bản: <span class="publishingCompanyName"> Nxb Trẻ </span></p>
-                    <p class="publisher"> Nhà phát hành: <span class="publisherName"> Nxb Trẻ </span></p>
+                    <p class="publishingCompany"> Nhà xuất bản: <span
+                            class="publishingCompanyName"> ${book.publisher_Name} </span></p>
+                    <p class="publisher"> Nhà phát hành: <span class="publisherName"> ${book.publisher_Name} </span></p>
 
-                    <p class="briefContent"> Giới thiệu sơ lược về sách </p>
-                    <hr>
+                    <p class="briefContent contentDetail"> ${book.description} </p>
+                    <a href="#contentDetail"> Xem thêm</a>
+                    <hr class="hrDecoration">
+                </div>
+                <div class="boxPayment">
+                    <h5 class="paymentInfo"> Thông tin thanh toán</h5>
+                    <hr class="hrDecoration">
+                    <p class="priceCover"> Giá niêm yết <span class="priceCoverMoney"> <del> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.price}"/> đ </del></span>
+                    </p>
+                    <p class="priceCover priceDiscount"> Giảm <span class="priceDiscountMoney"> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.discount}"/> % </span></p>
+                    <p class="priceCover priceSale"> Giá bán <span class="priceSaleMoney"> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.price*(100-book.discount)/100}"/> đ </span></p>
+                    <p class="priceCover priceSave"> Tiết kiệm <span
+                            class="priceSaveMoney"> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.price*(book.discount)/100}"/> đ</span></p>
+
+                    <hr class="hrDecoration">
+                    <button class="addToCart"> Thêm vào giỏ hàng</button>
                 </div>
             </div>
             <div class="bonusInfomation">
                 <div class="navbarInfo">
-                    <div class="introBook"> Giới thiệu sách</div>
-                    <div class="detailBook"> Thông tin chi tiết</div>
-                        <%--                    <div class="introBook"> Đánh giá & Bình luận </div>--%>
+                    <a class="decorationA introBook" href="#contentDetail"> Giới thiệu sách</a>
+                    <a class="decorationA detailBookA" href="#detailInfor"> Thông tin chi tiết</a>
                 </div>
                 <div class="introBookDetail">
-                    <h5 class="titleBook"> Tên sách </h5>
-                    <p class="contentDetail"> Nội dung về sách ở đây</p>
+                    <h5 class="titleBook"> ${book.title} </h5>
+                    <p class="contentDetail" id="contentDetail"> ${book.description} </p>
                 </div>
                 <div class="detailBookDetail">
-                    <h4 class="detailInformation"> Thông tin chi tiết</h4>
-                    <i class="author"> Tác giả: <span class="authorName"> Dương Thụy</span></i>
-                    <i class="author"> Tác giả: <span class="authorName"> Dương Thụy</span></i>
-                    <i class="author"> Tác giả: <span class="authorName"> Dương Thụy</span></i>
-                    <i class="author"> Tác giả: <span class="authorName"> Dương Thụy</span></i>
-                    <i class="author"> Tác giả: <span class="authorName"> Dương Thụy</span></i>
-                    <i class="author"> Tác giả: <span class="authorName"> Dương Thụy</span></i>
+                    <h4 class="detailInformation" id="detailInfor"> Thông tin chi tiết</h4>
+                    <li class="author"> Tác giả: <span class="authorName"> ${book.author_Name}</span></li>
+                    <li class="author"> Nhà phát hành: <span class="publisherName"> ${book.publisher_Name}</span></li>
+                    <li class="author"> Số trang: <span class="quantityPage"> ${book.pages}</span></li>
+                    <li class="author"> Ngôn ngữ: <span class="authorName"> ${book.language_Name}</span></li>
+                    <li class="author"> Ngày phát hành: <span class="publicationDate"> ${book.publication_Date}</span>
+                    </li>
                 </div>
                 <div class="comment">
 

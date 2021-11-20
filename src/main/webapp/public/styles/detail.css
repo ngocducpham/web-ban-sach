@@ -1,11 +1,106 @@
 .contentBook {
     display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
 }
 
-hr {
-    text-decoration: dotted;
+.bookImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bookImage {
+    max-width: 300px;
+}
+
+.bookName {
+    font-weight: bold;
+}
+
+.hrDecoration {
+    border: 1px dashed gray;
+}
+
+.detailBook {
+    max-width: 600px;
+}
+
+.boxPayment {
+    justify-self: flex-start;
+    align-self: flex-start;
+    padding: 20px;
+    max-width: 350px;
+    margin-left: 30px;
+    border: 2px solid gray;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.paymentInfo {
+    font-weight: bold;
+}
+
+.priceCover {
+    display: flex;
+    justify-content: space-between;
+}
+
+.priceDiscountMoney {
+    color: #087b39;
+}
+
+.detailBookA {
+    margin-left: 25px;
+}
+
+.priceSaleMoney {
+    color: #c02026;
+    align-self: flex-end;
+}
+
+.addToCart {
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    background-color: orange;
+    border-radius: 25px;
 }
 
 .navbarInfo {
     display: flex;
+    border-bottom: 1px dashed gray;
+    margin-bottom: 20px;
+}
+
+.titleBook {
+    font-weight: bold;
+}
+
+.decorationA {
+    text-decoration: none;
+    color: black;
+}
+
+.contentDetail {
+    text-align: justify;
+}
+
+#contentDetail {
+    margin: 0;
+}
+
+.briefContent {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 10px;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+.detailInformation {
+    font-weight: bold;
 }
