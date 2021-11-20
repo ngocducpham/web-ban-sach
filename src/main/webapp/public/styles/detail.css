@@ -2,6 +2,7 @@
     display: flex;
     margin-top: 20px;
     justify-content: space-between;
+    font-size: 16px;
 }
 
 .bookImage img {
@@ -10,8 +11,16 @@
     object-fit: contain;
 }
 
+.boxPic {
+    width: 300px;
+    height: 350px;
+    /*text-align: start;*/
+}
+
 .bookImage {
     max-width: 300px;
+    /*border: 1px solid black;*/
+    align-self: start;
 }
 
 .bookName {
@@ -34,8 +43,8 @@
     margin-left: 30px;
     border: 2px solid gray;
     border-radius: 25px;
-    font-weight: bold;
-    font-size: 18px;
+    /*font-weight: bold;*/
+    font-size: 16px;
 }
 
 .paymentInfo {
@@ -72,6 +81,7 @@
     display: flex;
     border-bottom: 1px dashed gray;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .titleBook {
