@@ -3,6 +3,15 @@ package com.doancntt.beans;
 import java.util.Date;
 
 public class Book {
+    private int Book_ID;
+
+    public int getBook_ID() {
+        return Book_ID;
+    }
+
+    public void setBook_ID(int book_ID) {
+        Book_ID = book_ID;
+    }
 
     private String Title;
     private int Pages;

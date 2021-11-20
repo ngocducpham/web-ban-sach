@@ -90,10 +90,16 @@ public class BookModel {
     }
 
     public static Book FindBookById(int id) {
-        final String findQuery = "select *from books where Book_ID=:ID";
+        String findQuery = "select Title, Pages, Publication_Date, Description, Price, Discount, Img," +
+                "       Language_Name, Category_Name, Publisher_Name, Author_Name from  books " +
+                "    join author a on a.Author_ID = books.Author_ID " +
+                "    join publisher p on p.Publisher_ID = books.Publisher_ID " +
+                "    join book_category bc on bc.Category_ID = books.Category_ID " +
+                "    join book_language bl on books.Language_ID = bl.Language_ID " +
+                "    where Book_ID = :bookid";
         try (Connection conn = DatabaseUtils.createConnection()) {
             List<Book> list = conn.createQuery(findQuery).
-                    addParameter("ID", id).
+                    addParameter("bookid", id).
                     executeAndFetch(Book.class);
             if (list.size() == 0) return null;
             else return list.get(0);
