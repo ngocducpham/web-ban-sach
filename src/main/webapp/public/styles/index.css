@@ -99,6 +99,7 @@ body {
     margin-top: 10px;
     text-overflow: ellipsis;
     text-decoration: none;
+    color: black;
 }
 
 .book-author {
