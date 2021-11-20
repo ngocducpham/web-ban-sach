@@ -19,7 +19,7 @@ public class BookModel {
     }
 
     public static List<Book> findNewBook(int limit){
-        String query = "select Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
+        String query = "select Book_ID, Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
                 "       Language_Name, Category_Name, Publisher_Name, Author_Name\n" +
                 "from  books\n" +
                 "    join author a on a.Author_ID = books.Author_ID\n" +
@@ -36,7 +36,7 @@ public class BookModel {
     }
 
     public static List<Book> timSachVanHocMoi(int limit){
-        String query = "select Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
+        String query = "select Book_ID, Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
                 "Language_Name, Category_Name, Publisher_Name, Author_Name\n" +
                 "from  books\n" +
                 "    join author a on a.Author_ID = books.Author_ID\n" +
@@ -54,7 +54,7 @@ public class BookModel {
     }
 
     public static List<Book> timSachKinhTeMoi(int limit){
-        String query = "select Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
+        String query = "select Book_ID,Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
                 "Language_Name, Category_Name, Publisher_Name, Author_Name\n" +
                 "from  books\n" +
                 "    join author a on a.Author_ID = books.Author_ID\n" +
@@ -72,7 +72,7 @@ public class BookModel {
     }
 
     public static List<Book> timSachDoiSongMoi(int limit){
-        String query = "select Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
+        String query = "select Book_ID,Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
                 "Language_Name, Category_Name, Publisher_Name, Author_Name\n" +
                 "from  books\n" +
                 "    join author a on a.Author_ID = books.Author_ID\n" +
@@ -90,7 +90,7 @@ public class BookModel {
     }
 
     public static Book FindBookById(int id) {
-        String findQuery = "select Title, Pages, Publication_Date, Description, Price, Discount, Img," +
+        String findQuery = "select Book_ID,Title, Pages, Publication_Date, Description, Price, Discount, Img," +
                 "       Language_Name, Category_Name, Publisher_Name, Author_Name from  books " +
                 "    join author a on a.Author_ID = books.Author_ID " +
                 "    join publisher p on p.Publisher_ID = books.Publisher_ID " +
@@ -108,7 +108,7 @@ public class BookModel {
 
     public static List<Book> searchBook(String text){
         text = "%" + text + "%";
-        String query = "select Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
+        String query = "select Book_ID,Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
                 "       Language_Name, Category_Name, Publisher_Name, Author_Name\n" +
                 "from  books\n" +
                 "    join author a on a.Author_ID = books.Author_ID\n" +
