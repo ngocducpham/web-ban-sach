@@ -10,8 +10,10 @@
     <jsp:body>
         <div class="container">
             <div class="contentBook">
-                <figure class="bookImage"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"
-                                               alt="Book Image"></figure>
+                <div class="boxPic">
+                    <figure class="bookImage"> <img src="${pageContext.request.contextPath}/public/imgs/${book.img}"
+                                                alt="Book Image"> </figure>
+                </div>
                 <div class="detailBook">
                     <h4 class="bookName"> ${book.title} </h4>
                     <p class="author"> Tác giả: <span class="authorName">${book.author_Name}</span></p>
@@ -55,7 +57,7 @@
                     <p class="contentDetail" id="contentDetail"> ${book.description} </p>
                 </div>
                 <div class="detailBookDetail">
-                    <h4 class="detailInformation" id="detailInfor"> Thông tin chi tiết</h4>
+                    <h4 class="detailInformation mt-3" id="detailInfor"> Thông tin chi tiết</h4>
                     <li class="author"> Tác giả: <span class="authorName"> ${book.author_Name}</span></li>
                     <li class="author"> Nhà phát hành: <span class="publisherName"> ${book.publisher_Name}</span></li>
                     <li class="author"> Số trang: <span class="quantityPage"> ${book.pages}</span></li>
