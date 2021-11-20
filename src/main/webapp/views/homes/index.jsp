@@ -133,7 +133,7 @@
                                                  width="88px"
                                                  height="160px">
                                             <div class="card-content">
-                                                <div class="book-name">${b.title}</div>
+                                                <a class="book-name" href="${pageContext.request.contextPath}/Detail?id=${b.book_ID}">${b.title}</a>
                                                 <div class="book-author">${b.author_Name}</div>
                                                 <div class="card-descript">${b.description}</div>
                                             </div>
@@ -179,7 +179,7 @@
                                                  width="88px"
                                                  height="160px">
                                             <div class="card-content">
-                                                <div class="book-name">${b.title}</div>
+                                                <a class="book-name" href="${pageContext.request.contextPath}/Detail?id=${b.book_ID}">${b.title}</a>
                                                 <div class="book-author">${b.author_Name}</div>
                                                 <div class="card-descript">${b.description}</div>
                                             </div>
@@ -225,7 +225,7 @@
                                                  width="88px"
                                                  height="160px">
                                             <div class="card-content">
-                                                <div class="book-name">${b.title}</div>
+                                                <a class="book-name" href="${pageContext.request.contextPath}/Detail?id=${b.book_ID}">${b.title}</a>
                                                 <div class="book-author">${b.author_Name}</div>
                                                 <div class="card-descript">${b.description}</div>
                                             </div>
