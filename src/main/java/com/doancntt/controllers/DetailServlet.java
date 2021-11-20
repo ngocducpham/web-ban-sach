@@ -19,7 +19,6 @@ public class DetailServlet extends HttpServlet {
         request.setAttribute("book", bookB);
         ServletUtils.forward("views/details/index.jsp", request,response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
