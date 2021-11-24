@@ -69,3 +69,17 @@ function checkPass(){
         return password;
     }
 }
+
+$('#FormRegister').on('submit', function (e) {
+    e.preventDefault();
+
+    const email = $('#email').val();
+
+    $.getJSON('${pageContext.request.contextPath}/Register/CheckAvailable?email=' +email, function (data) {
+        if (data === true) {
+            $('#FormRegister').off('submit').submit();
+        } else {
+            alert('This Email is used');
+        }
+    });
+});

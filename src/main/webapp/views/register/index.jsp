@@ -18,7 +18,7 @@
                     <div class="auth-form-header p-0">
                         <h2 class="registerHeader">Đăng kí tài khoản mới</h2>
                     </div>
-                    <form class="auth-form-body mt-3" method="post">
+                    <form class="auth-form-body mt-3" method="post" id="FormRegister">
                         <label for="ho">
                             Họ <span class="txt_red">(*)</span>
                         </label>

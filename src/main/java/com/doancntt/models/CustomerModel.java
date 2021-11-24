@@ -1,5 +1,6 @@
 package com.doancntt.models;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.doancntt.beans.Address;
 import com.doancntt.beans.Customer;
 import com.doancntt.utils.DatabaseUtils;
@@ -24,14 +25,14 @@ public class CustomerModel {
                     .addParameter("pass", c.getPassword())
                     .executeUpdate();
         }
-        int x=getMaxID();
+        int x = getMaxID();
         insertSql = "insert into address (Phone_Number, Full_Address, Customer_ID)\n" +
                 "values (:sdt,:diachi,:CusID);";
         try (Connection con = DatabaseUtils.createConnection()) {
             con.createQuery(insertSql)
                     .addParameter("sdt", a.getPhone_Number())
                     .addParameter("diachi", a.getFull_Address())
-                    .addParameter("CusID",x)
+                    .addParameter("CusID", x)
                     .executeUpdate();
         }
     }
@@ -57,18 +58,31 @@ public class CustomerModel {
         }
     }
 
+    public static Customer FindByEmail(String email) {
+        String findSql = "select * from customer where Email=:email;";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            List<Customer> list = con.createQuery(findSql)
+                    .addParameter("email", email)
+                    .executeAndFetch(Customer.class);
+            if (list.size() == 0)
+                return null;
+            else return list.get(0);
+        }
+    }
+
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ho,ten,email,pass,diachi,sdt;
-        ho=request.getParameter("ho");
-        ten=request.getParameter("ten");
-        email=request.getParameter("email");
-        pass=request.getParameter("password");
-        sdt=request.getParameter("sdt");
-        diachi=request.getParameter("diachi");
-        Customer c=new Customer(ho,email,ten,pass);
-        Address a=new Address(sdt,diachi);
-        Add(c,a);
-        ServletUtils.redirect("/Login",request,response);
+        String ho, ten, email, pass, Encrypted_pass, diachi, sdt;
+        ho = request.getParameter("ho");
+        ten = request.getParameter("ten");
+        email = request.getParameter("email");
+        pass = request.getParameter("password");
+        Encrypted_pass = BCrypt.withDefaults().hashToString(12, pass.toCharArray());
+        sdt = request.getParameter("sdt");
+        diachi = request.getParameter("diachi");
+        Customer c = new Customer(ho, email, ten, Encrypted_pass);
+        Address a = new Address(sdt, diachi);
+        Add(c, a);
+        ServletUtils.redirect("/Login", request, response);
     }
 }
