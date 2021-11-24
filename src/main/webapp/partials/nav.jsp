@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/nav.css">
+
 <div class="container-top-banner">
     <div class="top-banner d-flex p-2 container">
         <div class="top-banner__ship d-flex align-items-center pe-3" data-bs-placement="bottom"
@@ -34,13 +36,13 @@
                         <i class="fas fa-shopping-cart"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">10+</span>
                     </button>
-                    Giỏ hàng
+                    <a class="noneDecoration" href="${pageContext.request.contextPath}/views/cart/index.jsp">Giỏ hàng</a>
                 </li>
-                <li class="nav-item d-flex flex-column align-items-center">
+                <li class="nav-item d-flex flex-column align-items-center" >
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-user me-1"></i>
                     </button>
-                    Tài khoản
+                    <a class="noneDecoration" href="${pageContext.request.contextPath}/views/login/index.jsp">Tài khoản</a>
                 </li>
             </ul>
         </div>
