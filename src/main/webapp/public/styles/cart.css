@@ -5,11 +5,26 @@
 
 .headerProduct {
     color: green;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 .headerCart {
     color: green;
     text-align: center;
+    margin-top: 30px;
+}
+
+
+.bookImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bookImage {
+    width: 100px;
+    height: 100px;
 }
 
 .productBox {
@@ -43,6 +58,7 @@
     background-color: green;
     color: aliceblue;
     text-align: center;
+    padding: 10px;
 }
 
 .row {
@@ -85,6 +101,12 @@
     text-align: center;
 }
 
+.back {
+    border-radius: 10px;
+}
+
 .pay {
     background-color: rgb(172, 172, 41);
+    border-radius: 10px;
+
 }
