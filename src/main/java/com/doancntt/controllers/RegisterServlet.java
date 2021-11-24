@@ -18,7 +18,8 @@ public class RegisterServlet extends HttpServlet {
         if(path==null || path.equals("/")) {
             ServletUtils.forward("views/register/index.jsp", request, response);
         }else {
-            if(path.equals("CheckAvailable")){
+            if(path.equals("/CheckAvailable")){
+                System.out.println("cc");
                 String email = request.getParameter("email");
                 Customer c = CustomerModel.FindByEmail(email);
                 boolean isAvailable = (c == null);
