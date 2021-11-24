@@ -11,7 +11,7 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("views/registor/register.jsp", request,response);
+        ServletUtils.forward("views/register/index.jsp", request,response);
 
     }
 
