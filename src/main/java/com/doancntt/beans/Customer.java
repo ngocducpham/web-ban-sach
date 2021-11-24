@@ -15,6 +15,13 @@ public class Customer {
         Password = password;
     }
 
+    public Customer(String first_Name, String email, String last_Name, String password) {
+        First_Name = first_Name;
+        Email = email;
+        Last_Name = last_Name;
+        Password = password;
+    }
+
     public void setCustomer_ID(int customer_ID) {
         Customer_ID = customer_ID;
     }

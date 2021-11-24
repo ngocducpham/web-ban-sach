@@ -13,6 +13,11 @@ public class Address {
         Customer_ID = customer_ID;
     }
 
+    public Address(String phone_Number, String full_Address) {
+        Phone_Number = phone_Number;
+        Full_Address = full_Address;
+    }
+
     public void setAddress_ID(int address_ID) {
         Address_ID = address_ID;
     }

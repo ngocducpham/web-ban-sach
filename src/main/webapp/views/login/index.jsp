@@ -46,7 +46,7 @@
                         <a data-ga-click="Sign in, switch to sign up"
                            data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;sign in switch to sign up&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/login&quot;,&quot;user_id&quot;:null}}"
                            data-hydro-click-hmac="72d062e79bb6ab076a3b88b32943286ea51894183bd812a5038d00013946f239"
-                           href="${pageContext.request.contextPath}/views/register/index.jsp">Tạo mới</a>.
+                           href="${pageContext.request.contextPath}/Register">Tạo mới</a>.
                     </p>
 
                 </div>

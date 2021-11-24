@@ -42,7 +42,7 @@
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-user me-1"></i>
                     </button>
-                    <a class="noneDecoration" href="${pageContext.request.contextPath}/views/login/index.jsp">Tài khoản</a>
+                    <a class="noneDecoration" href="${pageContext.request.contextPath}/Login">Tài khoản</a>
                 </li>
             </ul>
         </div>

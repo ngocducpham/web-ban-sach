@@ -3,8 +3,13 @@ package com.doancntt.models;
 import com.doancntt.beans.Address;
 import com.doancntt.beans.Customer;
 import com.doancntt.utils.DatabaseUtils;
+import com.doancntt.utils.ServletUtils;
 import org.sql2o.Connection;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 public class CustomerModel {
@@ -19,13 +24,14 @@ public class CustomerModel {
                     .addParameter("pass", c.getPassword())
                     .executeUpdate();
         }
+        int x=getMaxID();
         insertSql = "insert into address (Phone_Number, Full_Address, Customer_ID)\n" +
                 "values (:sdt,:diachi,:CusID);";
         try (Connection con = DatabaseUtils.createConnection()) {
             con.createQuery(insertSql)
                     .addParameter("sdt", a.getPhone_Number())
                     .addParameter("diachi", a.getFull_Address())
-                    .addParameter("CusID",getMaxID())
+                    .addParameter("CusID",x)
                     .executeUpdate();
         }
     }
@@ -43,11 +49,26 @@ public class CustomerModel {
     }
 
     static int getMaxID() {
-        String findSql = "select max(Customer_ID) from customer;";
+        String findSql = "select Customer_ID from customer order by Customer_ID desc LIMIT 1;";
         try (Connection con = DatabaseUtils.createConnection()) {
             List<Customer> list = con.createQuery(findSql)
                     .executeAndFetch(Customer.class);
-            return list.get(0).getCustomer_ID();
+            return list.get(0).Customer_ID;
         }
+    }
+
+    //function to add from fe
+    public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String ho,ten,email,pass,diachi,sdt;
+        ho=request.getParameter("ho");
+        ten=request.getParameter("ten");
+        email=request.getParameter("email");
+        pass=request.getParameter("password");
+        sdt=request.getParameter("sdt");
+        diachi=request.getParameter("diachi");
+        Customer c=new Customer(ho,ten,email,pass);
+        Address a=new Address(sdt,diachi);
+        Add(c,a);
+        ServletUtils.redirect("/Login",request,response);
     }
 }

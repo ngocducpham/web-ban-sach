@@ -20,31 +20,31 @@
                         <label for="ho">
                             Họ
                         </label>
-                        <input type="text" name="password" id="ho"
+                        <input type="text" name="ho" id="ho"
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password">
                         <label for="ten">
                             Tên
                         </label>
-                        <input type="text" name="password" id="ten"
+                        <input type="text" name="ten" id="ten"
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password">
                         <label for="sdt">
                             Số Điện Thoại
                         </label>
-                        <input type="text" name="password" id="sdt"
+                        <input type="text" name="sdt" id="sdt"
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password">
                         <label for="diachi">
                             Địa Chỉ Nhà
                         </label>
-                        <input type="text" name="password" id="diachi"
+                        <input type="text" name="diachi" id="diachi"
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password">
-                        <label for="login_field">
+                        <label for="email">
                             Địa chỉ Email
                         </label>
-                        <input type="text" name="login" id="login_field" class="mb-3 form-control input-block js-login-field"
+                        <input type="text" name="email" id="email" class="mb-3 form-control input-block js-login-field"
                                autocapitalize="off" autocorrect="off" autocomplete="username" autofocus="autofocus">
 
                         <div class="position-relative">
@@ -57,7 +57,7 @@
                             <label for="password2">
                                 Xác Nhận Mật Khẩu
                             </label>
-                            <input type="password" name="password" id="password2"
+                            <input type="password" name="password2" id="password2"
                                    class="form-control form-control input-block js-password-field"
                                    autocomplete="current-password">
                             <input type="submit" name="commit" value="Đăng kí"
