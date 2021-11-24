@@ -66,7 +66,7 @@ public class CustomerModel {
         pass=request.getParameter("password");
         sdt=request.getParameter("sdt");
         diachi=request.getParameter("diachi");
-        Customer c=new Customer(ho,ten,email,pass);
+        Customer c=new Customer(ho,email,ten,pass);
         Address a=new Address(sdt,diachi);
         Add(c,a);
         ServletUtils.redirect("/Login",request,response);
