@@ -19,14 +19,13 @@ public class CustomerModel {
                     .addParameter("pass", c.getPassword())
                     .executeUpdate();
         }
-        int Customer_ID_insert= getMaxID();
         insertSql = "insert into address (Phone_Number, Full_Address, Customer_ID)\n" +
                 "values (:sdt,:diachi,:CusID);";
         try (Connection con = DatabaseUtils.createConnection()) {
             con.createQuery(insertSql)
                     .addParameter("sdt", a.getPhone_Number())
                     .addParameter("diachi", a.getFull_Address())
-                    .addParameter("CusID",Customer_ID_insert)
+                    .addParameter("CusID",getMaxID())
                     .executeUpdate();
         }
     }
