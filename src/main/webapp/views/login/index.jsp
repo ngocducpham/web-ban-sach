@@ -7,6 +7,16 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/index.css">
 
 <t:main>
+
+        <jsp:attribute name="js">
+        <script
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/register.js"></script>
+        </jsp:attribute>
+
     <jsp:body>
         <div class="container-fluid p-0">
             <div class="row">
@@ -17,11 +27,11 @@
                         <h1>Đăng Nhập</h1>
                     </div>
 
-                    <form class="auth-form-body mt-3" method="post">
+                    <form class="auth-form-body mt-3" method="post" id="FormLogin">
                         <label for="login_field">
                             Địa chỉ Email
                         </label>
-                        <input type="text" name="login" id="login_field"
+                        <input type="text" name="email" id="login_field"
                                class="mb-3 form-control input-block js-login-field"
                                autocapitalize="off" autocorrect="off" autocomplete="username" autofocus="autofocus">
 
@@ -39,7 +49,6 @@
                                    data-signin-label="Sign in" data-sso-label="Sign in with your identity provider">
 
                         </div>
-                        </form>
                     </form>
                     <p class="login-callout mt-3">
                         Chưa có tài khoản?

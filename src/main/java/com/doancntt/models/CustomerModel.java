@@ -70,6 +70,24 @@ public class CustomerModel {
         }
     }
 
+    public static Customer FindByEmailAndPass(String email,String pass) {
+        String findSql = "select * from customer where Email=:email";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            List<Customer> list = con.createQuery(findSql)
+                    .addParameter("email", email)
+                    .executeAndFetch(Customer.class);
+
+            if (list.size() == 0)
+                return null;
+            else{
+                BCrypt.Result result = BCrypt.verifyer().verify(pass.toCharArray(), list.get(0).Password);
+                if (result.verified){
+                    return list.get(0);
+                }else  return null;
+            }
+        }
+    }
+
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ho, ten, email, pass, Encrypted_pass, diachi, sdt;

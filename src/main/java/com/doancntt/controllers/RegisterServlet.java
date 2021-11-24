@@ -19,7 +19,6 @@ public class RegisterServlet extends HttpServlet {
             ServletUtils.forward("views/register/index.jsp", request, response);
         }else {
             if(path.equals("/CheckAvailable")){
-                System.out.println("cc");
                 String email = request.getParameter("email");
                 Customer c = CustomerModel.FindByEmail(email);
                 boolean isAvailable = (c == null);
@@ -36,6 +35,9 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CustomerModel.addnewCustomer(request,response);
+        String path=request.getPathInfo();
+        if(path==null || path.equals("/")) {
+            CustomerModel.addnewCustomer(request,response);
+        }
     }
 }
