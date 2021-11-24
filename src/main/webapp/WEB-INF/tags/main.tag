@@ -1,4 +1,7 @@
 <%@ tag pageEncoding="utf-8" %>
+<%@attribute name="css" fragment="true" required="false" %>
+<%@attribute name="js" fragment="true" required="false" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +16,7 @@
           integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/public/styles/index.css">
+    <jsp:invoke fragment="css"/>
 </head>
 <body>
 <div class="container-fluid p-0">
@@ -35,17 +39,18 @@
 
     let search_data = document.querySelector(".search-data");
     let search_btn = document.querySelector(".btn-search");
-    search_btn.addEventListener("click", ()=>{
-       localStorage.setItem("searchData", search_data.value)
+    search_btn.addEventListener("click", () => {
+        localStorage.setItem("searchData", search_data.value)
     });
     let discount = document.querySelectorAll(".discount");
     let price_origin = document.querySelectorAll(".price-origin")
     for (let i = 0; i < discount.length; i++) {
-        if(discount[i].innerText == "-0%"){
+        if (discount[i].innerText == "-0%") {
             discount[i].classList.add("hide");
             price_origin[i].classList.add("hide");
         }
     }
 </script>
+<jsp:invoke fragment="js"/>
 </body>
 </html>

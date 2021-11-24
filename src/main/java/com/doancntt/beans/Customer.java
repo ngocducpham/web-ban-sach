@@ -14,4 +14,44 @@ public class Customer {
         Last_Name = last_Name;
         Password = password;
     }
+
+    public void setCustomer_ID(int customer_ID) {
+        Customer_ID = customer_ID;
+    }
+
+    public void setFirst_Name(String first_Name) {
+        First_Name = first_Name;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public void setLast_Name(String last_Name) {
+        Last_Name = last_Name;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public int getCustomer_ID() {
+        return Customer_ID;
+    }
+
+    public String getFirst_Name() {
+        return First_Name;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public String getLast_Name() {
+        return Last_Name;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
 }
