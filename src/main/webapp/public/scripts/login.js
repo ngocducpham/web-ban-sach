@@ -5,7 +5,7 @@ $('#FormLogin').on('submit', function (e) {
     $.getJSON('/do_an_cntt/Login/CheckValid?email=' + email +'&pass='+ pass, function (data) {
         if (data === true) {
             alert("Đăng NHập Thành Công !")
-            // $('#FormLogin').off('submit').submit();
+            $('#FormLogin').off('submit').submit();
         } else {
             alert('Email hoặc mật khẩu sai !');
         }
