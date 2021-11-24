@@ -14,3 +14,8 @@
     justify-self: center;
     margin-left: 40%;
 }
+
+.txt_red {
+    color: #c02026;
+    font-style: italic;
+}
