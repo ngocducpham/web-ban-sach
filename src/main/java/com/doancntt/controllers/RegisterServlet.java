@@ -1,7 +1,5 @@
 package com.doancntt.controllers;
 
-import com.doancntt.beans.Book;
-import com.doancntt.models.BookModel;
 import com.doancntt.utils.ServletUtils;
 
 import javax.servlet.*;
@@ -9,16 +7,12 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "CartServlet", value = "/Cart")
-public class CartServlet extends HttpServlet {
+@WebServlet(name = "RegisterServlet", value = "/Register")
+public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idBook = Integer.parseInt(request.getParameter("id"));
-        Book bookB = BookModel.FindBookById(idBook);
-//        System.out.println(idBook);
-        request.setAttribute("book", bookB);
+        ServletUtils.forward("views/registor/register.jsp", request,response);
 
-        ServletUtils.forward("views/cart/index.jsp", request,response);
     }
 
     @Override
