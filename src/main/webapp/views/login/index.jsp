@@ -17,7 +17,7 @@
                         <h1>Đăng Nhập</h1>
                     </div>
 
-                    <div class="auth-form-body mt-3">
+                    <form class="auth-form-body mt-3" method="post">
                         <label for="login_field">
                             Địa chỉ Email
                         </label>
@@ -40,7 +40,7 @@
 
                         </div>
                         </form>
-                    </div>
+                    </form>
                     <p class="login-callout mt-3">
                         Chưa có tài khoản?
                         <a data-ga-click="Sign in, switch to sign up"
