@@ -1,5 +1,7 @@
 package com.doancntt.controllers;
 
+import com.doancntt.beans.Customer;
+import com.doancntt.models.CustomerModel;
 import com.doancntt.utils.ServletUtils;
 
 import javax.servlet.*;
@@ -11,7 +13,12 @@ import java.io.IOException;
 public class PersonalServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletUtils.forward("views/personal/index.jsp", request,response);
+        int id=Integer.parseInt(request.getParameter("id"));
+        Customer c= CustomerModel.FindById(id);
+        if(c!=null){
+            request.setAttribute("Customer_infor",c);
+            ServletUtils.forward("views/personal/index.jsp", request,response);
+        }
     }
 
     @Override

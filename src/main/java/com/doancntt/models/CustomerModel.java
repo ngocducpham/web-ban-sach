@@ -70,6 +70,18 @@ public class CustomerModel {
         }
     }
 
+    public static Customer FindById(int id) {
+        String findSql = "select * from customer where Customer_ID=:id;";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            List<Customer> list = con.createQuery(findSql)
+                    .addParameter("id", id)
+                    .executeAndFetch(Customer.class);
+            if (list.size() == 0)
+                return null;
+            else return list.get(0);
+        }
+    }
+
     public static Customer FindByEmailAndPass(String email,String pass) {
         String findSql = "select * from customer where Email=:email";
         try (Connection con = DatabaseUtils.createConnection()) {
