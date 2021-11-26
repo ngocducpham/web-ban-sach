@@ -50,7 +50,21 @@
             price_origin[i].classList.add("hide");
         }
     }
+
+    window.onload = function (){
+        // alert(localStorage.getItem("storageAccountLogged_in"));
+        if(localStorage.getItem("storageAccountLogged_in")!=null){
+            document.getElementById("mail_on_nav").innerHTML=localStorage.getItem("storageAccountLogged_in");
+            document.getElementById("mail_on_nav").href="Personal?email="+localStorage.getItem("storageAccountLogged_in");
+        }
+        // console.log(localStorage.getItem("storageAccountLogged_in"))
+    }
+
+    // window.onunload  = () => {
+    //     localStorage.removeItem('storageAccountLogged_in');
+    // }
 </script>
+
 <jsp:invoke fragment="js"/>
 </body>
 </html>

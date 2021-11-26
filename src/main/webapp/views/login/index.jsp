@@ -28,7 +28,7 @@
                     </div>
 
                     <form class="auth-form-body mt-3" method="post" id="FormLogin">
-                        <label for="login_field">
+                        <label for="email">
                             Địa chỉ Email
                         </label>
                         <input type="text" name="email" id="email"

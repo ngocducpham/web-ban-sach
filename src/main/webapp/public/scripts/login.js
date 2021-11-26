@@ -1,3 +1,4 @@
+// localStorage.clear();
 $('#FormLogin').on('submit', function (e) {
     e.preventDefault();
     const email = $('#email').val();
@@ -6,6 +7,7 @@ $('#FormLogin').on('submit', function (e) {
         if (data === true) {
             alert("Đăng NHập Thành Công !")
             $('#FormLogin').off('submit').submit();
+            localStorage.setItem("storageAccountLogged_in",email);
         } else {
             alert('Email hoặc mật khẩu sai !');
         }

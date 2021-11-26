@@ -13,11 +13,13 @@ import java.io.IOException;
 public class PersonalServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id=Integer.parseInt(request.getParameter("id"));
-        Customer c= CustomerModel.FindById(id);
+        String email=request.getParameter("email");
+        Customer c= CustomerModel.FindByEmail(email);
         if(c!=null){
             request.setAttribute("Customer_infor",c);
             ServletUtils.forward("views/personal/index.jsp", request,response);
+        }else{
+            ServletUtils.redirect("/", request,response);
         }
     }
 
