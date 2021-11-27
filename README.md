@@ -1,8 +1,16 @@
-# web-ban-sach
-Đồ án cntt
+# Website bán sách
+_Đồ án cntt_
 
-File css nên cho vào chung 1 file /public/styles/index.css. File js thì /public/scripts/index.js. Không thì cho vào file jsp cũng được (<style><script>) 
-  
-Hình tất cả cho vào /public/imgs
-  
-Đường dẫn cho src nếu dùng bình thường không đc thì thử ${pageContext.request.contextPath}/public....
+## Cài đặt
+Hướng dẫn cài đặt dưới đây được viết cho [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+
+Clone mã nguồn
+```bash
+$ git clone https://github.com/ngocducpham/web-ban-sach.git
+$ cd web-ban-sach
+```
+
+Mở dự án bằng InteliJ. Vào mục config chọn TomCat và thêm mới artifact
+
+## Chạy project
+Nhấp vào biểu tượng Run hoặc  nhấn tổ hợp phím `Shift+F10`
