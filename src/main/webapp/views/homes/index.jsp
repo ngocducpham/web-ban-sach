@@ -19,7 +19,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </a>
                 <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                     Sách Mới Phát Hành
                     <i class="fas fa-chevron-right"></i></a>
                 <a href="#"
