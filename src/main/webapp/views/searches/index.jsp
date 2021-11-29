@@ -8,49 +8,6 @@
 
 <t:main>
     <jsp:body>
-        <div class="container container-category">
-            <div class="list-group list-category hide">
-                <a href="#"
-                   class=" list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Sách Bán Chạy
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Ngoại Văn
-                    <i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Kinh Tế<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Văn Học Trong Nước<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Văn Học Nước Ngoài<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Thường Thức - Đời Sống<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Thiếu Nhi<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Phát Triển Bản Thân<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Tin Học Ngoại Ngữ<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Chuyên Ngành<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-                    Giáo Khoa - Giáo Trình<i class="fas fa-chevron-right"></i></a>
-                <a href="#"
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Tạp
-                    Chí<i class="fas fa-chevron-right"></i></a>
-            </div>
-        </div>
         <div class="container main-content">
             <div class='container search-title mt-5 mb-5'>Kết quả tìm kiếm: ${searchText}</div>
             <div class="book-specific">
@@ -88,20 +45,5 @@
             </div>
         </div>
 
-        <script>
-            let dropcategory = document.querySelector('.dropcategory');
-            let books_category = document.querySelector('.list-category');
-            dropcategory.addEventListener('focus', () => {
-                books_category.classList.toggle('hide');
-            });
-            dropcategory.addEventListener('click', ()=>{
-                books_category.classList.toggle('hide');
-            })
-
-            dropcategory.addEventListener('blur', () => {
-                books_category.classList.add('hide');
-            });
-
-        </script>
     </jsp:body>
 </t:main>

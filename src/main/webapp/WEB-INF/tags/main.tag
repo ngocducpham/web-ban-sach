@@ -45,7 +45,7 @@
     let discount = document.querySelectorAll(".discount");
     let price_origin = document.querySelectorAll(".price-origin")
     for (let i = 0; i < discount.length; i++) {
-        if (discount[i].innerText == "-0%") {
+        if (discount[i].innerText === "-0%") {
             discount[i].classList.add("hide");
             price_origin[i].classList.add("hide");
         }
@@ -63,6 +63,19 @@
     // window.onunload  = () => {
     //     localStorage.removeItem('storageAccountLogged_in');
     // }
+
+    let dropcategory = document.querySelector('.dropcategory');
+    let books_category = document.querySelector('.list-category');
+    dropcategory.addEventListener('focus', () => {
+        books_category.classList.toggle('hide');
+    });
+    dropcategory.addEventListener('click', ()=>{
+        books_category.classList.toggle('hide');
+    })
+
+    dropcategory.addEventListener('blur', () => {
+        books_category.classList.add('hide');
+    });
 </script>
 
 <jsp:invoke fragment="js"/>
