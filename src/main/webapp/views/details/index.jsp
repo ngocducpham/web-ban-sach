@@ -72,8 +72,7 @@
                         <c:when test="${Verified}">
                             <button class="addToCart">
                                 <a style="text-decoration: none"
-                                   href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}"
-                                   onclick="handleCart(event)">Thêm vào giỏ hàng</a>
+                                   href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}">Thêm vào giỏ hàng</a>
                             </button>
                         </c:when>
                         <c:otherwise>

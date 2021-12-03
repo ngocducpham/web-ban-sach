@@ -24,6 +24,8 @@ public class BuyFilter implements Filter {
         boolean Verified = (boolean) session.getAttribute("Verified");
         if (!Verified) {
             session.setAttribute("retUrl", request.getRequestURI()+"?"+request.getQueryString());
+        }else {
+            session.setAttribute("retUrl", request.getRequestURI()+"?"+request.getQueryString());
         }
 
         chain.doFilter(req, res);

@@ -19,16 +19,12 @@ public class BuyServlet extends HttpServlet {
         if (!Verified) {
             ServletUtils.redirect("/Login", request, response);
         } else {
-            try {
                 String url = (String) session.getAttribute("retUrl");
                 if (url == null)
                     url = "/";
                 System.out.println(url);
                 CustomerModel.addtocart(request, response);
                 ServletUtils.redirect(url, request, response);
-            } catch (Exception e) {
-                ServletUtils.redirect("/", request, response);
-            }
         }
     }
 
