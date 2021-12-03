@@ -14,9 +14,25 @@ import java.io.IOException;
 public class BuyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CustomerModel.addtocart(request, response);
-        ServletUtils.redirect("/",request,response);
+        HttpSession session=request.getSession();
+        boolean Verified = (boolean) session.getAttribute("Verified");
+        if (!Verified) {
+            ServletUtils.redirect("/Login", request, response);
+        } else {
+            try {
+                String url = (String) session.getAttribute("retUrl");
+                if (url == null)
+                    url = "/";
+                System.out.println(url);
+//            ServletUtils.redirect(url, request, response);
+//            CustomerModel.addtocart(request, response);
+            ServletUtils.redirect(url, request, response);
+            } catch (Exception e) {
+                ServletUtils.redirect("/", request, response);
+            }
+        }
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
