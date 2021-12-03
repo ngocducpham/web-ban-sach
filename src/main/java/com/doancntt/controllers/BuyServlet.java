@@ -15,6 +15,7 @@ public class BuyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CustomerModel.addtocart(request, response);
+        ServletUtils.redirect("/",request,response);
     }
 
     @Override
