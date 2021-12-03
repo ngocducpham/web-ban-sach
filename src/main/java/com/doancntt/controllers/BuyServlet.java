@@ -1,5 +1,10 @@
 package com.doancntt.controllers;
 
+import com.doancntt.beans.Book;
+import com.doancntt.models.BookModel;
+import com.doancntt.models.CustomerModel;
+import com.doancntt.utils.ServletUtils;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -9,10 +14,8 @@ import java.io.IOException;
 public class BuyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String path=request.getPathInfo();
-        if(path.equals("/") || path==null){
-
-        }
+        CustomerModel.addtocart(request, response);
+        ServletUtils.redirect("/",request,response);
     }
 
     @Override
