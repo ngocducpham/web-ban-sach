@@ -7,7 +7,7 @@ $('#FormLogin').on('submit', function (e) {
         if (data === true) {
             alert("Đăng NHập Thành Công !")
             $('#FormLogin').off('submit').submit();
-            localStorage.setItem("storageAccountLogged_in",email);
+            sessionStorage.setItem("storageAccountLogged_in",email);
         } else {
             alert('Email hoặc mật khẩu sai !');
         }
