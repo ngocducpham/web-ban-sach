@@ -44,7 +44,10 @@
                             value="${book.price*(book.discount)/100}"/> đ</span></p>
 
                     <hr class="hrDecoration">
-                    <button class="addToCart"> Thêm vào giỏ hàng</button>
+                    <button class="addToCart">
+                        Thêm vào giỏ hàng
+                    <a href="${pageContext.request.contextPath}/AddtoCart?id=${book.book_ID}"></a>
+                    </button>
                 </div>
             </div>
             <div class="bonusInfomation">

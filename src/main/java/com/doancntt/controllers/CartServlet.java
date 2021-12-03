@@ -13,10 +13,10 @@ import java.io.IOException;
 public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idBook = Integer.parseInt(request.getParameter("id"));
-        Book bookB = BookModel.FindBookById(idBook);
-//        System.out.println(idBook);
-        request.setAttribute("book", bookB);
+//        int idBook = Integer.parseInt(request.getParameter("id"));
+//        Book bookB = BookModel.FindBookById(idBook);
+////        System.out.println(idBook);
+//        request.setAttribute("book", bookB);
 
         ServletUtils.forward("views/cart/index.jsp", request,response);
     }

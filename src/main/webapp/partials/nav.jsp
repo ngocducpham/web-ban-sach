@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/nav.css">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="Customer_logged_in" scope="session" type="com.doancntt.beans.Customer" />
 
 <div class="container-top-banner">
     <div class="top-banner d-flex p-2 container">
@@ -34,15 +36,22 @@
                 <li class="nav-item d-flex flex-column align-items-center me-5">
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">10+</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">10+</span>
                     </button>
-                    <a class="noneDecoration" href="${pageContext.request.contextPath}/views/cart/index.jsp">Giỏ hàng</a>
+                    <a class="noneDecoration" href="${pageContext.request.contextPath}/Cart">Giỏ hàng</a>
                 </li>
                 <li class="nav-item d-flex flex-column align-items-center" >
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-user me-1"></i>
                     </button>
-                    <a class="noneDecoration" id="mail_on_nav" href="${pageContext.request.contextPath}/Login">Tài khoản</a>
+                    <c:choose>
+                        <c:when test="${Verified}">
+                            <a class="noneDecoration" href="Personal?email=${Customer_logged_in.email}">${Customer_logged_in.email}</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="noneDecoration" href="${pageContext.request.contextPath}/Login">Tài khoản</a>
+                        </c:otherwise>
+                    </c:choose>
                 </li>
             </ul>
         </div>

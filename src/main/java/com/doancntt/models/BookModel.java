@@ -123,4 +123,8 @@ public class BookModel {
                     executeAndFetch(Book.class);
         }
     }
+
+    public static void AddtCart(){
+
+    }
 }

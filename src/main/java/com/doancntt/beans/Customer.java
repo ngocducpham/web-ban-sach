@@ -15,6 +15,9 @@ public class Customer {
         Password = password;
     }
 
+    public Customer() {
+    }
+
     public Customer(String first_Name, String email, String last_Name, String password) {
         First_Name = first_Name;
         Email = email;

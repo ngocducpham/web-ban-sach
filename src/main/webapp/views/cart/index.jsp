@@ -6,7 +6,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <%--<link rel="stylesheet" href="../../public/styles/cart.css">--%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/cart.css">
-<jsp:useBean id="book" scope="request" type="com.doancntt.beans.Book"/>
+<%--<jsp:useBean id="book" scope="request" type="com.doancntt.beans.Book"/>--%>
 
 <t:main>
     <jsp:body>
