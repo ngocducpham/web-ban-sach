@@ -1,9 +1,19 @@
+.container {
+    font-family: 'Montserrat' , sans-serif;
+}
+
 .contentBook {
     display: flex;
     margin-top: 20px;
     justify-content: space-between;
     font-size: 16px;
+
 }
+
+/*body {*/
+/*    font-family: 'Montserrat' , sans-serif !important;*/
+
+/*}*/
 
 .bookImage img {
     width: 100%;
@@ -86,6 +96,7 @@
 
 .titleBook {
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .decorationA {
