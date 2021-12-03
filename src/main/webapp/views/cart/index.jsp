@@ -19,22 +19,25 @@
         <div class="container">
             <div class="productBox">
                 <h4 class="headerProduct"> SẢN PHẨM</h4>
-<%--                <div class="quantityProduct">--%>
-<%--                    <figure class="bookImage"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"--%>
-<%--                                                   alt="BookImage"></figure>--%>
-<%--                    <div class="bookName">--%>
-<%--                        <p class="p__bookName">Nghia tinh rang buoc</p>--%>
-<%--                        <div class="btn-group" role="group" aria-label="Basic example">--%>
-<%--                            <button type="button" class="btn btn-primary">-</button>--%>
-<%--                            <input type="text" class="quantityBook">--%>
-<%--                            <button type="button" class="btn btn-primary">+</button>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="money">--%>
-<%--                        <p class="quantity"> 1 x 119000</p>--%>
-<%--                        <!-- <a href="https://icons8.com/icon/67884/remove">Remove icon by Icons8</a> -->--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+                <c:forEach items="${Book_ordered}" var="b">
+                    <div class="quantityProduct">
+                        <figure class="bookImage"><img
+                                src="${pageContext.request.contextPath}/public/imgs/${b.img}"
+                                alt="BookImage"></figure>
+                        <div class="bookName">
+                            <p class="p__bookName">${b.title}</p>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary">-</button>
+                                <input type="text" class="quantityBook">
+                                <button type="button" class="btn btn-primary">+</button>
+                            </div>
+                        </div>
+                        <div class="money">
+                            <p class="quantity"> 1 x 119000</p>
+                            <!-- <a href="https://icons8.com/icon/67884/remove">Remove icon by Icons8</a> -->
+                        </div>
+                    </div>
+                </c:forEach>
             </div>
             <div class="briefOder">
                 <h4 class="headerOrder">TÓM TẮT ĐƠN HÀNG</h4>

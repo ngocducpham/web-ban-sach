@@ -18,8 +18,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
-        function handleCart(){
-            alert("Thêm vào giỏ hàng thành công!!!");
+        function handleCart(event) {
+            event.preventDefault();
+            document.getElementById("anou").style.display='block';
+            var el = document.getElementById("anou");
+            el.style.animation = 'none';
+            el.offsetHeight; /* trigger reflow */
+            el.style.animation = null;
         }
     </script>
         </jsp:attribute>
@@ -41,6 +46,9 @@
                     <a href="#contentDetail"> Xem thêm</a>
                     <hr class="hrDecoration">
                 </div>
+                <div class="annoucement" id="anou">
+                    Thêm vào giỏ hàng thành công
+                </div>
                 <div class="boxPayment">
                     <h5 class="paymentInfo"> Thông tin thanh toán</h5>
                     <hr class="hrDecoration">
@@ -60,21 +68,22 @@
                             value="${book.price*(book.discount)/100}"/> đ</span></p>
 
                     <hr class="hrDecoration">
-                   <c:choose>
-                       <c:when test="${Verified}">
-                           <button class="addToCart">
-                               <a style="text-decoration: none"
-                                  href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}" onclick="handleCart()">Thêm vào giỏ
-                                   hàng</a>
-                           </button>
-                       </c:when>
-                       <c:otherwise>
-                           <button class="addToCart">
-                               <a style="text-decoration: none"
-                                  href="${pageContext.request.contextPath}/Login">Đăng nhập để mua</a>
-                           </button>
-                       </c:otherwise>
-                   </c:choose>
+                    <c:choose>
+                        <c:when test="${Verified}">
+                            <button class="addToCart">
+                                <a style="text-decoration: none"
+                                   href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}"
+                                   onclick="handleCart(event)">Thêm vào giỏ
+                                    hàng</a>
+                            </button>
+                        </c:when>
+                        <c:otherwise>
+                            <button class="addToCart">
+                                <a style="text-decoration: none"
+                                   href="${pageContext.request.contextPath}/Login">Đăng nhập để mua</a>
+                            </button>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
             <ul class="nav nav-tabs mt-4 font" id="myTab" role="tablist">
@@ -111,5 +120,4 @@
 
         </div>
     </jsp:body>
-
 </t:main>

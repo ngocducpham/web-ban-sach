@@ -1,5 +1,5 @@
 .container {
-    font-family: 'Montserrat' , sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .contentBook {
@@ -124,4 +124,27 @@
 
 .detailInformation {
     font-weight: bold;
+}
+
+.annoucement {
+    width: 250px;
+    height: 200px;
+    background-color: white;
+    position: absolute;
+    animation-name: example;
+    animation-duration: 4s;
+    display: none;
+    text-align: center;
+    padding-top: 70px;
+    border-radius: 40px;
+    font-weight: bold;
+    z-index: -1;
+    margin-left: 22px;
+    font-size: 16pt;
+}
+
+@keyframes example {
+    0%   {background-color:green; left:30%; top:10%; display: none; z-index: 1}
+    50%  {background-color:lightseagreen; left:40%; top:20%; opacity: 1; z-index: 1}
+    100%  {background-color:blue; left:45%; top:35%; opacity: 0; z-index: -1}
 }
