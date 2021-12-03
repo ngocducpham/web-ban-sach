@@ -26,7 +26,14 @@
                     <div class="auth-form-header p-0">
                         <h1>Đăng Nhập</h1>
                     </div>
-
+                    <c:if test="${hasError}">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Login failed!</strong> ${errorMessage}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </c:if>
                     <form class="auth-form-body mt-3" method="post" id="FormLogin">
                         <label for="email">
                             Địa chỉ Email
