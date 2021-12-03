@@ -5,12 +5,17 @@ import java.util.Date;
 
 public class CustomerOrder {
     public int Order_ID;
-    public LocalDate Order_Date;
+    public Date Order_Date;
     public String Dest_Address;
     public int Customer_ID;
 
-    public CustomerOrder(LocalDate order_Date, String dest_Address, int customer_ID) {
+    public CustomerOrder(Date order_Date, String dest_Address, int customer_ID) {
         Order_Date = order_Date;
+        Dest_Address = dest_Address;
+        Customer_ID = customer_ID;
+    }
+
+    public CustomerOrder(String dest_Address, int customer_ID) {
         Dest_Address = dest_Address;
         Customer_ID = customer_ID;
     }
@@ -23,11 +28,11 @@ public class CustomerOrder {
         Order_ID = order_ID;
     }
 
-    public LocalDate getOrder_Date() {
+    public Date getOrder_Date() {
         return Order_Date;
     }
 
-    public void setOrder_Date(LocalDate order_Date) {
+    public void setOrder_Date(Date order_Date) {
         Order_Date = order_Date;
     }
 
@@ -47,7 +52,7 @@ public class CustomerOrder {
         Customer_ID = customer_ID;
     }
 
-    public CustomerOrder(int order_ID, LocalDate order_Date, String dest_Address, int customer_ID) {
+    public CustomerOrder(int order_ID, Date order_Date, String dest_Address, int customer_ID) {
         Order_ID = order_ID;
         Order_Date = order_Date;
         Dest_Address = dest_Address;

@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
@@ -104,7 +105,7 @@ public class CustomerModel {
         }
     }
 
-    public static Address FindByCusID(int id) {
+    public static Address FindAddressByCusID(int id) {
         String findSql = "select * from address where Customer_ID=:id;";
         try (Connection con = DatabaseUtils.createConnection()) {
             List<Address> list = con.createQuery(findSql)
@@ -151,6 +152,25 @@ public class CustomerModel {
         }
     }
 
+    public static List<CustomerOrder> FindOrderByCusID(int id) {
+        String findSql = "select * from customer_order where Customer_ID=:id;";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            List<CustomerOrder> list = con.createQuery(findSql)
+                    .addParameter("id", id)
+                    .executeAndFetch(CustomerOrder.class);
+            return list;
+        }
+    }
+
+    public static List<OrderDetail> FindByOrderID(String id_list) {
+        String findSql = "select * from order_detail where Order_ID in ("+ id_list +")";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            List<OrderDetail> list = con.createQuery(findSql)
+                    .executeAndFetch(OrderDetail.class);
+            return list;
+        }
+    }
+
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ho, ten, email, pass, Encrypted_pass, diachi, sdt;
@@ -173,11 +193,16 @@ public class CustomerModel {
         Book bookB = BookModel.FindBookById(book_id);
         HttpSession session = request.getSession();
         Customer c = (Customer) session.getAttribute("Customer_logged_in");
-        Address a = FindByCusID(c.getCustomer_ID());
+        Address a = FindAddressByCusID(c.getCustomer_ID());
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate d = LocalDate.now();
         dtf.format(d);
-        CustomerOrder co = new CustomerOrder(d, a.getFull_Address(), c.getCustomer_ID());
+        ZoneId systemTimeZone = ZoneId.systemDefault();
+
+        ZonedDateTime zonedDateTime = d.atStartOfDay(systemTimeZone);
+
+        Date utilDate = Date.from(zonedDateTime.toInstant());
+        CustomerOrder co = new CustomerOrder(utilDate, a.getFull_Address(), c.getCustomer_ID());
         int cost = bookB.getPrice() * (100 - bookB.getDiscount()) / 100;
         OrderDetail od = new OrderDetail(1, cost, book_id);
 
