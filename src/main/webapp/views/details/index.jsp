@@ -11,8 +11,8 @@
         <div class="container">
             <div class="contentBook">
                 <div class="boxPic">
-                    <figure class="bookImage"> <img src="${pageContext.request.contextPath}/public/imgs/${book.img}"
-                                                alt="Book Image"> </figure>
+                    <figure class="bookImage"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"
+                                                   alt="Book Image"></figure>
                 </div>
                 <div class="detailBook">
                     <h4 class="bookName"> ${book.title} </h4>
@@ -45,8 +45,7 @@
 
                     <hr class="hrDecoration">
                     <button class="addToCart">
-                        Thêm vào giỏ hàng
-                    <a href="${pageContext.request.contextPath}/AddtoCart?id=${book.book_ID}"></a>
+                        <a style="text-decoration: none" href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}">Thêm vào giỏ hàng</a>
                     </button>
                 </div>
             </div>

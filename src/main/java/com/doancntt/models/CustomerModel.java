@@ -1,8 +1,7 @@
 package com.doancntt.models;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.doancntt.beans.Address;
-import com.doancntt.beans.Customer;
+import com.doancntt.beans.*;
 import com.doancntt.utils.DatabaseUtils;
 import com.doancntt.utils.ServletUtils;
 import org.sql2o.Connection;
@@ -10,7 +9,12 @@ import org.sql2o.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 public class CustomerModel {
@@ -25,7 +29,7 @@ public class CustomerModel {
                     .addParameter("pass", c.getPassword())
                     .executeUpdate();
         }
-        int x = getMaxID();
+        int x = getMaxCusID();
         insertSql = "insert into address (Phone_Number, Full_Address, Customer_ID)\n" +
                 "values (:sdt,:diachi,:CusID);";
         try (Connection con = DatabaseUtils.createConnection()) {
@@ -49,12 +53,12 @@ public class CustomerModel {
         }
     }
 
-    static int getMaxID() {
+    static int getMaxCusID() {
         String findSql = "select Customer_ID from customer order by Customer_ID desc LIMIT 1;";
         try (Connection con = DatabaseUtils.createConnection()) {
             List<Customer> list = con.createQuery(findSql)
                     .executeAndFetch(Customer.class);
-            return list.get(0).Customer_ID;
+            return list.get(0).getCustomer_ID();
         }
     }
 
@@ -82,7 +86,7 @@ public class CustomerModel {
         }
     }
 
-    public static Customer FindByEmailAndPass(String email,String pass) {
+    public static Customer FindByEmailAndPass(String email, String pass) {
         String findSql = "select * from customer where Email=:email";
         try (Connection con = DatabaseUtils.createConnection()) {
             List<Customer> list = con.createQuery(findSql)
@@ -91,12 +95,59 @@ public class CustomerModel {
 
             if (list.size() == 0)
                 return null;
-            else{
+            else {
                 BCrypt.Result result = BCrypt.verifyer().verify(pass.toCharArray(), list.get(0).Password);
-                if (result.verified){
+                if (result.verified) {
                     return list.get(0);
-                }else  return null;
+                } else return null;
             }
+        }
+    }
+
+    public static Address FindByCusID(int id) {
+        String findSql = "select * from address where Customer_ID=:id;";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            List<Address> list = con.createQuery(findSql)
+                    .addParameter("id", id)
+                    .executeAndFetch(Address.class);
+            if (list.size() == 0)
+                return null;
+            else return list.get(0);
+        }
+    }
+
+    public static void AddnewCustomer_Order(CustomerOrder co) {
+        String insertSql = "insert into customer_order (Order_Date, Dest_Address, Customer_ID)\n" +
+                "values (:order_date,:dest_address,:customer_id);";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            con.createQuery(insertSql)
+                    .addParameter("order_date", co.getOrder_Date())
+                    .addParameter("dest_address", co.getDest_Address())
+                    .addParameter("customer_id", co.getCustomer_ID())
+                    .executeUpdate();
+        }
+    }
+
+    public static void AddnewOrder_detail(OrderDetail od) {
+        String insertSql = "insert into order_detail (Quantity, Total_Cost, Book_ID, Order_ID)\n" +
+                "values (:quantity,:total_cost,:book_id,:order_id);";
+        int x = getMaxCus_OrderID();
+        try (Connection con = DatabaseUtils.createConnection()) {
+            con.createQuery(insertSql)
+                    .addParameter("quantity", od.getQuantity())
+                    .addParameter("total_cost", od.getTotal_Cost())
+                    .addParameter("book_id", od.getBook_ID())
+                    .addParameter("order_id", x)
+                    .executeUpdate();
+        }
+    }
+
+    static int getMaxCus_OrderID() {
+        String findSql = "select Order_ID from customer_order order by Order_ID desc LIMIT 1;";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            List<CustomerOrder> list = con.createQuery(findSql)
+                    .executeAndFetch(CustomerOrder.class);
+            return list.get(0).getOrder_ID();
         }
     }
 
@@ -114,5 +165,23 @@ public class CustomerModel {
         Address a = new Address(sdt, diachi);
         Add(c, a);
         ServletUtils.redirect("/Login", request, response);
+    }
+
+    //function addtocart
+    public static void addtocart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int book_id = Integer.parseInt(request.getParameter("bookid"));
+        Book bookB = BookModel.FindBookById(book_id);
+        HttpSession session = request.getSession();
+        Customer c = (Customer) session.getAttribute("Customer_logged_in");
+        Address a = FindByCusID(c.getCustomer_ID());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate d = LocalDate.now();
+        dtf.format(d);
+        CustomerOrder co = new CustomerOrder(d, a.getFull_Address(), c.getCustomer_ID());
+        int cost = bookB.getPrice() * (100 - bookB.getDiscount()) / 100;
+        OrderDetail od = new OrderDetail(1, cost, book_id);
+
+        AddnewCustomer_Order(co);
+        AddnewOrder_detail(od);
     }
 }

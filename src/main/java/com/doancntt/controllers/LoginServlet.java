@@ -19,28 +19,12 @@ public class LoginServlet extends HttpServlet {
         if (path == null || path.equals("/")) {
             ServletUtils.forward("views/login/index.jsp", request, response);
         }
-//        else {
-//            if (path.equals("/CheckValid")) {
-//                String email = request.getParameter("email");
-//                String pass = request.getParameter("pass");
-//                Customer c = CustomerModel.FindByEmailAndPass(email, pass);
-//                boolean isAvailable = (c != null);
-//
-//                PrintWriter out = response.getWriter();
-//                response.setContentType("application/json");
-//                response.setCharacterEncoding("utf-8");
-//
-//                out.print(isAvailable);
-//                out.flush();
-//            }
-//        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
-        System.out.println(email);
         Customer c = CustomerModel.FindByEmail(email);
         if (c != null) {
             BCrypt.Result result = BCrypt.verifyer().verify(pass.toCharArray(), c.getPassword());
@@ -48,8 +32,11 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("Verified", true);
                 session.setAttribute("Customer_logged_in", c);
-                ServletUtils.redirect("/", request, response);
-//                ServletUtils.forward("views/login/index.jsp", request, response);
+                String url = (String) session.getAttribute("retUrl");
+                if (url == null)
+                    url = "/";
+                System.out.println(url);
+                ServletUtils.redirect(url, request, response);
             } else {
                 request.setAttribute("hasError", true);
                 request.setAttribute("errorMessage", "Invalid login.");
