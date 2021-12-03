@@ -32,15 +32,15 @@ public class CartServlet extends HttpServlet {
         List<OrderDetail> List_OD = CustomerModel.FindByOrderID(order_id);
 
         for (OrderDetail od : List_OD) {
-            book_list_id = String.valueOf(od.getBook_ID()) + ",";
+            book_list_id += String.valueOf(od.getBook_ID()) + ",";
         }
         book_list_id = book_list_id.substring(0, book_list_id.length() - 1);
-
+//        System.out.println(book_list_id);
         List<Book> Book_ordered=BookModel.FindListOfBookById(book_list_id);
-        for (Book b:Book_ordered)
-        {
-            System.out.println(b.getBook_ID());
-        }
+//        for (Book b:Book_ordered)
+//        {
+//            System.out.println(b.getBook_ID());
+//        }
         request.setAttribute("customer_order", List_CO);
         request.setAttribute("order_detail", List_OD);
 
