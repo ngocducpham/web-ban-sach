@@ -23,9 +23,6 @@ public class LoginFilter implements Filter {
         if (session.getAttribute("Verified") == null) {
             session.setAttribute("Verified", false);
             session.setAttribute("Customer_logged_in", new Customer());
-        }else {
-            boolean Verified = (boolean) session.getAttribute("Verified");
-            System.out.println("LoginFilter:"+Verified);
         }
 
         chain.doFilter(request, response);
