@@ -38,7 +38,15 @@
                         <i class="fas fa-shopping-cart"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">10+</span>
                     </button>
-                    <a class="noneDecoration" href="${pageContext.request.contextPath}/Cart">Giỏ hàng</a>
+                    <c:choose>
+                        <c:when test="${Verified}">
+                            <a class="noneDecoration" href="${pageContext.request.contextPath}/Cart">Giỏ hàng</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="noneDecoration" href="${pageContext.request.contextPath}/Login">Giỏ hàng</a>
+                        </c:otherwise>
+                    </c:choose>
+
                 </li>
                 <li class="nav-item d-flex flex-column align-items-center" >
                     <button type="button" class="btn position-relative shadow-none p-0">

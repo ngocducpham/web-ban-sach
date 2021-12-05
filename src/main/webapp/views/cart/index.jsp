@@ -52,7 +52,7 @@
                                 <span
                                         class="moneyBook"><fmt:formatNumber
                                         type="number" maxFractionDigits="0"
-                                        value="${b.price*(100-b.discount)/100}"/> </span></p>
+                                        value="${b.price*(100-b.discount)/100}"/> đ</span></p>
                             <button class="trashIcon">
                                 Xóa sản phẩm
 
@@ -80,15 +80,21 @@
                             </div>
                             <div class="colJS">
                                 <p class="quantityProductNum"> ${count_book} </p>
-                                <p class="fee"> ${order_detail.size()*7000}</p>
-                                <p class="provisionalMoney"> ${order_detail.size()*7000}+${bill_cost}</p>
+                                <p class="fee"> <fmt:formatNumber
+                                        type="number" maxFractionDigits="0"
+                                        value="${order_detail.size()*7000}"/> đ</p>
+                                <p class="provisionalMoney"><fmt:formatNumber
+                                        type="number" maxFractionDigits="0"
+                                        value="${bill_cost}"/> đ</p>
                             </div>
                         </div>
                     </div>
                     <hr>
                     <div class="total">
                         <p class="p__Total">TỔNG CỘNG</p>
-                        <p class="moneyTotal">459.000</p>
+                        <p class="moneyTotal"><fmt:formatNumber
+                                type="number" maxFractionDigits="0"
+                                value="${bill_cost +order_detail.size()*7000}"/> đ</p>
                     </div>
                 </div>
             </div>

@@ -16,26 +16,27 @@
                     <h2 class="registerHeader">Thông tin cá nhân</h2>
                     <h4 class="hello"> Xin chào bạn ${Customer_infor.last_Name}</h4>
                 </div>
-                <form class="auth-form-body mt-3" method="post">
-                    <label for="email">
-                        Địa chỉ Email <span class="txt_red">${Customer_infor.last_Name}</span>
-                    </label>
-                    <span class="txt_red" id="error_email"></span>
 
-                    <input type="text" name="email" id="email" class="mb-3 form-control input-block js-login-field"
-                           autocapitalize="off" autocorrect="off" autocomplete="username" autofocus="autofocus"
-                           onblur="checkEmail()">
-                </form>
-                <div class="productBought"> Các sản phẩm đã mua </div>
-                <div class="ProductBuyList">
-                    <figure class="bookImage padding"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"
-                                                   alt="BookImage"></figure>
-                    <div class="bookName padding">
-                        <p class="p__bookName">Nghia tinh rang buoc</p>
-                    </div>
-                    <div class="dateBuy padding"> 2021-11-10</div>
-                    <div class="price padding">250000đ</div>
-                </div>
+<%--                <form class="auth-form-body mt-3" method="post">--%>
+<%--                    <label for="email">--%>
+<%--                        Địa chỉ Email <span class="txt_red">${Customer_infor.last_Name}</span>--%>
+<%--                    </label>--%>
+<%--                    <span class="txt_red" id="error_email"></span>--%>
+
+<%--                    <input type="text" name="email" id="email" class="mb-3 form-control input-block js-login-field"--%>
+<%--                           autocapitalize="off" autocorrect="off" autocomplete="username" autofocus="autofocus"--%>
+<%--                           onblur="checkEmail()">--%>
+<%--                </form>--%>
+<%--                <div class="productBought"> Các sản phẩm đã mua </div>--%>
+<%--                <div class="ProductBuyList">--%>
+<%--                    <figure class="bookImage padding"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"--%>
+<%--                                                   alt="BookImage"></figure>--%>
+<%--                    <div class="bookName padding">--%>
+<%--                        <p class="p__bookName">Nghia tinh rang buoc</p>--%>
+<%--                    </div>--%>
+<%--                    <div class="dateBuy padding"> 2021-11-10</div>--%>
+<%--                    <div class="price padding">250000đ</div>--%>
+<%--                </div>--%>
             </div>
         </div>
     </jsp:body>
