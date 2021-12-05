@@ -8,36 +8,47 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/personal.css">
 
 <t:main>
+    <jsp:attribute name="js">
+        <script
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                crossorigin="anonymous">
+        </script>
+    </jsp:attribute>
     <jsp:body>
         <div class="container">
-            <div class="auth-form mt-3" id="login">
-                <input type="hidden" name="ga_id" class="js-octo-ga-id-input">
-                <div class="auth-form-header p-0">
-                    <h2 class="registerHeader">Thông tin cá nhân</h2>
-                    <h4 class="hello"> Xin chào bạn ${Customer_infor.last_Name}</h4>
+            <form method="post">
+                <div class="auth-form mt-3" id="login">
+                    <input type="hidden" name="ga_id" class="js-octo-ga-id-input">
+                    <div class="auth-form-header p-0">
+                        <h2 class="registerHeader">Thông tin cá nhân</h2>
+                        <h4 class="hello"> Xin chào bạn ${Customer_infor.last_Name}</h4>
+                    </div>
+                    <button type="submit" class="btn btn-danger" formaction="${pageContext.request.contextPath}/User/Logout">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        LogOut
+                    </button>
+                        <%--                <form class="auth-form-body mt-3" method="post">--%>
+                        <%--                    <label for="email">--%>
+                        <%--                        Địa chỉ Email <span class="txt_red">${Customer_infor.last_Name}</span>--%>
+                        <%--                    </label>--%>
+                        <%--                    <span class="txt_red" id="error_email"></span>--%>
+
+                        <%--                    <input type="text" name="email" id="email" class="mb-3 form-control input-block js-login-field"--%>
+                        <%--                           autocapitalize="off" autocorrect="off" autocomplete="username" autofocus="autofocus"--%>
+                        <%--                           onblur="checkEmail()">--%>
+                        <%--                </form>--%>
+                        <%--                <div class="productBought"> Các sản phẩm đã mua </div>--%>
+                        <%--                <div class="ProductBuyList">--%>
+                        <%--                    <figure class="bookImage padding"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"--%>
+                        <%--                                                   alt="BookImage"></figure>--%>
+                        <%--                    <div class="bookName padding">--%>
+                        <%--                        <p class="p__bookName">Nghia tinh rang buoc</p>--%>
+                        <%--                    </div>--%>
+                        <%--                    <div class="dateBuy padding"> 2021-11-10</div>--%>
+                        <%--                    <div class="price padding">250000đ</div>--%>
+                        <%--                </div>--%>
                 </div>
-
-<%--                <form class="auth-form-body mt-3" method="post">--%>
-<%--                    <label for="email">--%>
-<%--                        Địa chỉ Email <span class="txt_red">${Customer_infor.last_Name}</span>--%>
-<%--                    </label>--%>
-<%--                    <span class="txt_red" id="error_email"></span>--%>
-
-<%--                    <input type="text" name="email" id="email" class="mb-3 form-control input-block js-login-field"--%>
-<%--                           autocapitalize="off" autocorrect="off" autocomplete="username" autofocus="autofocus"--%>
-<%--                           onblur="checkEmail()">--%>
-<%--                </form>--%>
-<%--                <div class="productBought"> Các sản phẩm đã mua </div>--%>
-<%--                <div class="ProductBuyList">--%>
-<%--                    <figure class="bookImage padding"><img src="${pageContext.request.contextPath}/public/imgs/${book.img}"--%>
-<%--                                                   alt="BookImage"></figure>--%>
-<%--                    <div class="bookName padding">--%>
-<%--                        <p class="p__bookName">Nghia tinh rang buoc</p>--%>
-<%--                    </div>--%>
-<%--                    <div class="dateBuy padding"> 2021-11-10</div>--%>
-<%--                    <div class="price padding">250000đ</div>--%>
-<%--                </div>--%>
-            </div>
+            </form>
         </div>
     </jsp:body>
 </t:main>

@@ -54,7 +54,7 @@
                     </button>
                     <c:choose>
                         <c:when test="${Verified}">
-                            <a class="noneDecoration" href="Personal?email=${Customer_logged_in.email}">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}</a>
+                            <a class="noneDecoration" href="User/UserArea?email=${Customer_logged_in.email}">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}</a>
                         </c:when>
                         <c:otherwise>
                             <a class="noneDecoration" href="${pageContext.request.contextPath}/Login">Tài khoản</a>
