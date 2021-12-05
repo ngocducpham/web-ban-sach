@@ -6,3 +6,10 @@
     padding: 20px;
 }
 
+.hello {
+    margin-left: 50px;
+}
+
+.name {
+    font-weight: bold;
+}
