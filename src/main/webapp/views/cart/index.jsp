@@ -7,15 +7,16 @@
 <jsp:useBean id="order_detail" scope="request" type="java.util.List<com.doancntt.beans.OrderDetail>"/>
 <jsp:useBean id="Book_ordered" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 <%--<link rel="stylesheet" href="../../public/styles/cart.css">--%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/cart.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/cart.js"></script>
 
 
 <t:main>
      <jsp:attribute name="css">
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <%--                <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"--%>
 <%--                      id="bootstrap-css">--%>
 
@@ -35,23 +36,11 @@
                                 alt="BookImage"></figure>
                         <div class="bookName">
                             <p class="p__bookName">${b.title}</p>
-                            <div class="col-lg-2">
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"
-                                                data-type="minus" data-field="">
-                                          <span class="glyphicon glyphicon-minus"></span>
-                                        </button>
-                                    </span>
-                                    <input type="text" id="quantity" name="quantity" class="form-control input-number"
-                                           value="10" min="1" max="100">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-right-plus btn btn-success btn-number"
-                                                data-type="plus" data-field="">
-                                            <span class="glyphicon glyphicon-plus"></span>
-                                        </button>
-                                    </span>
-                                </div>
+                            <div class=" input-group w-auto justify-content-center align-items-center">
+                                <p class="p__buying"> Số lượng mua: </p>
+<%--                                <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">--%>
+                                <input type="number" step="1" max="100" value="1" name="quantity" class="numberBuying quantity-field text-center w-25">
+<%--                                <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">--%>
                             </div>
                         </div>
                         <div class="money">

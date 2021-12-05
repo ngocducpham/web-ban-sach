@@ -36,6 +36,18 @@
     width: 300px;
 }
 
+.numberBuying {
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.p__buying {
+    margin: 0;
+    align-self: center;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
 .quantityProduct {
     display: flex;
     justify-content: space-around;
