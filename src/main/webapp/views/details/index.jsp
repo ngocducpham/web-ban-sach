@@ -19,12 +19,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
         function handleCart(event) {
-            event.preventDefault();
+
             document.getElementById("anou").style.display='block';
             var el = document.getElementById("anou");
             el.style.animation = 'none';
             el.offsetHeight; /* trigger reflow */
             el.style.animation = null;
+            arlet("Thêm vào giỏ hàng thành công!");
+            // event.preventDefault();
         }
     </script>
         </jsp:attribute>
@@ -70,7 +72,7 @@
                     <hr class="hrDecoration">
                     <c:choose>
                         <c:when test="${Verified}">
-                            <button class="addToCart">
+                            <button class="addToCart" onclick="handleCart()">
                                 <a style="text-decoration: none"
                                    href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}">Thêm vào giỏ hàng</a>
                             </button>

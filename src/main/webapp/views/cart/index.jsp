@@ -14,6 +14,15 @@
 
 
 <t:main>
+     <jsp:attribute name="css">
+
+<%--                <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"--%>
+<%--                      id="bootstrap-css">--%>
+
+        </jsp:attribute>
+    <jsp:attribute name="js">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/cart.js"></script>
+    </jsp:attribute>
     <jsp:body>
         <h2 class="headerCart"> GIỎ HÀNG</h2>
         <div class="container">
@@ -26,14 +35,30 @@
                                 alt="BookImage"></figure>
                         <div class="bookName">
                             <p class="p__bookName">${b.title}</p>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary">-</button>
-                                <input type="text" class="quantityBook">
-                                <button type="button" class="btn btn-primary">+</button>
+                            <div class="col-lg-2">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"
+                                                data-type="minus" data-field="">
+                                          <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input type="text" id="quantity" name="quantity" class="form-control input-number"
+                                           value="10" min="1" max="100">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-success btn-number"
+                                                data-type="plus" data-field="">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="money">
-                            <p class="quantity"> 1 x 119000</p>
+                            <p class="quantity"><span class="numberBuy"> ${order_detail.get(0).quantity} </span> x <span
+                                    class="moneyBook"><fmt:formatNumber
+                                    type="number" maxFractionDigits="0"
+                                    value="${b.price*(100-b.discount)/100}"/> </span></p>
                             <!-- <a href="https://icons8.com/icon/67884/remove">Remove icon by Icons8</a> -->
                         </div>
                     </div>

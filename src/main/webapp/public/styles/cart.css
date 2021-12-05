@@ -32,6 +32,10 @@
     border: 1px solid gray;
 }
 
+.bookName {
+    width: 300px;
+}
+
 .quantityProduct {
     display: flex;
     justify-content: space-around;

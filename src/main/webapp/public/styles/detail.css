@@ -35,6 +35,11 @@
 
 .bookName {
     font-weight: bold;
+
+}
+
+p__bookname {
+    max-width: 250px;
 }
 
 .hrDecoration {
