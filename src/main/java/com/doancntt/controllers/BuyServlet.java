@@ -22,7 +22,6 @@ public class BuyServlet extends HttpServlet {
                 String url = (String) session.getAttribute("retUrl");
                 if (url == null)
                     url = "/";
-                System.out.println(url);
                 CustomerModel.addtocart(request, response);
                 ServletUtils.redirect(url, request, response);
         }

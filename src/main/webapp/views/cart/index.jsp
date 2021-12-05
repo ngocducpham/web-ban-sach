@@ -6,7 +6,7 @@
 <jsp:useBean id="customer_order" scope="request" type="java.util.List<com.doancntt.beans.CustomerOrder>"/>
 <jsp:useBean id="order_detail" scope="request" type="java.util.List<com.doancntt.beans.OrderDetail>"/>
 <jsp:useBean id="Book_ordered" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
-
+<jsp:useBean id="count_book" scope="request" type="java.lang.Integer"/>
 
 <%--<link rel="stylesheet" href="../../public/styles/cart.css">--%>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/cart.css">
@@ -78,7 +78,7 @@
                                 <p class="provisional"> Tạm tính</p>
                             </div>
                             <div class="colJS">
-                                <p class="quantityProductNum"> ${} </p>
+                                <p class="quantityProductNum"> ${count_book} </p>
                                 <p class="fee"> ${order_detail.size()*7000}</p>
                                 <p class="provisionalMoney"> 459.000</p>
                             </div>

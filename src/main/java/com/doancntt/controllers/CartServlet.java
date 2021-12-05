@@ -24,6 +24,7 @@ public class CartServlet extends HttpServlet {
 
         String order_id = "";
         String book_list_id = "";
+        int sumofBook=0;
         for (CustomerOrder co : List_CO) {
             order_id += String.valueOf(co.getOrder_ID()) + ",";
         }
@@ -33,6 +34,7 @@ public class CartServlet extends HttpServlet {
 
         for (OrderDetail od : List_OD) {
             book_list_id += String.valueOf(od.getBook_ID()) + ",";
+            sumofBook+=od.count_book;
         }
 
         book_list_id = book_list_id.substring(0, book_list_id.length() - 1);
@@ -41,6 +43,7 @@ public class CartServlet extends HttpServlet {
         request.setAttribute("customer_order", List_CO);
         request.setAttribute("order_detail", List_OD);
         request.setAttribute("Book_ordered",Book_ordered );
+        request.setAttribute("count_book",sumofBook);
 
         ServletUtils.forward("views/cart/index.jsp", request, response);
     }

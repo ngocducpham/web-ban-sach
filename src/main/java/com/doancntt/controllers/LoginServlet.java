@@ -31,14 +31,10 @@ public class LoginServlet extends HttpServlet {
             if (result.verified) {
                 HttpSession session = request.getSession();
                 session.setAttribute("Verified", true);
-//                boolean Verified = (boolean) session.getAttribute("Verified");
-//                System.out.println(Verified);s
                 session.setAttribute("Customer_logged_in", c);
                 String url = (String) session.getAttribute("retUrl");
                 if (url == null)
                     url = "/";
-//                System.out.println(url);
-
                 ServletUtils.redirect(url, request, response);
             } else {
                 request.setAttribute("hasError", true);
