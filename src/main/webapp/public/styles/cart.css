@@ -1,6 +1,7 @@
 
 .container {
     display: flex;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .headerProduct {
@@ -11,8 +12,17 @@
 
 .headerCart {
     color: green;
-    text-align: center;
-    margin-top: 30px;
+    /*text-align: center;*/
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid gray;
+    width: 202px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 30px;
 }
 
 
@@ -30,6 +40,7 @@
 .productBox {
     width: 800px;
     border: 1px solid gray;
+    border-radius: 35px;
 }
 
 .bookName {
@@ -48,10 +59,20 @@
     font-weight: bold;
 }
 
+.trashIcon {
+    color: #c02026;
+    font-weight: bold;
+    border-radius: 20px;
+    /*background-color: #c02026;*/
+}
+
 .quantityProduct {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 10px 20px;
+    border: 2px dashed gray;
+    border-radius: 30px;
 }
 
 .quantityBook {
@@ -62,12 +83,17 @@
 
 }
 
+.quantity {
+    text-align: center;
+}
+
 
 .briefOder {
-    width: 500px;
+    width: 350px;
     border: 1px solid gray;
     margin-left: 20px;
     align-self: flex-start;
+    border-radius: 30px;
 }
 
 .headerOrder {
@@ -75,6 +101,8 @@
     color: aliceblue;
     text-align: center;
     padding: 10px;
+    border-radius: 30px;
+
 }
 
 .row {
@@ -94,6 +122,10 @@
 .colJS {
     text-align: end;
     padding-right: 10px;
+}
+
+.quantityProductNum {
+    text-align: center;
 }
 
 
