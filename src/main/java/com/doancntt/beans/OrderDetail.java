@@ -5,6 +5,24 @@ public class OrderDetail {
     public int Quantity;
     public int Total_Cost;
     public int Book_ID;
+    public int count_book;
+
+    public OrderDetail(int order_Detail_ID, int quantity, int total_Cost, int book_ID, int count_book, int order_ID) {
+        Order_Detail_ID = order_Detail_ID;
+        Quantity = quantity;
+        Total_Cost = total_Cost;
+        Book_ID = book_ID;
+        this.count_book = count_book;
+        Order_ID = order_ID;
+    }
+
+    public int getCount_book() {
+        return count_book;
+    }
+
+    public void setCount_book(int count_book) {
+        this.count_book = count_book;
+    }
 
     public int getOrder_Detail_ID() {
         return Order_Detail_ID;

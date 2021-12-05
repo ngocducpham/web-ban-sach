@@ -34,6 +34,7 @@ public class CartServlet extends HttpServlet {
         for (OrderDetail od : List_OD) {
             book_list_id += String.valueOf(od.getBook_ID()) + ",";
         }
+
         book_list_id = book_list_id.substring(0, book_list_id.length() - 1);
         List<Book> Book_ordered=BookModel.FindListOfBookById(book_list_id);
 

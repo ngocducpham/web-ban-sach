@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="money">
-                            <p class="quantity"><span class="numberBuy"> ${order_detail.get(0).quantity} </span> x <span
+                            <p class="quantity"><span class="numberBuy"> ${order_detail.get(Book_ordered.indexOf(b)).count_book} </span> x <span
                                     class="moneyBook"><fmt:formatNumber
                                     type="number" maxFractionDigits="0"
                                     value="${b.price*(100-b.discount)/100}"/> </span></p>
