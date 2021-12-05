@@ -40,8 +40,8 @@ public class CartServlet extends HttpServlet {
 
         request.setAttribute("customer_order", List_CO);
         request.setAttribute("order_detail", List_OD);
-
         request.setAttribute("Book_ordered",Book_ordered );
+
         ServletUtils.forward("views/cart/index.jsp", request, response);
     }
 
