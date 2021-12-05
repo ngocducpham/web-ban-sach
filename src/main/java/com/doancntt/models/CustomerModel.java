@@ -163,7 +163,11 @@ public class CustomerModel {
     }
 
     public static List<OrderDetail> FindByOrderID(String id_list) {
-        String findSql = "select * from order_detail where Order_ID in ("+ id_list +")";
+        String findSql = "select *,count(Quantity) as count_book " +
+                "from order_detail " +
+                "where Order_ID in ("+ id_list +") " +
+                "group by (Book_ID)" +
+                "order by Book_ID";
         try (Connection con = DatabaseUtils.createConnection()) {
             List<OrderDetail> list = con.createQuery(findSql)
                     .executeAndFetch(OrderDetail.class);

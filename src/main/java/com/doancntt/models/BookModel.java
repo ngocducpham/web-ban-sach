@@ -131,7 +131,8 @@ public class BookModel {
                 "    join publisher p on p.Publisher_ID = books.Publisher_ID " +
                 "    join book_category bc on bc.Category_ID = books.Category_ID " +
                 "    join book_language bl on books.Language_ID = bl.Language_ID " +
-                "    where Book_ID in ("+List_id+")";
+                "    where Book_ID in ("+List_id+")" +
+                "order by Book_ID";
         try (Connection conn = DatabaseUtils.createConnection()) {
             List<Book> list = conn.createQuery(findQuery).
                     executeAndFetch(Book.class);
