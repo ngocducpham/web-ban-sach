@@ -41,13 +41,15 @@ window.onload = function() {
 
     let x=xmlDoc.getElementsByTagName("table").item(0).rows[1].cells[2].innerHTML;
     console.log(x);
-    var numb = x.match(/\d/g);
+    let numb = x.match(/\d/g);
     numb = numb.join("");
     console.log(numb);
     let moneyTransfer = document.getElementById("fee");
     console.log(moneyTransfer);
-    let moneyFormat = <fmt:formatNumber
-        type="number" maxFractionDigits="0"
-        value=""/>;
+    (2500).toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+    // let moneyFormat ='<fmt:formatNumber type="number" maxFractionDigits="0" value='+numb+' />';
     moneyTransfer.innerHTML = numb;
 }
