@@ -46,10 +46,5 @@ window.onload = function() {
     console.log(numb);
     let moneyTransfer = document.getElementById("fee");
     console.log(moneyTransfer);
-    (2500).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-    });
-    // let moneyFormat ='<fmt:formatNumber type="number" maxFractionDigits="0" value='+numb+' />';
     moneyTransfer.innerHTML = numb;
 }
