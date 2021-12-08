@@ -88,7 +88,7 @@
                                 <p class="fee" id="fee"><fmt:formatNumber
                                         type="number" maxFractionDigits="0"
                                         value="${order_detail.size()*7000}"/> đ</p>
-                                <p class="provisionalMoney"><fmt:formatNumber
+                                <p class="provisionalMoney" id="provisionalMoney"><fmt:formatNumber
                                         type="number" maxFractionDigits="0"
                                         value="${bill_cost}"/> đ</p>
                             </div>
@@ -97,7 +97,7 @@
                     <hr>
                     <div class="total">
                         <p class="p__Total">TỔNG CỘNG</p>
-                        <p class="moneyTotal"><fmt:formatNumber
+                        <p class="moneyTotal" id="moneyTotal"><fmt:formatNumber
                                 type="number" maxFractionDigits="0"
                                 value="${bill_cost +order_detail.size()*7000}"/> đ</p>
                     </div>
