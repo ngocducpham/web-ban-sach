@@ -31,13 +31,14 @@ public class CustomerModel {
                     .executeUpdate();
         }
         int x = getMaxCusID();
-        insertSql = "insert into address (Phone_Number, Full_Address, Customer_ID)\n" +
-                "values (:sdt,:diachi,:CusID);";
+        insertSql = "insert into address (Phone_Number, Full_Address, Customer_ID,province)\n" +
+                "values (:sdt,:diachi,:CusID,:province);";
         try (Connection con = DatabaseUtils.createConnection()) {
             con.createQuery(insertSql)
                     .addParameter("sdt", a.getPhone_Number())
                     .addParameter("diachi", a.getFull_Address())
                     .addParameter("CusID", x)
+                    .addParameter("province",a.getProvince())
                     .executeUpdate();
         }
     }
@@ -177,16 +178,18 @@ public class CustomerModel {
 
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ho, ten, email, pass, Encrypted_pass, diachi, sdt;
+        request.setCharacterEncoding("UTF-8");
+        String ho, ten, email, pass, Encrypted_pass, diachi,tinh, sdt;
         ho = request.getParameter("ho");
         ten = request.getParameter("ten");
         email = request.getParameter("email");
         pass = request.getParameter("password");
         Encrypted_pass = BCrypt.withDefaults().hashToString(12, pass.toCharArray());
         sdt = request.getParameter("sdt");
-        diachi = request.getParameter("diachi");
+        diachi = request.getParameter("diachict");
+        tinh=request.getParameter("ls_province");
         Customer c = new Customer(ho, email, ten, Encrypted_pass);
-        Address a = new Address(sdt, diachi);
+        Address a = new Address(sdt, diachi,tinh);
         Add(c, a);
         ServletUtils.redirect("/Login", request, response);
     }

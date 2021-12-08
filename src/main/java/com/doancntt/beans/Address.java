@@ -5,6 +5,36 @@ public class Address {
     public String Phone_Number;
     public String Full_Address;
     public int Customer_ID;
+    public String province;
+
+    public Address(String phone_Number, String full_Address, String province) {
+        Phone_Number = phone_Number;
+        Full_Address = full_Address;
+        this.province = province;
+    }
+
+    public Address(String phone_Number, String full_Address, int customer_ID, String province) {
+        Phone_Number = phone_Number;
+        Full_Address = full_Address;
+        Customer_ID = customer_ID;
+        this.province = province;
+    }
+
+    public Address(int address_ID, String phone_Number, String full_Address, int customer_ID, String province) {
+        Address_ID = address_ID;
+        Phone_Number = phone_Number;
+        Full_Address = full_Address;
+        Customer_ID = customer_ID;
+        this.province = province;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
     public Address(int address_ID, String phone_Number, String full_Address, int customer_ID) {
         Address_ID = address_ID;
