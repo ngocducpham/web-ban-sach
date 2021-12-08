@@ -85,7 +85,7 @@
                             </div>
                             <div class="colJS">
                                 <p class="quantityProductNum"> ${count_book} </p>
-                                <p class="fee"><fmt:formatNumber
+                                <p class="fee" id="fee"><fmt:formatNumber
                                         type="number" maxFractionDigits="0"
                                         value="${order_detail.size()*7000}"/> đ</p>
                                 <p class="provisionalMoney"><fmt:formatNumber
@@ -106,7 +106,7 @@
         </div>
         <div class="containerBtn">
             <button class="back"> QUAY LẠI</button>
-            <button class="pay" onclick="tinhtien()"> THANH TOÁN</button>
+            <button class="pay"> THANH TOÁN</button>
         </div>
     </jsp:body>
 </t:main>
