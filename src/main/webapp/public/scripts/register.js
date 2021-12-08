@@ -101,7 +101,8 @@ function detailAddress() {
     let province = document.getElementById('ls_province');
     let distric = document.getElementById('ls_district');
     let ward = document.getElementById('ls_ward');
+    let addressHouse = document.getElementById('diachi');
 
-    detailAddress.value = province.options[province.selectedIndex].text + ", " + distric.options[distric.selectedIndex].text + ", " + ward.options[ward.selectedIndex].text;
-    console.log(detailAddress.innerHTML);
+    detailAddress.value = addressHouse.value +", " + ward.options[ward.selectedIndex].text  + ", " + distric.options[distric.selectedIndex].text + ", " + province.options[province.selectedIndex].text ;
+    // console.log(addressHouse.value);
 }

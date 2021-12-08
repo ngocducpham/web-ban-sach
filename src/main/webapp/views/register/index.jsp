@@ -67,7 +67,7 @@
                         <div class="provinceOption">
                             <select class="space" name="ls_province" id="ls_province"></select>
                             <select class="space" name="ls_district" id="ls_district"></select>
-                            <select class="space" name="ls_ward" id="ls_ward" onblur="detailAddress()"></select>
+                            <select class="space" name="ls_ward" id="ls_ward" ></select>
                         </div>
                         <label for="diachi">
                             Địa Chỉ Nhà
@@ -75,6 +75,7 @@
                         <input type="text" name="diachi" id="diachi"
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password"
+                               onblur="detailAddress()"
                         >
                         <input type="text" name="diachict" id="diachichitiet"
                                class="form-control form-control input-block js-password-field"
