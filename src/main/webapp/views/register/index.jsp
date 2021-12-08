@@ -63,17 +63,24 @@
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password"
                                onblur="checkPhone()">
-
-                        <select name="ls_province"></select>
-                        <select name="ls_district"></select>
-                        <select name="ls_ward"></select>
-
+                        <p class="labelProvince"> Chọn tỉnh, huyện </p>
+                        <div class="provinceOption">
+                            <select class="space" name="ls_province" id="ls_province"></select>
+                            <select class="space" name="ls_district" id="ls_district"></select>
+                            <select class="space" name="ls_ward" id="ls_ward" onblur="detailAddress()"></select>
+                        </div>
                         <label for="diachi">
                             Địa Chỉ Nhà
                         </label>
                         <input type="text" name="diachi" id="diachi"
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password"
+                        >
+                        <input type="text" name="diachict" id="diachichitiet"
+                               class="form-control form-control input-block js-password-field"
+                               autocomplete="current-password"
+                               readonly
+
                         >
                         <label for="email">
                             Địa chỉ Email <span class="txt_red">(*)</span>

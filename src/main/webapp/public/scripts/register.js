@@ -93,3 +93,15 @@ $('#tinhtien').addEventListener('click', function (e) {
         }
     });
 });
+
+
+
+function detailAddress() {
+    let detailAddress = document.getElementById('diachichitiet');
+    let province = document.getElementById('ls_province');
+    let distric = document.getElementById('ls_district');
+    let ward = document.getElementById('ls_ward');
+
+    detailAddress.value = province.options[province.selectedIndex].text + ", " + distric.options[distric.selectedIndex].text + ", " + ward.options[ward.selectedIndex].text;
+    console.log(detailAddress.innerHTML);
+}

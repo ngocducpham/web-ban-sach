@@ -2,6 +2,21 @@
     text-align: center;
 }
 
+.labelProvince {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.provinceOption {
+    width: auto;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.space {
+    margin: 0 5px;
+}
+
 .auth-form {
     border: 3px solid gray;
     border-radius: 20px;
