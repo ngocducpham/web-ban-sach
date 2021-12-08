@@ -38,20 +38,22 @@ function formatNumber(num) {
 
 window.onload = function() {
     let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", "http://localhost:8080/do_an_cntt/ShipFeeServlet?f=184&t=182&w=2000", false ); // false for synchronous request
+    let quantity=document.getElementById("quantỉty_books").innerHTML;
+
+    let t= document.getElementById("province").innerHTML;
+    let url="http://localhost:8080/do_an_cntt/ShipFeeServlet?f=184&t="+t.toString()+"&w=510";
+
+    xmlHttp.open( "GET",url , false ); // false for synchronous request
+
     xmlHttp.send( null );
     let parser = new DOMParser();
     let xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/html");
 
     let x=xmlDoc.getElementsByTagName("table").item(0).rows[1].cells[2].innerHTML;
-    console.log(x);
     let numb = x.match(/\d/g);
     numb = numb.join("");
-    console.log(numb);
     let moneyTransfer = document.getElementById("fee");
-    // console.log(moneyTransfer);
     let format = numb + " đ";
-    console.log(format);
 
     let format2 = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(numb);
     let format3 = format2 + ' đ';
@@ -60,10 +62,7 @@ window.onload = function() {
     let bill = document.getElementById('provisionalMoney').innerHTML;
     let numb2 = bill.match(/\d/g);
     numb2 = numb2.join("");
-    // alert (numb2);
-    // console.log(numb2);
     let totalMoney = parseInt(numb)  + parseInt(numb2);
-    // let format4 = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 2 }).format(totalMoney);
     let format5 = formatNumber(totalMoney) + ' đ';
     document.getElementById("moneyTotal").innerHTML = format5;
 }

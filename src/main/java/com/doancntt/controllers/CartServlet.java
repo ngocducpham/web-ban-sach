@@ -1,9 +1,6 @@
 package com.doancntt.controllers;
 
-import com.doancntt.beans.Book;
-import com.doancntt.beans.Customer;
-import com.doancntt.beans.CustomerOrder;
-import com.doancntt.beans.OrderDetail;
+import com.doancntt.beans.*;
 import com.doancntt.models.BookModel;
 import com.doancntt.models.CustomerModel;
 import com.doancntt.utils.ServletUtils;
@@ -20,12 +17,13 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Customer c = (Customer) session.getAttribute("Customer_logged_in");
+        Address a = CustomerModel.FindAddressByCusID(c.getCustomer_ID());
         List<CustomerOrder> List_CO = CustomerModel.FindOrderByCusID(c.getCustomer_ID());
 
         String order_id = "";
         String book_list_id = "";
-        int sumofBook=0;
-        int bill_cost=0;
+        int sumofBook = 0;
+        int bill_cost = 0;
         for (CustomerOrder co : List_CO) {
             order_id += String.valueOf(co.getOrder_ID()) + ",";
         }
@@ -35,20 +33,21 @@ public class CartServlet extends HttpServlet {
 
         for (OrderDetail od : List_OD) {
             book_list_id += String.valueOf(od.getBook_ID()) + ",";
-            sumofBook+=od.count_book;
-            bill_cost+=od.Total_Cost;
+            sumofBook += od.count_book;
+            bill_cost += od.Total_Cost;
 
         }
 
         book_list_id = book_list_id.substring(0, book_list_id.length() - 1);
-        List<Book> Book_ordered=BookModel.FindListOfBookById(book_list_id);
+        List<Book> Book_ordered = BookModel.FindListOfBookById(book_list_id);
 
         request.setAttribute("customer_order", List_CO);
         request.setAttribute("order_detail", List_OD);
-        request.setAttribute("Book_ordered",Book_ordered );
-        request.setAttribute("count_book",sumofBook);
-        request.setAttribute("bill_cost",bill_cost);
-        
+        request.setAttribute("Book_ordered", Book_ordered);
+        request.setAttribute("customer_address",a);
+        request.setAttribute("count_book", sumofBook);
+        request.setAttribute("bill_cost", bill_cost);
+
         ServletUtils.forward("views/cart/index.jsp", request, response);
     }
 

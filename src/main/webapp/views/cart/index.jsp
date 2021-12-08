@@ -6,6 +6,8 @@
 <jsp:useBean id="customer_order" scope="request" type="java.util.List<com.doancntt.beans.CustomerOrder>"/>
 <jsp:useBean id="order_detail" scope="request" type="java.util.List<com.doancntt.beans.OrderDetail>"/>
 <jsp:useBean id="Book_ordered" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
+<jsp:useBean id="customer_address" scope="request" type="com.doancntt.beans.Address"/>
+
 <jsp:useBean id="count_book" scope="request" type="java.lang.Integer"/>
 <jsp:useBean id="bill_cost" scope="request" type="java.lang.Integer"/>
 
@@ -28,6 +30,7 @@
     </jsp:attribute>
     <jsp:body>
         <h2 class="headerCart"> GIỎ HÀNG</h2>
+        <p id="province">${customer_address.province}</p>
         <div class="container">
             <div class="productBox">
                 <h4 class="headerProduct"> SẢN PHẨM</h4>
@@ -84,7 +87,7 @@
                                 <p class="provisional"> Tạm tính</p>
                             </div>
                             <div class="colJS">
-                                <p class="quantityProductNum"> ${count_book} </p>
+                                <p class="quantityProductNum" id="quantỉty_books"> ${count_book} </p>
                                 <p class="fee" id="fee"><fmt:formatNumber
                                         type="number" maxFractionDigits="0"
                                         value="${order_detail.size()*7000}"/> đ</p>
