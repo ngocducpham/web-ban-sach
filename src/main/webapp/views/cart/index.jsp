@@ -106,7 +106,7 @@
         </div>
         <div class="containerBtn">
             <button class="back"> QUAY LẠI</button>
-            <button class="pay"> THANH TOÁN</button>
+            <button class="pay"><a href="" class=""></a> THANH TOÁN</button>
         </div>
     </jsp:body>
 </t:main>

@@ -1,3 +1,9 @@
+// var localpicker = new LocalPicker({
+//     province: "ls_province",
+//     district: "ls_district",
+//     ward: "ls_ward"
+// });
+
 function checkName() {
     var ten = document.getElementById("ten").value;
     var check_error_ten = document.getElementById("error_ten");

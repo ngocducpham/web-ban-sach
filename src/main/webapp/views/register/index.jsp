@@ -14,7 +14,16 @@
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
                 crossorigin="anonymous">
         </script>
+        <script>
+            var localpicker = new LocalPicker({
+                province: "ls_province",
+                district: "ls_district",
+                ward: "ls_ward"
+            });
+        </script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/register.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/vietnamlocalselector-master/vietnamlocalselector.js"></script>
+
     </jsp:attribute>
 
     <jsp:body>
@@ -53,6 +62,9 @@
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password"
                                onblur="checkPhone()">
+                        <select name="ls_province"></select>
+                        <select name="ls_district"></select>
+                        <select name="ls_ward"></select>
                         <label for="diachi">
                             Địa Chỉ Nhà
                         </label>
