@@ -15,9 +15,9 @@ import java.nio.charset.StandardCharsets;
 public class ShipFeeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String from = request.getParameter("f");
+        String from = request.getParameter("f"); // Ho Chi Minh
         String to = request.getParameter("t");
-        String weight = request.getParameter("w");
+        String weight = request.getParameter("w"); // tam tinh 500g, co keu doi thi them db
 
         String httpRequest = sendHTTPRequest(from, to, weight);
 
@@ -39,7 +39,7 @@ public class ShipFeeServlet extends HttpServlet {
             URL url = new URL("http://www.vnpost.vn/vi-vn/tra-cuu-gia-cuoc?from=" +from+ "&to="+to+"&weight=" + weight);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            String line = "";
+            String line;
             InputStreamReader streamReader = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(streamReader);
             StringBuilder response = new StringBuilder();

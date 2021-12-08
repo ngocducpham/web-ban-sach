@@ -39,12 +39,17 @@
                         <div class="bookName">
                             <p class="p__bookName">${b.title}</p>
 
-                                <%--                            <div class=" input-group w-auto justify-content-center align-items-center">--%>
-                                <%--                                <p class="p__buying"> Số lượng mua: </p>--%>
-                                <%--&lt;%&ndash;                                <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">&ndash;%&gt;--%>
-                                <%--                                <input type="number" step="1" max="100" value="1" name="quantity" class="numberBuying quantity-field text-center w-25">--%>
-                                <%--&lt;%&ndash;                                <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">&ndash;%&gt;--%>
-                                <%--                            </div>--%>
+                            <div class=" input-group w-auto justify-content-center align-items-center">
+                                <p class="p__buying"> Số lượng mua: </p>
+                                <input type="button" value="-"
+                                       class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
+                                       data-field="quantity">
+                                <input type="number" step="1" max="100" value="1" name="quantity"
+                                       class="numberBuying quantity-field text-center w-25">
+                                <input type="button" value="+"
+                                       class="button-plus border rounded-circle icon-shape icon-sm "
+                                       data-field="quantity">
+                            </div>
                         </div>
                         <div class="money">
                             <p class="quantity"><span
@@ -80,7 +85,7 @@
                             </div>
                             <div class="colJS">
                                 <p class="quantityProductNum"> ${count_book} </p>
-                                <p class="fee"> <fmt:formatNumber
+                                <p class="fee"><fmt:formatNumber
                                         type="number" maxFractionDigits="0"
                                         value="${order_detail.size()*7000}"/> đ</p>
                                 <p class="provisionalMoney"><fmt:formatNumber
@@ -101,7 +106,7 @@
         </div>
         <div class="containerBtn">
             <button class="back"> QUAY LẠI</button>
-            <button class="pay"> THANH TOÁN</button>
+            <button class="pay" onclick="tinhtien()"> THANH TOÁN</button>
         </div>
     </jsp:body>
 </t:main>

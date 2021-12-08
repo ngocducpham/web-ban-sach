@@ -24,10 +24,21 @@ function decrementValue(e) {
     }
 }
 
-$('.input-group').on('click', '.button-plus', function(e) {
-    incrementValue(e);
-});
+// $('.input-group').on('click', '.button-plus', function(e) {
+//     incrementValue(e);
+// });
+//
+// $('.input-group').on('click', '.button-minus', function(e) {
+//     decrementValue(e);
+// });
 
-$('.input-group').on('click', '.button-minus', function(e) {
-    decrementValue(e);
-});
+function tinhtien(){
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "http://localhost:8080/do_an_cntt/ShipFeeServlet?f=184&t=182&w=2000", false ); // false for synchronous request
+    xmlHttp.send( null );
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/html");
+
+    let x=xmlDoc.getElementsByTagName("table").item(0).rows[1].cells[2].innerHTML;
+    console.log(x);
+}
