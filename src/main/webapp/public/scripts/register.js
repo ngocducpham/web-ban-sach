@@ -94,15 +94,41 @@ $('#FormRegister').on('submit', function (e) {
     });
 });
 
+let detailAddress = document.getElementById('diachichitiet');
+let province = document.getElementById('ls_province');
+let distric = document.getElementById('ls_district');
+let ward = document.getElementById('ls_ward');
+let addressHouse = document.getElementById('diachi');
+
+document.getElementById('ls_province').addEventListener("change", function () {
+    // alert("cc");
+    province = document.getElementById('ls_province');
+    distric = document.getElementById('ls_district');
+    ward = document.getElementById('ls_ward');
+    addressHouse = document.getElementById('diachi');
+
+    detailAddress.value = addressHouse.value + ", " + ward.options[ward.selectedIndex].text + ", " + distric.options[distric.selectedIndex].text + ", " + province.options[province.selectedIndex].text;
+});
+
+document.getElementById('ls_ward').addEventListener("change", function () {
+    // alert("cc");
+    province = document.getElementById('ls_province');
+    distric = document.getElementById('ls_district');
+    ward = document.getElementById('ls_ward');
+    addressHouse = document.getElementById('diachi');
+
+    detailAddress.value = addressHouse.value + ", " + ward.options[ward.selectedIndex].text + ", " + distric.options[distric.selectedIndex].text + ", " + province.options[province.selectedIndex].text;
+});
+
+document.getElementById('ls_district').addEventListener("change", function () {
+    // alert("cc");
+    province = document.getElementById('ls_province');
+    distric = document.getElementById('ls_district');
+    ward = document.getElementById('ls_ward');
+    addressHouse = document.getElementById('diachi');
+
+    detailAddress.value = addressHouse.value + ", " + ward.options[ward.selectedIndex].text + ", " + distric.options[distric.selectedIndex].text + ", " + province.options[province.selectedIndex].text;
+});
 
 
-function detailAddress() {
-    let detailAddress = document.getElementById('diachichitiet');
-    let province = document.getElementById('ls_province');
-    let distric = document.getElementById('ls_district');
-    let ward = document.getElementById('ls_ward');
-    let addressHouse = document.getElementById('diachi');
 
-    detailAddress.value = addressHouse.value +", " + ward.options[ward.selectedIndex].text  + ", " + distric.options[distric.selectedIndex].text + ", " + province.options[province.selectedIndex].text ;
-    // console.log(addressHouse.value);
-}

@@ -14,11 +14,11 @@ import java.io.PrintWriter;
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String path=request.getPathInfo();
-        if(path==null || path.equals("/")) {
+        String path = request.getPathInfo();
+        if (path == null || path.equals("/")) {
             ServletUtils.forward("views/register/index.jsp", request, response);
-        }else {
-            if(path.equals("/CheckAvailable")){
+        } else {
+            if (path.equals("/CheckAvailable")) {
                 String email = request.getParameter("email");
                 Customer c = CustomerModel.FindByEmail(email);
                 boolean isAvailable = (c == null);
@@ -35,9 +35,9 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String path=request.getPathInfo();
-        if(path==null || path.equals("/")) {
-            CustomerModel.addnewCustomer(request,response);
+        String path = request.getPathInfo();
+        if (path == null || path.equals("/")) {
+            CustomerModel.addnewCustomer(request, response);
         }
     }
 }
