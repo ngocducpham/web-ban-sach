@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/nav.css">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:useBean id="Customer_logged_in" scope="session" type="com.doancntt.beans.Customer" />
+<jsp:useBean id="shdm" scope="session" type="java.lang.Integer"/>
 
 <div class="container-top-banner">
     <div class="top-banner d-flex p-2 container">
@@ -36,7 +37,14 @@
                 <li class="nav-item d-flex flex-column align-items-center me-5">
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">10+</span>
+                        <c:choose>
+                            <c:when test="${Verified}">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">${shdm}</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">10+</span>
+                            </c:otherwise>
+                        </c:choose>
                     </button>
                     <c:choose>
                         <c:when test="${Verified}">

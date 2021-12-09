@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "LoginFilter" ,value="/*")
+@WebFilter(filterName = "LoginFilter", value = "/*")
 public class LoginFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
@@ -23,6 +23,7 @@ public class LoginFilter implements Filter {
         if (session.getAttribute("Verified") == null) {
             session.setAttribute("Verified", false);
             session.setAttribute("Customer_logged_in", new Customer());
+            session.setAttribute("shdm", 0);
         }
 
         chain.doFilter(request, response);
