@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/nav.css">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:useBean id="Customer_logged_in" scope="session" type="com.doancntt.beans.Customer" />
+<jsp:useBean id="Customer_logged_in" scope="session" type="com.doancntt.beans.Customer"/>
 <jsp:useBean id="shdm" scope="session" type="java.lang.Integer"/>
 
 <div class="container-top-banner">
@@ -30,18 +30,17 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="d-flex mt-3" method="get" action="${pageContext.request.contextPath}/search">
-                <input class="form-control me-2 search-data" name="q" type="search" placeholder="Tìm sách" aria-label="Search">
+                <input class="form-control me-2 search-data" name="q" type="search" placeholder="Tìm sách"
+                       aria-label="Search">
                 <button class="btn btn-outline-success btn-search" type="submit">Tìm</button>
             </form>
             <ul class="navbar-nav mb-lg-0 ms-auto">
                 <li class="nav-item d-flex flex-column align-items-center me-5">
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-shopping-cart"></i>
-                        <c:choose>
-                            <c:if test="${Verified}">
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">${shdm}</span>
-                            </c:if>
-                        </c:choose>
+                        <c:if test="${Verified}">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">${shdm}</span>
+                        </c:if>
                     </button>
                     <c:choose>
                         <c:when test="${Verified}">
@@ -53,13 +52,14 @@
                     </c:choose>
 
                 </li>
-                <li class="nav-item d-flex flex-column align-items-center" >
+                <li class="nav-item d-flex flex-column align-items-center">
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-user me-1"></i>
                     </button>
                     <c:choose>
                         <c:when test="${Verified}">
-                            <a class="noneDecoration" href="User/UserArea?email=${Customer_logged_in.email}">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}</a>
+                            <a class="noneDecoration"
+                               href="User/UserArea?email=${Customer_logged_in.email}">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}</a>
                         </c:when>
                         <c:otherwise>
                             <a class="noneDecoration" href="${pageContext.request.contextPath}/Login">Tài khoản</a>
