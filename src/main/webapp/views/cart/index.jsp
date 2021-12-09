@@ -45,14 +45,16 @@
 
                             <div class=" input-group w-auto justify-content-center align-items-center">
                                 <p class="p__buying"> Số lượng mua: </p>
-                                <input type="button" value="-"
-                                       class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
-                                       data-field="quantity">
+                                <a href="${pageContext.request.contextPath}/BuyNumCart/minus?bookid=${b.book_ID}">+</a>
+<%--                                <input type="button" value="-"--%>
+<%--                                       class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "--%>
+<%--                                       data-field="quantity">--%>
                                 <input type="number" step="1" max="100" value="1" name="quantity"
                                        class="numberBuying quantity-field text-center w-25">
-                                <input type="button" value="+"
-                                       class="button-plus border rounded-circle icon-shape icon-sm btnPlus "
-                                       data-field="quantity">
+                                <a href="${pageContext.request.contextPath}/BuyNumCart/plus?bookid=${b.book_ID}">+</a>
+<%--                                <input type="button" value="+"--%>
+<%--                                       class="button-plus border rounded-circle icon-shape icon-sm btnPlus "--%>
+<%--                                       data-field="quantity">--%>
                             </div>
                         </div>
                         <div class="money">

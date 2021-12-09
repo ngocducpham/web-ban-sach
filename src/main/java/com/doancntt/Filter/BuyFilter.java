@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "BuyFilter",value = "/Detail")
+@WebFilter(filterName = "BuyFilter",value = {"/Detail","/Cart"})
 public class BuyFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }

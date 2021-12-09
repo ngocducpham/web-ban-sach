@@ -38,7 +38,7 @@ public class CustomerModel {
                     .addParameter("sdt", a.getPhone_Number())
                     .addParameter("diachi", a.getFull_Address())
                     .addParameter("CusID", x)
-                    .addParameter("province",a.getProvince())
+                    .addParameter("province", a.getProvince())
                     .executeUpdate();
         }
     }
@@ -166,7 +166,7 @@ public class CustomerModel {
     public static List<OrderDetail> FindByOrderID(String id_list) {
         String findSql = "select *,count(Quantity) as count_book " +
                 "from order_detail " +
-                "where Order_ID in ("+ id_list +") " +
+                "where Order_ID in (" + id_list + ") " +
                 "group by (Book_ID)" +
                 "order by Book_ID";
         try (Connection con = DatabaseUtils.createConnection()) {
@@ -176,44 +176,63 @@ public class CustomerModel {
         }
     }
 
-    //function to add from fe
-    public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        String ho, ten, email, pass, Encrypted_pass, diachi,tinh, sdt;
-        ho = request.getParameter("ho");
-        ten = request.getParameter("ten");
-        email = request.getParameter("email");
-        pass = request.getParameter("password");
-        Encrypted_pass = BCrypt.withDefaults().hashToString(12, pass.toCharArray());
-        sdt = request.getParameter("sdt");
-        diachi = request.getParameter("diachict");
-        tinh=request.getParameter("ls_province");
-        Customer c = new Customer(ho, email, ten, Encrypted_pass);
-        Address a = new Address(sdt, diachi,tinh);
-        Add(c, a);
-        ServletUtils.redirect("/Login", request, response);
+        //function to add from fe
+        public static void addnewCustomer (HttpServletRequest request, HttpServletResponse response) throws
+        ServletException, IOException {
+            request.setCharacterEncoding("UTF-8");
+            String ho, ten, email, pass, Encrypted_pass, diachi, tinh, sdt;
+            ho = request.getParameter("ho");
+            ten = request.getParameter("ten");
+            email = request.getParameter("email");
+            pass = request.getParameter("password");
+            Encrypted_pass = BCrypt.withDefaults().hashToString(12, pass.toCharArray());
+            sdt = request.getParameter("sdt");
+            diachi = request.getParameter("diachict");
+            tinh = request.getParameter("ls_province");
+            Customer c = new Customer(ho, email, ten, Encrypted_pass);
+            Address a = new Address(sdt, diachi, tinh);
+            Add(c, a);
+            ServletUtils.redirect("/Login", request, response);
+        }
+
+        //function addtocart
+        public static void addtocart (HttpServletRequest request, HttpServletResponse response) throws
+        ServletException, IOException {
+            int book_id = Integer.parseInt(request.getParameter("bookid"));
+            Book bookB = BookModel.FindBookById(book_id);
+            HttpSession session = request.getSession();
+            Customer c = (Customer) session.getAttribute("Customer_logged_in");
+            Address a = FindAddressByCusID(c.getCustomer_ID());
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            LocalDate d = LocalDate.now();
+            dtf.format(d);
+            ZoneId systemTimeZone = ZoneId.systemDefault();
+
+            ZonedDateTime zonedDateTime = d.atStartOfDay(systemTimeZone);
+
+            Date utilDate = Date.from(zonedDateTime.toInstant());
+            CustomerOrder co = new CustomerOrder(utilDate, a.getFull_Address(), c.getCustomer_ID());
+            int cost = bookB.getPrice() * (100 - bookB.getDiscount()) / 100;
+            OrderDetail od = new OrderDetail(1, cost, book_id);
+
+            AddnewCustomer_Order(co);
+            AddnewOrder_detail(od);
+        }
+
+        //function to remove from cart
+        public static void removefromcart (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            int book_id = Integer.parseInt(request.getParameter("bookid"));
+            HttpSession session = request.getSession();
+            Customer c = (Customer) session.getAttribute("Customer_logged_in");
+            List<CustomerOrder> List_CO = FindOrderByCusID(c.Customer_ID);
+
+            StringBuilder order_id = new StringBuilder();
+            for (CustomerOrder co : List_CO) {
+                order_id.append(co.getOrder_ID()).append(",");
+            }
+            order_id = new StringBuilder(order_id.substring(0, order_id.length() - 1));
+
+//            AddnewCustomer_Order(co);
+//            AddnewOrder_detail(od);
+        }
     }
-
-    //function addtocart
-    public static void addtocart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int book_id = Integer.parseInt(request.getParameter("bookid"));
-        Book bookB = BookModel.FindBookById(book_id);
-        HttpSession session = request.getSession();
-        Customer c = (Customer) session.getAttribute("Customer_logged_in");
-        Address a = FindAddressByCusID(c.getCustomer_ID());
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate d = LocalDate.now();
-        dtf.format(d);
-        ZoneId systemTimeZone = ZoneId.systemDefault();
-
-        ZonedDateTime zonedDateTime = d.atStartOfDay(systemTimeZone);
-
-        Date utilDate = Date.from(zonedDateTime.toInstant());
-        CustomerOrder co = new CustomerOrder(utilDate, a.getFull_Address(), c.getCustomer_ID());
-        int cost = bookB.getPrice() * (100 - bookB.getDiscount()) / 100;
-        OrderDetail od = new OrderDetail(1, cost, book_id);
-
-        AddnewCustomer_Order(co);
-        AddnewOrder_detail(od);
-    }
-}
