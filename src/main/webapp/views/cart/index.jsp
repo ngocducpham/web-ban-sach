@@ -45,16 +45,21 @@
 
                             <div class=" input-group w-auto justify-content-center align-items-center">
                                 <p class="p__buying"> Số lượng mua: </p>
-                                <a href="${pageContext.request.contextPath}/BuyNumCart/minus?bookid=${b.book_ID}">+</a>
+                                <a href="${pageContext.request.contextPath}/BuyNumCart/minus?bookid=${b.book_ID}" role="button" class="btn btn-outline-danger btn-sm rounded">
 <%--                                <input type="button" value="-"--%>
 <%--                                       class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "--%>
 <%--                                       data-field="quantity">--%>
-                                <input type="number" step="1" max="100" value="1" name="quantity"
-                                       class="numberBuying quantity-field text-center w-25">
-                                <a href="${pageContext.request.contextPath}/BuyNumCart/plus?bookid=${b.book_ID}">+</a>
+                                    -
+                                </a>
+                                <input type="text" max="100" value="${order_detail.get(Book_ordered.indexOf(b)).count_book}" name="quantity"
+                                       class="numberBuying quantity-field text-center"
+                                        readonly>
+                                <a href="${pageContext.request.contextPath}/BuyNumCart/plus?bookid=${b.book_ID}" role="button" class="btn btn-outline-success btn-sm rounded">
 <%--                                <input type="button" value="+"--%>
 <%--                                       class="button-plus border rounded-circle icon-shape icon-sm btnPlus "--%>
 <%--                                       data-field="quantity">--%>
+                                    +
+                                </a>
                             </div>
                         </div>
                         <div class="money">

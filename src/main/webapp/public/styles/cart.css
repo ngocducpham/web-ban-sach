@@ -48,8 +48,11 @@
 }
 
 .numberBuying {
-    border: 2px solid black;
-    border-radius: 20px;
+    /*border: 2px solid black;*/
+    /*border-radius: 20px;*/
+    border: none;
+    width: 40px;
+
 }
 
 .p__buying {
