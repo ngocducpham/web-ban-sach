@@ -1,0 +1,110 @@
+.container {
+    width: auto;
+    height: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.picProduct img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.picProduct {
+    width: 50px;
+    align-items: center;
+}
+
+.titlePay {
+    font-size: 24pt;
+    width: 250px;
+    border: 2px solid gray;
+    border-radius: 30px;
+    text-align: center;
+    margin: 0 auto;
+    color: green;
+}
+
+.topicAddress {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Address {
+    color: green;
+}
+
+.addNewAddress {
+    border-radius: 30px;
+    height: 30px;
+    margin: auto 0;
+}
+
+.detailAddress {
+    display: flex;
+}
+
+.nameCustomer {
+    margin-right: 50px;
+}
+
+.customerAddress {
+    text-align: left;
+}
+
+.boxProduct {
+    border: 1px solid gray;
+    background-color: wheat;
+}
+
+.tableProduct {
+    width: 100%;
+    text-align: left;
+}
+
+.tableProduct td {
+    vertical-align:middle;
+
+}
+
+.nameProduct {
+    /* text-align: center; */
+    margin: auto 0;
+}
+
+.fullProduct {
+    display: flex;
+}
+
+.boxPayment {
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 2px solid gray;
+    width: 500px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.tablePayment {
+    width: 100%;
+    text-align: left;
+    margin-left: 5px;
+    padding-top: 20px;
+    padding-right: 20px;
+    line-height: 1.5;
+}
+
+.methodPayment {
+    background-color: whitesmoke;
+    text-align: center;
+
+}
+
+.btnOrder {
+    margin: 20px 0;
+    font-size: 18pt;
+    background-color: green;
+    color: aliceblue;
+}
