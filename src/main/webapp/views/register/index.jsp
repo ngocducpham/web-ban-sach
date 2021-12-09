@@ -2,9 +2,6 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<script
-        src="https://code.jquery.com/jquery-3.6.0.min.js">
-</script>
 
 <t:main>
     <jsp:attribute name="css">
@@ -12,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/register.css">
     </jsp:attribute>
     <jsp:attribute name="js">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/public/scripts/register.js"></script>
         <script src="${pageContext.request.contextPath}/public/scripts/vietnamlocalselector.js"></script>
          <script>

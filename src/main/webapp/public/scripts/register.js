@@ -80,7 +80,7 @@ function checkPass() {
 //     alert("cc");
 // })
 
-$('#tinhtien').addEventListener('click', function (e) {
+$('#FormRegister').on('submit', function (e) {
     e.preventDefault();
     // const email = $('#email').val();
 
