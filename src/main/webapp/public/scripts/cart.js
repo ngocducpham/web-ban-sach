@@ -24,7 +24,7 @@ function decrementValue(e) {
     }
 }
 
-$('.button-plus]').on('click', function (e) {
+$('.button-plus').on('click', function (e) {
     incrementValue(e);
 });
 

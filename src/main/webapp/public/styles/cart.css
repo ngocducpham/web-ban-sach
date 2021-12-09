@@ -59,6 +59,10 @@
     font-weight: bold;
 }
 
+.btnPlus {
+    margin-left: 2px;
+}
+
 .trashIcon {
     color: #c02026;
     font-weight: bold;
