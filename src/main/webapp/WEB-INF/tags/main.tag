@@ -35,8 +35,8 @@
         crossorigin="anonymous"></script>
 
 <script>
-    let badgeEm = document.querySelector('.badge');
-    badgeEm.classList.add('d-none');
+    // let badgeEm = document.querySelector('.badge');
+    // badgeEm.classList.add('d-none');
 
     let search_data = document.querySelector(".search-data");
     let search_btn = document.querySelector(".btn-search");
