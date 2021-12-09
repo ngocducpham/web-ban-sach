@@ -114,7 +114,7 @@
         </div>
         <div class="containerBtn">
             <button class="back"> QUAY LẠI</button>
-            <button class="pay"><a href="" class=""></a> THANH TOÁN</button>
+            <a href="${pageContext.request.contextPath}/tratien" role="button" class="btn btn-warning">Thanh Toán</a>
         </div>
     </jsp:body>
 </t:main>
