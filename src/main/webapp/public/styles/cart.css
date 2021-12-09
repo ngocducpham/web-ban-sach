@@ -67,10 +67,19 @@
 }
 
 .trashIcon {
+    display: block;
     color: #c02026;
     font-weight: bold;
     border-radius: 20px;
+    border: 2px solid gray;
+    padding: 3px 5px;
+    text-decoration: none;
     /*background-color: #c02026;*/
+}
+
+.trashIcon:hover {
+    background-color: #c02026;
+    color: #f2f5f7;
 }
 
 .quantityProduct {
