@@ -23,6 +23,8 @@ public class BuyServlet extends HttpServlet {
                 if (url == null)
                     url = "/";
                 CustomerModel.addtocart(request, response);
+                int shdm=(int)session.getAttribute("shdm");
+                session.setAttribute("shdm",shdm+1);
                 ServletUtils.redirect(url, request, response);
         }
     }

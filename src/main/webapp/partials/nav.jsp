@@ -38,12 +38,9 @@
                     <button type="button" class="btn position-relative shadow-none p-0">
                         <i class="fas fa-shopping-cart"></i>
                         <c:choose>
-                            <c:when test="${Verified}">
+                            <c:if test="${Verified}">
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">${shdm}</span>
-                            </c:when>
-                            <c:otherwise>
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">10+</span>
-                            </c:otherwise>
+                            </c:if>
                         </c:choose>
                     </button>
                     <c:choose>
