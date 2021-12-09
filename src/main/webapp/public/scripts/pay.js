@@ -43,7 +43,6 @@ window.onload = function() {
     let format5 =  formatNumber(totalPay) + " đ";
     document.getElementById("detailMoneyProduct").innerHTML = format5;
 
-
     moneyProduct = formatNumber(numb2) + " đ";
     document.getElementById("totalMoneyProduct").innerHTML = moneyProduct;
 }
