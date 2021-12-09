@@ -48,7 +48,7 @@ public class CartServlet extends HttpServlet {
         request.setAttribute("customer_address",a);
         request.setAttribute("count_book", sumofBook);
         request.setAttribute("bill_cost", bill_cost);
-
+        session.setAttribute("shdm",sumofBook);
         ServletUtils.forward("views/cart/index.jsp", request, response);
     }
 
