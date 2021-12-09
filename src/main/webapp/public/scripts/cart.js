@@ -66,5 +66,8 @@ window.onload = function() {
     let totalMoney = parseInt(numb)  + parseInt(numb2);
     let format5 = formatNumber(totalMoney) + ' đ';
     document.getElementById("moneyTotal").innerHTML = format5;
+
+
+
 }
 

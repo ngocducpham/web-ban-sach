@@ -23,7 +23,7 @@
     <jsp:body>
         <div class="paymentPage">
             <div class="containerPayment">
-                <p id="province" style="visibility: hidden">${customer_address.province}</p>
+                <p id="province" style="display: none">${customer_address.province}</p>
                 <h2 class="titlePay">Thanh Toán</h2>
                 <div class="boxAddress">
                     <div class="topicAddress">
@@ -46,7 +46,7 @@
                         <div class="boxProduct">
                             <table class="tableProduct">
                                 <tr class="topicProduct">
-                                    <th>Sản phẩm</th>
+                                    <th>&nbsp; Sản phẩm</th>
                                     <th>Đơn giá</th>
                                     <th>Số lượng</th>
                                     <th>Thành tiền</th>
@@ -59,15 +59,15 @@
                                                     alt="Picture Product">
                                             </figure>
                                         </a>
-                                        <p class="nameProduct">${b.title}</p>
+                                        <p class="nameProduct">&nbsp; ${b.title}</p>
                                     </td>
-                                    <td><fmt:formatNumber
+                                    <td id="bookMoney"><fmt:formatNumber
                                             type="number" maxFractionDigits="0"
                                             value="${b.price*(100-b.discount)/100}"/>
                                     </td>
-                                    <td class="quantity"> ${order_detail.get(Book_ordered.indexOf(b)).count_book}
+                                    <td id="quantity"> ${order_detail.get(Book_ordered.indexOf(b)).count_book}
                                     </td>
-                                    <td> 99999đ</td>
+                                    <td id="moneyQuantity"> 99999đ</td>
                                 </tr>
                             </table>
                         </div>
@@ -75,20 +75,20 @@
                     <div class="boxPayment">
                         <table class="tablePayment">
                             <tr class="methodPayment">
-                                <th>$ Phương thức thanh toán</th>
-                                <td>Thanh toán khi nhận hàng</td>
+                                <th class="orange">$ Phương thức thanh toán</th>
+                                <td class="orange">Thanh toán khi nhận hàng</td>
                             </tr>
                             <tr class="labelTotalMoney">
                                 <th>1. &nbsp;Tổng tiền hàng</th>
-                                <td>${bill_cost}</td>
+                                <td id="totalMoneyProduct">${bill_cost}</td>
                             </tr>
                             <tr class="labelfeeTransfer">
                                 <th>2.&nbsp; Phí vận chuyển</th>
-                                <td>57.200</td>
+                                <td id="detailMoney">57.200</td>
                             </tr>
                             <tr class="totalPay">
                                 <th>3. Tổng thanh toán</th>
-                                <td>387.200</td>
+                                <td id="detailMoneyProduct">387.200</td>
                             </tr>
                         </table>
                         <button class="btnOrder"> Đặt hàng</button>
