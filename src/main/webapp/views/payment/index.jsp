@@ -38,7 +38,7 @@
                     </div>
                     <div class="detailAddress">
                         <p class="nameCustomer">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}<br><span
-                                class="phoneNum">Số Điện Thoại ${customer_address.phone_Number} </span>
+                                class="phoneNum">SĐT: ${customer_address.phone_Number} </span>
                         </p>
                         <p class="customerAddress"> ${customer_address.full_Address} </p>
                     </div>
@@ -80,7 +80,7 @@
                             </tr>
                             <tr class="labelTotalMoney">
                                 <th>1. &nbsp;Tổng tiền hàng</th>
-                                    <%--                                <td>${bill_cost}</td>--%>
+                                <td>${bill_cost}</td>
                             </tr>
                             <tr class="labelfeeTransfer">
                                 <th>2.&nbsp; Phí vận chuyển</th>
