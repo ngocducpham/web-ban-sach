@@ -82,7 +82,7 @@ function checkPass() {
 
 $('#FormRegister').on('submit', function (e) {
     e.preventDefault();
-    // const email = $('#email').val();
+    const email = $('#email').val();
 
     $.getJSON('/do_an_cntt/Register/CheckAvailable?email=' + email, function (data) {
         if (data === true) {
