@@ -26,11 +26,12 @@
 
         </jsp:attribute>
     <jsp:attribute name="js">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/cart.js"></script>
     </jsp:attribute>
     <jsp:body>
         <h2 class="headerCart"> GIỎ HÀNG</h2>
-        <p id="province">${customer_address.province}</p>
+        <p id="province" style="visibility: hidden">${customer_address.province}</p>
         <div class="container">
             <div class="productBox">
                 <h4 class="headerProduct"> SẢN PHẨM</h4>
@@ -44,14 +45,14 @@
 
                             <div class=" input-group w-auto justify-content-center align-items-center">
                                 <p class="p__buying"> Số lượng mua: </p>
-                                <input type="button" value="-"
-                                       class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
-                                       data-field="quantity">
+<%--                                <input type="button" value="-"--%>
+<%--                                       class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "--%>
+<%--                                       data-field="quantity">--%>
                                 <input type="number" step="1" max="100" value="1" name="quantity"
                                        class="numberBuying quantity-field text-center w-25">
-                                <input type="button" value="+"
-                                       class="button-plus border rounded-circle icon-shape icon-sm "
-                                       data-field="quantity">
+<%--                                <input type="button" value="+"--%>
+<%--                                       class="button-plus border rounded-circle icon-shape icon-sm "--%>
+<%--                                       data-field="quantity">--%>
                             </div>
                         </div>
                         <div class="money">
