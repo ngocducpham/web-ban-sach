@@ -20,7 +20,7 @@
     </jsp:attribute>
     <jsp:body>
         <div class="paymentPage">
-            <div class="container">
+            <div class="containerPayment">
                 <h2 class="titlePay">Thanh Toán</h2>
                 <div class="boxAddress">
                     <div class="topicAddress">
