@@ -3,24 +3,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<%--<jsp:useBean id="customer_order" scope="request" type="java.util.List<com.doancntt.beans.CustomerOrder>"/>--%>
-<%--<jsp:useBean id="order_detail" scope="request" type="java.util.List<com.doancntt.beans.OrderDetail>"/>--%>
-<%--<jsp:useBean id="Book_ordered" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>--%>
-<%--<jsp:useBean id="customer_address" scope="request" type="com.doancntt.beans.Address"/>--%>
+<jsp:useBean id="customer_order" scope="request" type="java.util.List<com.doancntt.beans.CustomerOrder>"/>
+<jsp:useBean id="order_detail" scope="request" type="java.util.List<com.doancntt.beans.OrderDetail>"/>
+<jsp:useBean id="Book_ordered" scope="request" type="java.util.List<com.doancntt.beans.Book>"/>
+<jsp:useBean id="customer_address" scope="request" type="com.doancntt.beans.Address"/>
 
-<%--<jsp:useBean id="count_book" scope="request" type="java.lang.Integer"/>--%>
-<%--<jsp:useBean id="bill_cost" scope="request" type="java.lang.Integer"/>--%>
+<jsp:useBean id="count_book" scope="request" type="java.lang.Integer"/>
+<jsp:useBean id="bill_cost" scope="request" type="java.lang.Integer"/>
 
+<jsp:useBean id="Customer_logged_in" scope="session" type="com.doancntt.beans.Customer"/>
 
 <t:main>
      <jsp:attribute name="css">
          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/payment.css">
         </jsp:attribute>
     <jsp:attribute name="js">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/pay.js"></script>
     </jsp:attribute>
     <jsp:body>
         <div class="paymentPage">
             <div class="containerPayment">
+                <p id="province" style="visibility: hidden">${customer_address.province}</p>
                 <h2 class="titlePay">Thanh Toán</h2>
                 <div class="boxAddress">
                     <div class="topicAddress">
@@ -34,31 +37,41 @@
                         <button class="addNewAddress"> Thêm địa chỉ mới</button>
                     </div>
                     <div class="detailAddress">
-                        <p class="nameCustomer"> Customer Name <br><span class="phoneNum">0842805550 </span></p>
-                        <p class="customerAddress"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi atque
-                            dolor hic nam </p>
+                        <p class="nameCustomer">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}<br><span
+                                class="phoneNum">Số Điện Thoại ${customer_address.phone_Number} </span>
+                        </p>
+                        <p class="customerAddress"> ${customer_address.full_Address} </p>
                     </div>
-                    <div class="boxProduct">
-                        <table class="tableProduct">
-                            <tr class="topicProduct">
-                                <th>Sản phẩm</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
-                            </tr>
-                            <tr class="detailProduct">
-                                <td class="fullProduct">
-                                    <figure class="picProduct"><img src="#" alt="Picture Product"></figure>
-                                    <p class="nameProduct">Name product in here</p>
-                                </td>
-                                <td>330000 đ</td>
-                                <td class="quantity"> 1
-                                </th>
-                                <td> 330000 đ
-                                </th>
-                            </tr>
-                        </table>
-                    </div>
+                    <c:forEach items="${Book_ordered}" var="b">
+                        <div class="boxProduct">
+                            <table class="tableProduct">
+                                <tr class="topicProduct">
+                                    <th>Sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                                <tr class="detailProduct">
+                                    <td class="fullProduct">
+                                        <a href="${pageContext.request.contextPath}/Detail?id=${b.book_ID}">
+                                            <figure class="picProduct"><img
+                                                    src="${pageContext.request.contextPath}/public/imgs/${b.img}"
+                                                    alt="Picture Product">
+                                            </figure>
+                                        </a>
+                                        <p class="nameProduct">${b.title}</p>
+                                    </td>
+                                    <td><fmt:formatNumber
+                                            type="number" maxFractionDigits="0"
+                                            value="${b.price*(100-b.discount)/100}"/>
+                                    </td>
+                                    <td class="quantity"> ${order_detail.get(Book_ordered.indexOf(b)).count_book}
+                                    </td>
+                                    <td> 99999đ</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </c:forEach>
                     <div class="boxPayment">
                         <table class="tablePayment">
                             <tr class="methodPayment">
@@ -67,7 +80,7 @@
                             </tr>
                             <tr class="labelTotalMoney">
                                 <th>1. &nbsp;Tổng tiền hàng</th>
-                                <td>330000</td>
+                                    <%--                                <td>${bill_cost}</td>--%>
                             </tr>
                             <tr class="labelfeeTransfer">
                                 <th>2.&nbsp; Phí vận chuyển</th>
