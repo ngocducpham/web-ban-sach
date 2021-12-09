@@ -80,19 +80,19 @@ function checkPass() {
 //     alert("cc");
 // })
 
-// $('#tinhtien').addEventListener('click', function (e) {
-//     e.preventDefault();
-//     // const email = $('#email').val();
-//
-//     $.getJSON('/do_an_cntt/Register/CheckAvailable?email=' + email, function (data) {
-//         if (data === true) {
-//             alert("Đăng kí thành công !")
-//             $('#FormRegister').off('submit').submit();
-//         } else {
-//             alert('Email đã có người sử dụng');
-//         }
-//     });
-// });
+$('#tinhtien').addEventListener('click', function (e) {
+    e.preventDefault();
+    // const email = $('#email').val();
+
+    $.getJSON('/do_an_cntt/Register/CheckAvailable?email=' + email, function (data) {
+        if (data === true) {
+            alert("Đăng kí thành công !")
+            $('#FormRegister').off('submit').submit();
+        } else {
+            alert('Email đã có người sử dụng');
+        }
+    });
+});
 
 
 

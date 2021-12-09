@@ -2,22 +2,18 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/register.css">
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+</script>
 
 <t:main>
-
+    <jsp:attribute name="css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/register.css">
+    </jsp:attribute>
     <jsp:attribute name="js">
-        <script
-                src="https://code.jquery.com/jquery-3.6.0.min.js"
-                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                crossorigin="anonymous">
-        </script>
-
-        <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/register.js"></script>
-        <script type="text/javascript"
-                src="${pageContext.request.contextPath}/public/scripts/vietnamlocalselector.js"></script>
+        <script src="${pageContext.request.contextPath}/public/scripts/register.js"></script>
+        <script src="${pageContext.request.contextPath}/public/scripts/vietnamlocalselector.js"></script>
          <script>
              let localpicker = new LocalPicker({
                  province: "ls_province",
@@ -67,7 +63,7 @@
                         <div class="provinceOption">
                             <select class="space" name="ls_province" id="ls_province"></select>
                             <select class="space" name="ls_district" id="ls_district"></select>
-                            <select class="space" name="ls_ward" id="ls_ward" ></select>
+                            <select class="space" name="ls_ward" id="ls_ward"></select>
                         </div>
                         <label for="diachi">
                             Địa Chỉ Nhà
