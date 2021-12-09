@@ -36,20 +36,23 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("Verified", true);
                 session.setAttribute("Customer_logged_in", c);
                 List<CustomerOrder> List_CO = CustomerModel.FindOrderByCusID(c.getCustomer_ID());
-                String order_id = "";
-                int sumofBook = 0;
-                for (CustomerOrder co : List_CO) {
-                    order_id += String.valueOf(co.getOrder_ID()) + ",";
-                }
-                order_id = order_id.substring(0, order_id.length() - 1);
-                List<OrderDetail> List_OD = CustomerModel.FindByOrderID(order_id);
-                for (OrderDetail od : List_OD) {
-                    sumofBook += od.count_book;
-                }
+
                 String url = (String) session.getAttribute("retUrl");
                 if (url == null)
                     url = "/";
-                session.setAttribute("shdm",sumofBook);
+                if (List_CO.size() != 0) {
+                    String order_id = "";
+                    int sumofBook = 0;
+                    for (CustomerOrder co : List_CO) {
+                        order_id += String.valueOf(co.getOrder_ID()) + ",";
+                    }
+                    order_id = order_id.substring(0, order_id.length() - 1);
+                    List<OrderDetail> List_OD = CustomerModel.FindByOrderID(order_id);
+                    for (OrderDetail od : List_OD) {
+                        sumofBook += od.count_book;
+                    }
+                    session.setAttribute("shdm", sumofBook);
+                }
                 ServletUtils.redirect(url, request, response);
             } else {
                 request.setAttribute("hasError", true);
