@@ -130,5 +130,14 @@ document.getElementById('ls_district').addEventListener("change", function () {
     detailAddress.value = addressHouse.value + ", " + ward.options[ward.selectedIndex].text + ", " + distric.options[distric.selectedIndex].text + ", " + province.options[province.selectedIndex].text;
 });
 
+document.getElementById('diachi').addEventListener("change", function () {
+    // alert("cc");
+    province = document.getElementById('ls_province');
+    distric = document.getElementById('ls_district');
+    ward = document.getElementById('ls_ward');
+    addressHouse = document.getElementById('diachi');
+
+    detailAddress.value = addressHouse.value + ", " + ward.options[ward.selectedIndex].text + ", " + distric.options[distric.selectedIndex].text + ", " + province.options[province.selectedIndex].text;
+});
 
 

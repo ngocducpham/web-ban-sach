@@ -69,7 +69,7 @@
                         <input type="text" name="diachi" id="diachi"
                                class="form-control form-control input-block js-password-field"
                                autocomplete="current-password"
-                               onblur="detailAddress()"
+
                         >
                         <input type="text" name="diachict" id="diachichitiet"
                                class="form-control form-control input-block js-password-field"
