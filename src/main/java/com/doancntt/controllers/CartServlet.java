@@ -20,27 +20,27 @@ public class CartServlet extends HttpServlet {
         Address a = CustomerModel.FindAddressByCusID(c.getCustomer_ID());
         List<CustomerOrder> List_CO = CustomerModel.FindOrderByCusID(c.getCustomer_ID());
 
-        StringBuilder order_id = new StringBuilder();
-        StringBuilder book_list_id = new StringBuilder();
+        String order_id = "";
+        String book_list_id = "";
         int sumofBook = 0;
         int bill_cost = 0;
         for (CustomerOrder co : List_CO) {
-            order_id.append(co.getOrder_ID()).append(",");
+            order_id += String.valueOf(co.getOrder_ID()) + ",";
         }
-        order_id = new StringBuilder(order_id.substring(0, order_id.length() - 1));
+        order_id = order_id.substring(0, order_id.length() - 1);
 
-        List<OrderDetail> List_OD = CustomerModel.FindByOrderID(order_id.toString());
+        List<OrderDetail> List_OD = CustomerModel.FindByOrderID(order_id);
 
         for (OrderDetail od : List_OD) {
-            book_list_id.append(od.getBook_ID()).append(",");
+            book_list_id += String.valueOf(od.getBook_ID()) + ",";
             sumofBook += od.count_book;
             for (int i=0;i<od.count_book;i++){
                 bill_cost += od.Total_Cost;
             }
         }
 
-        book_list_id = new StringBuilder(book_list_id.substring(0, book_list_id.length() - 1));
-        List<Book> Book_ordered = BookModel.FindListOfBookById(book_list_id.toString());
+        book_list_id = book_list_id.substring(0, book_list_id.length() - 1);
+        List<Book> Book_ordered = BookModel.FindListOfBookById(book_list_id);
 
         request.setAttribute("customer_order", List_CO);
         request.setAttribute("order_detail", List_OD);
