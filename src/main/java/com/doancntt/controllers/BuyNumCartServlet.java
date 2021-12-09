@@ -30,9 +30,14 @@ public class BuyNumCartServlet extends HttpServlet {
                 case "/minus":
                     if (url == null)
                         url = "/";
-                    CustomerModel.removefromcart(request, response);
+                    CustomerModel.removeOnefromcart(request, response);
                     ServletUtils.redirect(url, request, response);
                     break;
+                case "/remove":
+                    if (url == null)
+                        url = "/";
+                    CustomerModel.removefromcart(request, response);
+                    ServletUtils.redirect(url, request, response);
                 default:
                     break;
             }

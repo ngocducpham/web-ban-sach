@@ -177,10 +177,19 @@ public class CustomerModel {
     }
 
     public static void RemoveOrder_detail(int book_id, String order_id) {
-        String DeleteSql = " delete from order_detail where Book_ID=:book_id and Order_ID in ("+order_id+") limit 1;";
+        String DeleteSql = " delete from order_detail where Book_ID=:book_id and Order_ID in (" + order_id + ") limit 1;";
         try (Connection con = DatabaseUtils.createConnection()) {
             con.createQuery(DeleteSql)
-                    .addParameter("book_id",book_id)
+                    .addParameter("book_id", book_id)
+                    .executeUpdate();
+        }
+    }
+
+    public static void RemoveAllOrder_detail(int book_id, String order_id) {
+        String DeleteSql = " delete from order_detail where Book_ID=:book_id and Order_ID in (" + order_id + ");";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            con.createQuery(DeleteSql)
+                    .addParameter("book_id", book_id)
                     .executeUpdate();
         }
     }
@@ -228,8 +237,8 @@ public class CustomerModel {
         AddnewOrder_detail(od);
     }
 
-    //function to remove from cart
-    public static void removefromcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //function to remove one product from cart
+    public static void removeOnefromcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int book_id = Integer.parseInt(request.getParameter("bookid"));
         HttpSession session = request.getSession();
         Customer c = (Customer) session.getAttribute("Customer_logged_in");
@@ -242,5 +251,21 @@ public class CustomerModel {
         order_id = order_id.substring(0, order_id.length() - 1);
 
         RemoveOrder_detail(book_id, order_id);
+    }
+
+    //fuinction to remove all product with id from cart
+    public static void removefromcart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int book_id = Integer.parseInt(request.getParameter("bookid"));
+        HttpSession session = request.getSession();
+        Customer c = (Customer) session.getAttribute("Customer_logged_in");
+        List<CustomerOrder> List_CO = FindOrderByCusID(c.Customer_ID);
+
+        String order_id = "";
+        for (CustomerOrder co : List_CO) {
+            order_id += String.valueOf(co.getOrder_ID()) + ",";
+        }
+        order_id = order_id.substring(0, order_id.length() - 1);
+
+        RemoveAllOrder_detail(book_id, order_id);
     }
 }

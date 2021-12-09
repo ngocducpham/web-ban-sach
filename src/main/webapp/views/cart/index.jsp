@@ -66,7 +66,7 @@
                                         class="moneyBook"><fmt:formatNumber
                                         type="number" maxFractionDigits="0"
                                         value="${b.price*(100-b.discount)/100}"/> đ</span></p>
-                            <a class="trashIcon" role="button">
+                            <a class="trashIcon" role="button" href="${pageContext.request.contextPath}/BuyNumCart/remove?bookid=${b.book_ID}">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-trash" viewBox="0 0 16 16">
