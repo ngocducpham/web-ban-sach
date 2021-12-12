@@ -141,3 +141,43 @@ document.getElementById('diachi').addEventListener("change", function () {
 });
 
 
+$("#newAddress").click(function (){
+    $("#formAddress").removeClass("invisible1").addClass("visible1");
+})
+
+$("#btnCanel").click(function (){
+    $("#formAddress").removeClass("visible1").addClass("invisible1");
+})
+
+// $("#btnComplete").click(function (){
+//     // $("#formAddress").removeClass("visible1").addClass("invisible1");
+//
+// })
+document.getElementById("btnComplete").addEventListener("click", function (){
+    let xmlHttp = new XMLHttpRequest();
+
+    let t= document.getElementById("ls_province").value;
+    let url="http://localhost:8080/do_an_cntt/ShipFeeServlet?f=184&t="+t.toString()+"&w=510";
+
+    xmlHttp.open( "GET",url , false ); // false for synchronous request
+
+    xmlHttp.send( null );
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/html");
+
+    let x=xmlDoc.getElementsByTagName("table").item(0).rows[1].cells[2].innerHTML;
+    console.log(x);
+
+    $("#formAddress").removeClass("visible1").addClass("invisible1");
+
+    let address = document.getElementById("diachichitiet").value;
+    let name = document.getElementById("ten").value;
+    let phone = document.getElementById("sdt").value;
+    console.log(phone);
+    $("#customerAddress").text(address);
+    $("#nameCustomer").text(name);
+    $("#phoneNumber").text("SĐT: "+phone);
+
+
+})
+

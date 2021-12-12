@@ -34,3 +34,30 @@
     color: #c02026;
     font-style: italic;
 }
+
+.addressHeader {
+    color: #087b39;
+    text-align: center;
+}
+
+
+
+.newForm {
+    position: absolute;
+    left: 36%;
+    background-color: white;
+}
+
+.visible1 {
+    display: block;
+}
+
+.invisible1 {
+    display: none;
+}
+
+.sameLine {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}

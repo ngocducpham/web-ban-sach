@@ -15,10 +15,22 @@
 
 <t:main>
      <jsp:attribute name="css">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
          <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/payment.css">
+         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/register.css">
         </jsp:attribute>
     <jsp:attribute name="js">
         <script type="text/javascript" src="${pageContext.request.contextPath}/public/scripts/pay.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="${pageContext.request.contextPath}/public/scripts/register.js"></script>
+        <script src="${pageContext.request.contextPath}/public/scripts/vietnamlocalselector.js"></script>
+        <script>
+            let localpicker = new LocalPicker({
+                province: "ls_province",
+                district: "ls_district",
+                ward: "ls_ward"
+            });
+        </script>
     </jsp:attribute>
     <jsp:body>
         <div class="paymentPage">
@@ -34,13 +46,77 @@
                             </svg>
                             Địa chỉ nhận hàng
                         </h3>
-                        <button class="addNewAddress"> Thêm địa chỉ mới</button>
+                        <button class="addNewAddress" id="newAddress"> Thêm địa chỉ mới</button>
+                        <div class="newForm invisible1" id="formAddress">
+                            <div class="container-fluid p-0">
+
+                                <div class="auth-form px-3 mt-3" id="login">
+                                    <input type="hidden" name="ga_id" class="js-octo-ga-id-input">
+                                    <div class="auth-form-header p-0">
+                                        <h2 class="addressHeader">Địa chỉ mới</h2>
+                                    </div>
+                                    <form class="auth-form-body mt-3" method="post" id="FormRegister">
+                                        <label for="ten">
+                                            Tên <span class="txt_red">(*)</span>
+                                        </label>
+                                        <span class="txt_red" id="error_ten"></span>
+
+                                        <input type="text" name="ten" id="ten"
+                                               class="form-control form-control input-block js-password-field"
+                                               autocomplete="current-password"
+                                               onblur="checkName()">
+                                        <label for="sdt">
+                                            Số Điện Thoại <span class="txt_red">(*)</span></label><span class="txt_red"
+                                                                                                        id="error_phone"></span>
+                                        </label>
+                                        <input type="text" name="sdt" id="sdt"
+                                               class="form-control form-control input-block js-password-field"
+                                               autocomplete="current-password"
+                                               onblur="checkPhone()">
+                                        <p class="labelProvince"> Chọn tỉnh, huyện </p>
+                                        <div class="provinceOption">
+                                            <select class="space" name="ls_province" id="ls_province"></select>
+                                            <select class="space" name="ls_district" id="ls_district"></select>
+                                            <select class="space" name="ls_ward" id="ls_ward"></select>
+                                        </div>
+                                        <label for="diachi">
+                                            Địa Chỉ Nhà
+                                        </label>
+                                        <input type="text" name="diachi" id="diachi"
+                                               class="form-control form-control input-block js-password-field"
+                                               autocomplete="current-password"
+
+                                        >
+                                        <input type="text" name="diachict" id="diachichitiet"
+                                               class="form-control form-control input-block js-password-field"
+                                               autocomplete="current-password"
+                                               readonly
+
+                                        >
+                                        <div class="sameLine">
+                                            <input value="Hủy"
+                                                   class="btn btn-primary btn-block js-sign-in-button"
+                                                   id="btnCanel"
+                                                   type="button">
+                                            <input value="Hoành Thành"
+                                                   class="btn btn-primary btn-block js-sign-in-button"
+                                                   id="btnComplete"
+                                                   type="button">
+                                        </div>
+
+                                </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="detailAddress">
-                        <p class="nameCustomer">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}<br><span
-                                class="phoneNum">SĐT: ${customer_address.phone_Number} </span>
+                        <div>
+                        <p class="nameCustomer"
+                           id="nameCustomer">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}<br>
                         </p>
-                        <p class="customerAddress"> ${customer_address.full_Address} </p>
+                        <p class="phoneNum" id="phoneNumber">SĐT: ${customer_address.phone_Number} </p>
+                        </div>
+                            <p class="customerAddress" id="customerAddress"> &nbsp; ${customer_address.full_Address} </p>
                     </div>
                     <c:forEach items="${Book_ordered}" var="b">
                         <div class="boxProduct">
