@@ -111,12 +111,12 @@
                     </div>
                     <div class="detailAddress">
                         <div>
-                        <p class="nameCustomer"
-                           id="nameCustomer">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}<br>
-                        </p>
-                        <p class="phoneNum" id="phoneNumber">SĐT: ${customer_address.phone_Number} </p>
+                            <p class="nameCustomer"
+                               id="nameCustomer">${Customer_logged_in.first_Name} ${Customer_logged_in.last_Name}<br>
+                            </p>
+                            <p class="phoneNum" id="phoneNumber">SĐT: ${customer_address.phone_Number} </p>
                         </div>
-                            <p class="customerAddress" id="customerAddress"> &nbsp; ${customer_address.full_Address} </p>
+                        <p class="customerAddress" id="customerAddress"> &nbsp; ${customer_address.full_Address} </p>
                     </div>
                     <c:forEach items="${Book_ordered}" var="b">
                         <div class="boxProduct">
@@ -143,7 +143,11 @@
                                     </td>
                                     <td id="quantity"> ${order_detail.get(Book_ordered.indexOf(b)).count_book}
                                     </td>
-                                    <td id="moneyQuantity"> 99999đ</td>
+                                    <td id="moneyQuantity"><fmt:formatNumber
+                                            type="number" maxFractionDigits="0"
+                                            value="${order_detail.get(Book_ordered.indexOf(b)).count_book * (b.price*(100-b.discount)/100)}"/>
+                                        đ
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -156,7 +160,10 @@
                             </tr>
                             <tr class="labelTotalMoney">
                                 <th>1. &nbsp;Tổng tiền hàng</th>
-                                <td id="totalMoneyProduct">${bill_cost}</td>
+                                <td id="totalMoneyProduct"><fmt:formatNumber
+                                        type="number" maxFractionDigits="0"
+                                        value="${bill_cost}"/> đ
+                                </td>
                             </tr>
                             <tr class="labelfeeTransfer">
                                 <th>2.&nbsp; Phí vận chuyển</th>
