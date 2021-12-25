@@ -50,7 +50,7 @@ public class PayServlet extends HttpServlet {
             request.setAttribute("bill_cost", bill_cost);
             session.setAttribute("shdm", sumofBook);
             ServletUtils.forward("views/payment/index.jsp", request, response);
-        }else {
+        } else {
             session.setAttribute("shdm", 0);
             ServletUtils.forward("views/cart/Nothing.jsp", request, response);
         }
@@ -58,6 +58,17 @@ public class PayServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Customer c = (Customer) session.getAttribute("Customer_logged_in");
+        List<CustomerOrder> Cuctomer_order_to_delete = CustomerModel.Cuctomer_order_to_delete(c.getCustomer_ID());
+        String List_order = "";
+        for (CustomerOrder od : Cuctomer_order_to_delete) {
+            List_order += String.valueOf(od.getOrder_ID()) + ",";
+        }
+        List_order = List_order.substring(0, List_order.length() - 1);
 
+        CustomerModel.delete_Order_detail(List_order);
+        session.setAttribute("shdm", 0);
+        ServletUtils.redirect("/", request, response);
     }
 }

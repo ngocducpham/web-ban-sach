@@ -194,6 +194,24 @@ public class CustomerModel {
         }
     }
 
+
+    public static List<CustomerOrder> Cuctomer_order_to_delete(int cus_id) {
+        final String sql = "select * from customer_order co where co.Customer_ID=:cus_id;";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(sql)
+                    .addParameter("cus_id", cus_id)
+                    .executeAndFetch(CustomerOrder.class);
+        }
+    }
+
+    public static void delete_Order_detail(String order_id) {
+        String DeleteSql = " delete from order_detail where Order_ID in (" + order_id + ");";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            con.createQuery(DeleteSql)
+                    .executeUpdate();
+        }
+    }
+
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
@@ -268,4 +286,5 @@ public class CustomerModel {
 
         RemoveAllOrder_detail(book_id, order_id);
     }
+
 }

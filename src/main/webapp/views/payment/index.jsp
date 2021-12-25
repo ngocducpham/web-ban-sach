@@ -33,7 +33,7 @@
         </script>
     </jsp:attribute>
     <jsp:body>
-        <div class="paymentPage">
+        <form class="paymentPage" method="post">
             <div class="containerPayment">
                 <p id="province" style="display: none">${customer_address.province}</p>
                 <h2 class="titlePay">Thanh Toán</h2>
@@ -55,7 +55,7 @@
                                     <div class="auth-form-header p-0">
                                         <h2 class="addressHeader">Địa chỉ mới</h2>
                                     </div>
-                                    <form class="auth-form-body mt-3" method="post" id="FormRegister">
+                                    <div class="auth-form-body mt-3">
                                         <label for="ten">
                                             Tên <span class="txt_red">(*)</span>
                                         </label>
@@ -103,9 +103,8 @@
                                                    id="btnComplete"
                                                    type="button">
                                         </div>
-
+                                    </div>
                                 </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -174,10 +173,10 @@
                                 <td id="detailMoneyProduct">387.200</td>
                             </tr>
                         </table>
-                        <button class="btnOrder"> Đặt hàng</button>
+                        <button type="submit" class="btnOrder"> Đặt hàng</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </jsp:body>
 </t:main>
