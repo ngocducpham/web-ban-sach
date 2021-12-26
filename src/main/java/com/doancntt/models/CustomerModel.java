@@ -155,7 +155,7 @@ public class CustomerModel {
     }
 
     public static List<CustomerOrder> FindOrderByCusID(int id) {
-        String findSql = "select * from customer_order where Customer_ID=:id and status = 0 ;";
+        String findSql = "select * from customer_order where Customer_ID=:id and status = -1 ;";
         try (Connection con = DatabaseUtils.createConnection()) {
             List<CustomerOrder> list = con.createQuery(findSql)
                     .addParameter("id", id)
@@ -259,7 +259,7 @@ public class CustomerModel {
         ZonedDateTime zonedDateTime = d.atStartOfDay(systemTimeZone);
 
         Date utilDate = Date.from(zonedDateTime.toInstant());
-        CustomerOrder co = new CustomerOrder(utilDate, a.getFull_Address(), c.getCustomer_ID(), 0);
+        CustomerOrder co = new CustomerOrder(utilDate, a.getFull_Address(), c.getCustomer_ID(), -1);
         int cost = bookB.getPrice() * (100 - bookB.getDiscount()) / 100;
         OrderDetail od = new OrderDetail(1, cost, book_id);
 
