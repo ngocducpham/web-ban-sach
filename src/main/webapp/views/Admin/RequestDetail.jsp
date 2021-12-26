@@ -25,11 +25,11 @@
                     <p class="card-text">Không có dữ liệu.</p>
                 </c:when>
                 <c:otherwise>
-                    <div class="card-text">Mã khách hàng: ${requests.get(0).customer_ID}</div>
+                    <div class="card-text ">Mã khách hàng: ${requests.get(0).customer_ID}</div>
                     <div class="card-text">Tên khách
                         hàng: ${requests.get(0).first_Name} ${requests.get(0).last_Name}</div>
                     <div class="card-text">Địa chỉ cần giao: ${requests.get(0).dest_Address}</div>
-                    <div id="totalBill" class="card-text"></div>
+                    <div id="totalBill" class="card-text font-weight-bold"></div>
                     <table class="table mt-5 mb-5">
                         <thead>
                         <tr>
