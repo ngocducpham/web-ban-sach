@@ -44,11 +44,13 @@
                                         </c:otherwise>
                                     </c:choose>
                                     <td class="text-right">
-                                        <a class="btn btn-sm btn-outline-primary"
-                                           href="${pageContext.request.contextPath}/Admin/Request_Detail?cus_id=${ar.customer_ID}"
-                                           role="button">
-                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        </a>
+                                            <c:if test="${ar.status==1}">
+                                                <a class="btn btn-sm btn-outline-primary"
+                                                   href="${pageContext.request.contextPath}/Admin/Request_Detail?cus_id=${ar.customer_ID}"
+                                                   role="button">
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                </a>
+                                            </c:if>
                                     </td>
                                 </tr>
                             </c:forEach>

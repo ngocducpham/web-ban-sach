@@ -31,15 +31,26 @@ public class AdminServlet extends HttpServlet {
                 ServletUtils.forward("/views/Admin/DashBoard.jsp", request, response);
                 break;
             case "/RequestOrder":
-                List<order_request> list= order_requestModel.Find_All();
-                request.setAttribute("all_request",list);
+                List<order_request> list = order_requestModel.Find_All();
+                request.setAttribute("all_request", list);
                 ServletUtils.forward("/views/Admin/Request.jsp", request, response);
                 break;
             case "/Request_Detail":
-                int cus_id=Integer.parseInt(request.getParameter("cus_id"));
-                List<Detail_Request> dr=order_requestModel.FindByCusId(cus_id);
-                request.setAttribute("requests",dr);
+                int cus_id = Integer.parseInt(request.getParameter("cus_id"));
+                List<Detail_Request> dr = order_requestModel.FindByCusId(cus_id);
+                request.setAttribute("requests", dr);
                 ServletUtils.forward("/views/Admin/RequestDetail.jsp", request, response);
+                break;
+            case "/OrderStatus":
+                int status = Integer.parseInt(request.getParameter("status"));
+                int cus_ID = Integer.parseInt(request.getParameter("cus_id"));
+                if(status == 1){
+                    order_requestModel.acceptOrder(cus_ID);
+                }
+                else {
+                    order_requestModel.refuseOrder(cus_ID);
+                }
+                ServletUtils.redirect("/Admin/RequestOrder", request, response);
                 break;
             default:
                 break;
