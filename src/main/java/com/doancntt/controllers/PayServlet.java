@@ -3,12 +3,18 @@ package com.doancntt.controllers;
 import com.doancntt.beans.*;
 import com.doancntt.models.BookModel;
 import com.doancntt.models.CustomerModel;
+import com.doancntt.models.order_requestModel;
 import com.doancntt.utils.ServletUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "PayServlet", value = "/tratien")
@@ -60,15 +66,21 @@ public class PayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Customer c = (Customer) session.getAttribute("Customer_logged_in");
-        List<CustomerOrder> Cuctomer_order_to_delete = CustomerModel.Cuctomer_order_to_delete(c.getCustomer_ID());
-        String List_order = "";
-        for (CustomerOrder od : Cuctomer_order_to_delete) {
-            List_order += String.valueOf(od.getOrder_ID()) + ",";
-        }
-        List_order = List_order.substring(0, List_order.length() - 1);
 
-        CustomerModel.delete_Order_detail(List_order);
+        CustomerModel.disable_customer_order(c.getCustomer_ID());
+
         session.setAttribute("shdm", 0);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate d = LocalDate.now();
+        dtf.format(d);
+        ZoneId systemTimeZone = ZoneId.systemDefault();
+
+        ZonedDateTime zonedDateTime = d.atStartOfDay(systemTimeZone);
+
+        Date utilDate = Date.from(zonedDateTime.toInstant());
+
+        order_requestModel.Add_request(utilDate, 1, c.getCustomer_ID());
         ServletUtils.redirect("/", request, response);
     }
 }
