@@ -12,7 +12,7 @@ public class MailSender {
 
     public static boolean send(String mail_to, String header, String content) {
         boolean success = false;
-        String fromServer = "workflow.auction@gmail.com", password = "_work-auc";
+        String fromServer = "doancntt10@gmail.com", password = "giauduchien@";
         try {
             Properties prop = new Properties();
             prop.put("mail.smtp.host", "smtp.gmail.com");

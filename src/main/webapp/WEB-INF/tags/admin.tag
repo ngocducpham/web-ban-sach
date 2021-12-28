@@ -46,7 +46,7 @@
                                     </span>
                             </a>
                             <a class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
-                               href="${pageContext.request.contextPath}/Admin/User/">
+                               href="${pageContext.request.contextPath}/Admin/Customers">
                                     <span class="text-left">
                                        <span class="iconify" data-icon="bx:bxs-user"></span>
                                     </span>
@@ -55,17 +55,7 @@
                                     </span>
                             </a>
                             <a class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
-                               href="${pageContext.request.contextPath}/Admin/Category/">
-                                <span class="text-left">
-                                    <span class="w-5 h-5 iconify" data-icon="bx:bx-category"></span>
-                                </span>
-
-                                <span class="mx-4 text-sm font-normal">
-                                        Danh mục
-                                    </span>
-                            </a>
-                            <a class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
-                               href="${pageContext.request.contextPath}/Admin/Books/">
+                               href="${pageContext.request.contextPath}/Admin/Books">
                                     <span class="text-left">
                                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 1792 1792"
                                              xmlns="http://www.w3.org/2000/svg">

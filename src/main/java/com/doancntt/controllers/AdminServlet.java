@@ -2,9 +2,11 @@ package com.doancntt.controllers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.doancntt.beans.Admin;
+import com.doancntt.beans.Customer;
 import com.doancntt.beans.Detail_Request;
 import com.doancntt.beans.order_request;
 import com.doancntt.models.AdminModel;
+import com.doancntt.models.CustomerModel;
 import com.doancntt.models.order_requestModel;
 import com.doancntt.utils.ServletUtils;
 
@@ -44,13 +46,25 @@ public class AdminServlet extends HttpServlet {
             case "/OrderStatus":
                 int status = Integer.parseInt(request.getParameter("status"));
                 int cus_ID = Integer.parseInt(request.getParameter("cus_id"));
-                if(status == 1){
+                Customer c = CustomerModel.FindById(cus_ID);
+                List<Detail_Request> list3 = order_requestModel.FindByCusId(cus_ID);
+                if (status == 1) {
                     order_requestModel.acceptOrder(cus_ID);
-                }
-                else {
+                    ServletUtils.send_mail_to_noti_accept_order(c, list3);
+                } else {
                     order_requestModel.refuseOrder(cus_ID);
+                    ServletUtils.send_mail_to_noti_refuse_order(c, list3);
                 }
                 ServletUtils.redirect("/Admin/RequestOrder", request, response);
+                break;
+            case "/Customers":
+
+                break;
+            case "/Books":
+
+                break;
+            case "/AddBooks":
+
                 break;
             default:
                 break;

@@ -224,6 +224,16 @@ public class CustomerModel {
         }
     }
 
+    public static void update_pass(Customer c, String new_pass) {
+        final String query = "update customer set Password=:pass where Customer_ID=:id";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            conn.createQuery(query)
+                    .addParameter("pass", new_pass)
+                    .addParameter("id", c.getCustomer_ID())
+                    .executeUpdate();
+        }
+    }
+
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {

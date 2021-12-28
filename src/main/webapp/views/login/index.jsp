@@ -43,7 +43,8 @@
                             <label for="password">
                                 Mật Khẩu
                             </label>
-                            <a class="label-link" tabindex="0" href="/password_reset">Quên Mật Khẩu ?</a>
+                            <a class="label-link" tabindex="0"
+                               href="${pageContext.request.contextPath}/ForgetPass/GetMail">Quên Mật Khẩu ?</a>
                             <input type="password" name="password" id="password"
                                    class="form-control form-control input-block js-password-field"
                                    autocomplete="current-password">

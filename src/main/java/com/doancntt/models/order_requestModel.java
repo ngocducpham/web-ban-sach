@@ -52,16 +52,39 @@ public class order_requestModel {
         }
     }
 
-    public static void refuseOrder(int cus_id){
+    public static List<Detail_Request> FindByCusId_in_Personal(int cus_id) {
+        String sql = "select c.Customer_ID,\n" +
+                "       c.First_Name,\n" +
+                "       c.Last_Name,\n" +
+                "       Order_Date,\n" +
+                "       Dest_Address,\n" +
+                "       sum(Quantity)   as so_sach,\n" +
+                "       sum(Total_Cost) as tien_sach,\n" +
+                "       Title,\n" +
+                "       Img\n" +
+                "from customer_order\n" +
+                "         join order_detail od on customer_order.Order_ID = od.Order_ID\n" +
+                "         join customer c on c.Customer_ID = customer_order.Customer_ID\n" +
+                "         join books b on b.Book_ID = od.Book_ID\n" +
+                "where c.Customer_ID = :cus_id\n" +
+                "group by b.Book_ID;\n";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(sql)
+                    .addParameter("cus_id", cus_id)
+                    .executeAndFetch(Detail_Request.class);
+        }
+    }
+
+    public static void refuseOrder(int cus_id) {
         String sql = "delete from order_request where Customer_ID = :cus_id";
         try (Connection conn = DatabaseUtils.createConnection()) {
-             conn.createQuery(sql)
+            conn.createQuery(sql)
                     .addParameter("cus_id", cus_id)
                     .executeUpdate();
         }
     }
 
-    public static void acceptOrder(int cus_id){
+    public static void acceptOrder(int cus_id) {
         String sql = "update order_request set status = 0 where Customer_ID = :cus_id";
         try (Connection conn = DatabaseUtils.createConnection()) {
             conn.createQuery(sql)

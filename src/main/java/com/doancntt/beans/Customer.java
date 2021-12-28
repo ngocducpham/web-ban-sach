@@ -6,6 +6,24 @@ public class Customer {
     public String Email;
     public String Last_Name;
     public String Password;
+    public String Code;
+
+    public Customer(int customer_ID, String first_Name, String email, String last_Name, String password, String code) {
+        Customer_ID = customer_ID;
+        First_Name = first_Name;
+        Email = email;
+        Last_Name = last_Name;
+        Password = password;
+        Code = code;
+    }
+
+    public String getCode() {
+        return Code;
+    }
+
+    public void setCode(String code) {
+        Code = code;
+    }
 
     public Customer(int customer_ID, String first_Name, String email, String last_Name, String password) {
         Customer_ID = customer_ID;
