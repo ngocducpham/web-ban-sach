@@ -12,12 +12,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="${pageContext.request.contextPath}/public/scripts/tailwindcss.js"></script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-    <link rel="icon" href="${pageContext.request.contextPath}/public/imgs/icon.svg" sizes="any" type="image/svg+xml">
+    <jsp:invoke fragment="css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <jsp:invoke fragment="css"/>
     <title>Admin Dashboard</title>
+    <link href="${pageContext.request.contextPath}/public/imgs/favicons.ico" rel="shortcut icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/public/styles/index.css">
 </head>
 
 <body>
@@ -55,7 +61,7 @@
                                     </span>
                             </a>
                             <a class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
-                               href="${pageContext.request.contextPath}/Admin/Books">
+                               href="${pageContext.request.contextPath}/Admin/AddBooks">
                                     <span class="text-left">
                                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 1792 1792"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +71,7 @@
                                         </svg>
                                     </span>
                                 <span class="mx-4 text-sm font-normal">
-                                        Sản phẩm
+                                        Thêm Sách
                                     </span>
                             </a>
                             <a class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"

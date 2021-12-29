@@ -1,5 +1,6 @@
 package com.doancntt.models;
 
+import com.doancntt.beans.Author;
 import com.doancntt.beans.Book;
 import com.doancntt.utils.DatabaseUtils;
 import org.sql2o.Connection;
@@ -131,12 +132,81 @@ public class BookModel {
                 "    join publisher p on p.Publisher_ID = books.Publisher_ID " +
                 "    join book_category bc on bc.Category_ID = books.Category_ID " +
                 "    join book_language bl on books.Language_ID = bl.Language_ID " +
-                "    where Book_ID in ("+List_id+")" +
+                "    where Book_ID in (" + List_id + ")" +
                 "order by Book_ID";
         try (Connection conn = DatabaseUtils.createConnection()) {
             List<Book> list = conn.createQuery(findQuery).
                     executeAndFetch(Book.class);
             return list;
+        }
+    }
+
+    public static boolean check_author(String author) {
+        String text = "%" + author + "%";
+        String sql = "select *\n" +
+                "from author where Author_Name like :text;";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            List<Author> list = conn.createQuery(sql)
+                    .addParameter("text", author)
+                    .executeAndFetch(Author.class);
+            return list.size() != 0;
+        }
+    }
+
+    public static int findAuthor(String author) {
+        String text = "%" + author + "%";
+        String sql = "select Author_ID\n" +
+                "from author where Author_Name like :text;";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(sql)
+                    .addParameter("text", author)
+                    .executeAndFetch(Integer.class).get(0);
+        }
+    }
+
+    public static void add_author(String author) {
+        String sql = "insert into author (Author_Name)\n" +
+                "values (:author);";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            conn.createQuery(sql)
+                    .addParameter("author", author)
+                    .executeUpdate();
+        }
+    }
+
+    public static int get_max_author_id() {
+        String sql = "select max(Author_ID) as max from author";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(sql).executeAndFetch(Integer.class).get(0);
+        }
+    }
+
+    public static int get_max_book_id() {
+        String sql = "select max(Book_ID) as max from books";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(sql).executeAndFetch(Integer.class).get(0) + 1;
+        }
+    }
+
+    public static void add_new_book(Book b) {
+        String sql = "\n" +
+                "insert into books (Title, Pages, Publication_Date, Description, Price, Discount, Language_ID, Category_ID,\n" +
+                "                   Publisher_ID, Author_ID, Img)\n" +
+                "values (:Title,:Pages,:Publication_Date,:Description,:Price,:Discount,:Language_ID,:Category_ID,:Publisher_ID,:Author_ID,:Img);";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            conn.createQuery(sql)
+                    .addParameter("Title", b.getTitle())
+                    .addParameter("Pages", b.getPages())
+                    .addParameter("Publication_Date", b.getPublication_Date())
+                    .addParameter("Description", b.getDescription())
+                    .addParameter("Price", b.getPrice())
+                    .addParameter("Discount", b.getDiscount())
+                    .addParameter("Language_ID", b.getBook_Language())
+                    .addParameter("Category_ID", b.getBook_Category())
+                    .addParameter("Publisher_ID", b.getBook_Publisher())
+                    .addParameter("Author_ID", b.getBook_Author())
+                    .addParameter("Img", b.getImg())
+                    .executeUpdate();
         }
     }
 }
