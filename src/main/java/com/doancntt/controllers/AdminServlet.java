@@ -63,7 +63,9 @@ public class AdminServlet extends HttpServlet {
                 ServletUtils.redirect("/Admin/RequestOrder", request, response);
                 break;
             case "/Customers":
-
+                List<Customer> list1 = CustomerModel.FindAll();
+                request.setAttribute("all_customer", list1);
+                ServletUtils.forward("/views/Admin/All_Customer.jsp", request, response);
                 break;
             case "/Dashboard":
                 List<Book> newBooks = BookModel.findNewBook(8);

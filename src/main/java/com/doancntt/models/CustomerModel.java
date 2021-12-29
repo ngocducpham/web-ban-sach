@@ -234,6 +234,15 @@ public class CustomerModel {
         }
     }
 
+    public static List<Customer> FindAll() {
+        final String query = "SELECT c.Customer_ID,c.First_Name,c.Last_Name,c.Email,a.Full_Address,a.Phone_Number\n" +
+                "from customer c join address a on c.Customer_ID=a.Customer_ID";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(query)
+                    .executeAndFetch(Customer.class);
+        }
+    }
+
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
