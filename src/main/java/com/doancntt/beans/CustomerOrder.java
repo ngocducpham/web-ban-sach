@@ -7,7 +7,22 @@ public class CustomerOrder {
     public int Order_ID;
     public Date Order_Date;
     public String Dest_Address;
-    public int Customer_ID;
+    public int Customer_ID,status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public CustomerOrder(Date order_Date, String dest_Address, int customer_ID, int status) {
+        Order_Date = order_Date;
+        Dest_Address = dest_Address;
+        Customer_ID = customer_ID;
+        this.status = status;
+    }
 
     public CustomerOrder(Date order_Date, String dest_Address, int customer_ID) {
         Order_Date = order_Date;

@@ -119,13 +119,14 @@ public class CustomerModel {
     }
 
     public static void AddnewCustomer_Order(CustomerOrder co) {
-        String insertSql = "insert into customer_order (Order_Date, Dest_Address, Customer_ID)\n" +
-                "values (:order_date,:dest_address,:customer_id);";
+        String insertSql = "insert into customer_order (Order_Date, Dest_Address, Customer_ID,Status)\n" +
+                "values (:order_date,:dest_address,:customer_id,:status);";
         try (Connection con = DatabaseUtils.createConnection()) {
             con.createQuery(insertSql)
                     .addParameter("order_date", co.getOrder_Date())
                     .addParameter("dest_address", co.getDest_Address())
                     .addParameter("customer_id", co.getCustomer_ID())
+                    .addParameter("status", co.getStatus())
                     .executeUpdate();
         }
     }
@@ -154,7 +155,7 @@ public class CustomerModel {
     }
 
     public static List<CustomerOrder> FindOrderByCusID(int id) {
-        String findSql = "select * from customer_order where Customer_ID=:id;";
+        String findSql = "select * from customer_order where Customer_ID=:id and status = -1 ;";
         try (Connection con = DatabaseUtils.createConnection()) {
             List<CustomerOrder> list = con.createQuery(findSql)
                     .addParameter("id", id)
@@ -212,6 +213,36 @@ public class CustomerModel {
         }
     }
 
+    public static void disable_customer_order(int cus_id) {
+        String Sql = "update customer_order\n" +
+                "        set status = 1\n" +
+                "        where Customer_ID=:cus_id;";
+        try (Connection con = DatabaseUtils.createConnection()) {
+            con.createQuery(Sql)
+                    .addParameter("cus_id", cus_id)
+                    .executeUpdate();
+        }
+    }
+
+    public static void update_pass(Customer c, String new_pass) {
+        final String query = "update customer set Password=:pass where Customer_ID=:id";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            conn.createQuery(query)
+                    .addParameter("pass", new_pass)
+                    .addParameter("id", c.getCustomer_ID())
+                    .executeUpdate();
+        }
+    }
+
+    public static List<Customer> FindAll() {
+        final String query = "SELECT c.Customer_ID,c.First_Name,c.Last_Name,c.Email,a.Full_Address,a.Phone_Number\n" +
+                "from customer c join address a on c.Customer_ID=a.Customer_ID";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(query)
+                    .executeAndFetch(Customer.class);
+        }
+    }
+
     //function to add from fe
     public static void addnewCustomer(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
@@ -247,7 +278,7 @@ public class CustomerModel {
         ZonedDateTime zonedDateTime = d.atStartOfDay(systemTimeZone);
 
         Date utilDate = Date.from(zonedDateTime.toInstant());
-        CustomerOrder co = new CustomerOrder(utilDate, a.getFull_Address(), c.getCustomer_ID());
+        CustomerOrder co = new CustomerOrder(utilDate, a.getFull_Address(), c.getCustomer_ID(), -1);
         int cost = bookB.getPrice() * (100 - bookB.getDiscount()) / 100;
         OrderDetail od = new OrderDetail(1, cost, book_id);
 
