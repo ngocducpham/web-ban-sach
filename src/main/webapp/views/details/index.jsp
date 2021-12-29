@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="book" scope="request" type="com.doancntt.beans.Book"/>
-<jsp:useBean id="Verified" scope="session" type="java.lang.Boolean"/>
+<%--<jsp:useBean id="Verified" scope="session"/>--%>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/styles/detail.css">
 
@@ -20,7 +20,7 @@
     <script>
         function handleCart(event) {
 
-            document.getElementById("anou").style.display = 'block';
+            document.getElementById("anou").style.display='block';
             var el = document.getElementById("anou");
             el.style.animation = 'none';
             el.offsetHeight; /* trigger reflow */
@@ -51,44 +51,40 @@
                 <div class="annoucement" id="anou">
                     Thêm vào giỏ hàng thành công
                 </div>
-                <c:choose>
-                    <c:when test="${Verified}">
-                        <div class="boxPayment">
-                            <h5 class="paymentInfo"> Thông tin thanh toán</h5>
-                            <hr class="hrDecoration">
-                            <p class="priceCover"> Giá niêm yết <span class="priceCoverMoney"> <del> <fmt:formatNumber
-                                    type="number" maxFractionDigits="0"
-                                    value="${book.price}"/> đ </del></span>
-                            </p>
-                            <p class="priceCover priceDiscount"> Giảm <span
-                                    class="priceDiscountMoney"> <fmt:formatNumber
-                                    type="number" maxFractionDigits="0"
-                                    value="${book.discount}"/> % </span></p>
-                            <p class="priceCover priceSale"> Giá bán <span class="priceSaleMoney"> <fmt:formatNumber
-                                    type="number" maxFractionDigits="0"
-                                    value="${book.price*(100-book.discount)/100}"/> đ </span></p>
-                            <p class="priceCover priceSave"> Tiết kiệm <span
-                                    class="priceSaveMoney"> <fmt:formatNumber
-                                    type="number" maxFractionDigits="0"
-                                    value="${book.price*(book.discount)/100}"/> đ</span></p>
+                <div class="boxPayment">
+                    <h5 class="paymentInfo"> Thông tin thanh toán</h5>
+                    <hr class="hrDecoration">
+                    <p class="priceCover"> Giá niêm yết <span class="priceCoverMoney"> <del> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.price}"/> đ </del></span>
+                    </p>
+                    <p class="priceCover priceDiscount"> Giảm <span class="priceDiscountMoney"> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.discount}"/> % </span></p>
+                    <p class="priceCover priceSale"> Giá bán <span class="priceSaleMoney"> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.price*(100-book.discount)/100}"/> đ </span></p>
+                    <p class="priceCover priceSave"> Tiết kiệm <span
+                            class="priceSaveMoney"> <fmt:formatNumber
+                            type="number" maxFractionDigits="0"
+                            value="${book.price*(book.discount)/100}"/> đ</span></p>
 
-                            <hr class="hrDecoration">
+                    <hr class="hrDecoration">
+                    <c:choose>
+                        <c:when test="${Verified}">
                             <button class="addToCart" onclick="handleCart()">
                                 <a style="text-decoration: none"
-                                   href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}">Thêm
-                                    vào giỏ hàng</a>
+                                   href="${pageContext.request.contextPath}/AddtoCart?bookid=${book.book_ID}">Thêm vào giỏ hàng</a>
                             </button>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="boxPayment">
+                        </c:when>
+                        <c:otherwise>
                             <button class="addToCart">
                                 <a style="text-decoration: none"
                                    href="${pageContext.request.contextPath}/Login">Đăng nhập để mua</a>
                             </button>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
             </div>
             <ul class="nav nav-tabs mt-4 font" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
