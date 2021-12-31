@@ -22,23 +22,22 @@
             <form method="post">
                 <div class="auth-form mt-3" id="login">
                     <input type="hidden" name="ga_id" class="js-octo-ga-id-input">
-                    <div class="auth-form-header p-0">
-                        <h2 class="registerHeader">Thông tin cá nhân</h2>
-                        <h4 class="hello"> Xin chào bạn ${Customer_infor.last_Name}</h4>
-                    </div>
-                    <button type="submit" class="btn btn-danger"
+                    <button type="submit" class="btn btn-danger btnLogout"
                             formaction="${pageContext.request.contextPath}/User/Logout">
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                         LogOut
                     </button>
-                    <div class="card-text ">Mã khách hàng: ${my_bought_books.get(0).customer_ID}</div>
-                    <div class="card-text">Tên khách
+                    <div class="auth-form-header p-0">
+                        <h2 class="registerHeader">Thông tin cá nhân</h2>
+                    </div>
+                    <div class="card-text edit">Mã khách hàng: ${my_bought_books.get(0).customer_ID}</div>
+                    <div class="card-text edit">Tên khách
                         hàng: ${my_bought_books.get(0).first_Name} ${my_bought_books.get(0).last_Name}</div>
-                    <div class="card-text">Địa chỉ cần giao: ${my_bought_books.get(0).dest_Address}</div>
+                    <div class="card-text edit">Địa chỉ cần giao: ${my_bought_books.get(0).dest_Address}</div>
                     <div id="totalBill" class="card-text font-weight-bold"></div>
                     <br>
-                    <div style="font-weight: bold">Sách Đã Đặt</div>
-                    <table class="table mt-5 mb-5">
+                    <div style="font-weight: bold; font-size: 18pt">Sách Đã Đặt</div>
+                    <table class="table mb-5 tableBook">
                         <thead>
                         <tr>
                             <th scope="col">Hình ảnh</th>

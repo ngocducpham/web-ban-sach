@@ -46,7 +46,7 @@
                             </svg>
                             Địa chỉ nhận hàng
                         </h3>
-                        <button class="addNewAddress" id="newAddress"> Thêm địa chỉ mới</button>
+                        <button class="addNewAddress" id="newAddress"> Đổi địa chỉ nhận hàng</button>
                         <div class="newForm invisible1" id="formAddress">
                             <div class="container-fluid p-0">
 
