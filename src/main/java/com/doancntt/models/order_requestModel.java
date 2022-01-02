@@ -76,7 +76,7 @@ public class order_requestModel {
     }
 
     public static void refuseOrder(int cus_id) {
-        String sql = "delete from order_request where Customer_ID = :cus_id";
+        String sql = "update order_request set status = -2 where Customer_ID = :cus_id";
         try (Connection conn = DatabaseUtils.createConnection()) {
             conn.createQuery(sql)
                     .addParameter("cus_id", cus_id)

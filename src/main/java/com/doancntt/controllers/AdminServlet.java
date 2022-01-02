@@ -48,6 +48,14 @@ public class AdminServlet extends HttpServlet {
                 request.setAttribute("requests", dr);
                 ServletUtils.forward("/views/Admin/RequestDetail.jsp", request, response);
                 break;
+            case "/hstry_Detail":
+                int status2 = Integer.parseInt(request.getParameter("s"));
+                int cus_id2 = Integer.parseInt(request.getParameter("cus_id"));
+                List<Detail_Request> dr2 = order_requestModel.FindByCusId(cus_id2);
+                request.setAttribute("requests2", dr2);
+                request.setAttribute("status", status2);
+                ServletUtils.forward("/views/Admin/Hstry_Detail.jsp", request, response);
+                break;
             case "/OrderStatus":
                 int status = Integer.parseInt(request.getParameter("status"));
                 int cus_ID = Integer.parseInt(request.getParameter("cus_id"));
