@@ -11,7 +11,7 @@ Project yêu cầu những thành phần dưới đây để khởi động
 4. [MySQL](https://www.mysql.com/)
 
 ### 1. Tạo project
-Tại cửa sổ tạo project của Intellij chọn `Get from VCS` → Copy và pass `https://github.com/ngocducpham/web-ban-sach/` vào ô URL → Nhấn chọn `Clone`
+Tại cửa sổ tạo project của Intellij chọn `Get from VCS` → Nhập `https://github.com/ngocducpham/web-ban-sach/` vào ô URL → Nhấn chọn `Clone`
 
 ### 2. Thiết lập môi trường
 1. Ở góc phía trên bên phải chọn `Add Configuration` 
