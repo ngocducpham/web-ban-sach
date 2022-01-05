@@ -54,16 +54,17 @@
 
     let dropcategory = document.querySelector('.dropcategory');
     let books_category = document.querySelector('.list-category');
-    dropcategory.addEventListener('focus', () => {
-        books_category.classList.toggle('hide');
-    });
+
     dropcategory.addEventListener('click', ()=>{
         books_category.classList.toggle('hide');
     })
 
-    dropcategory.addEventListener('blur', () => {
-        books_category.classList.add('hide');
-    });
+    window.onclick = (e) => {
+
+        if(!e.target.matches('.books_category') && !e.target.matches('.dropcategory')){
+            books_category.classList.add('hide');
+        }
+    };
 </script>
 
 <jsp:invoke fragment="js"/>

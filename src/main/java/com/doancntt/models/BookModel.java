@@ -209,4 +209,56 @@ public class BookModel {
                     .executeUpdate();
         }
     }
+
+    public static List<Book> searchByCate(int cateID){
+        String query = "select Book_ID,\n" +
+                "       Title,\n" +
+                "       Pages,\n" +
+                "       Publication_Date,\n" +
+                "       Description,\n" +
+                "       Price,\n" +
+                "       Discount,\n" +
+                "       Img,\n" +
+                "       Language_Name,\n" +
+                "       Category_Name,\n" +
+                "       Publisher_Name,\n" +
+                "       Author_Name\n" +
+                "from books\n" +
+                "         join author a on a.Author_ID = books.Author_ID\n" +
+                "         join publisher p on p.Publisher_ID = books.Publisher_ID\n" +
+                "         join book_category bc on bc.Category_ID = books.Category_ID\n" +
+                "         join book_language bl on books.Language_ID = bl.Language_ID\n" +
+                "where books.Category_ID = :id\n" +
+                "order by Publication_Date desc";
+
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(query).addParameter("id", cateID).executeAndFetch(Book.class);
+        }
+    }
+
+    public static List<Book> timSachBanChay(){
+        String query = "select Book_ID,\n" +
+                "       Title,\n" +
+                "       Pages,\n" +
+                "       Publication_Date,\n" +
+                "       Description,\n" +
+                "       Price,\n" +
+                "       Discount,\n" +
+                "       Img,\n" +
+                "       Language_Name,\n" +
+                "       Category_Name,\n" +
+                "       Publisher_Name,\n" +
+                "       Author_Name\n" +
+                "from books\n" +
+                "         join author a on a.Author_ID = books.Author_ID\n" +
+                "         join publisher p on p.Publisher_ID = books.Publisher_ID\n" +
+                "         join book_category bc on bc.Category_ID = books.Category_ID\n" +
+                "         join book_language bl on books.Language_ID = bl.Language_ID\n" +
+                "where books.Category_ID = :id\n" +
+                "order by Publication_Date desc";
+
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(query).executeAndFetch(Book.class);
+        }
+    }
 }

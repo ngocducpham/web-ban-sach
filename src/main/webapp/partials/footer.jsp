@@ -24,7 +24,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>WingBook
+                        <i class="fas fa-gem me-3"></i>Vinabook
                     </h6>
                     <p>
                         Vinabook có tất cả

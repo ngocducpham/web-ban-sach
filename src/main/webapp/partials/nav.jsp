@@ -84,43 +84,43 @@
 </div>
 <div class="container container-category">
     <div class="list-group list-category hide">
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?q=Sách Bán Chạy"
            class=" list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             Sách Bán Chạy
             <i class="fas fa-chevron-right"></i>
         </a>
-        <a href="#"
-           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
-            Mới Phát Hành
+        <a href="${pageContext.request.contextPath}/search?q=Sách Mới Phát Hành"
+           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Sách Mới Phát Hành
             <i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=1"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Kinh Tế<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=3"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Văn Học Trong Nước<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=2"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Văn Học Nước Ngoài<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=4"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Thường Thức - Đời Sống<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=5"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Thiếu Nhi<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=6"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Phát Triển Bản Thân<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=7"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Tin Học Ngoại Ngữ<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=8"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Chuyên Ngành<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=9"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Sách
             Giáo Khoa - Giáo Trình<i class="fas fa-chevron-right"></i></a>
-        <a href="#"
+        <a href="${pageContext.request.contextPath}/search?c=10"
            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Tạp
             Chí<i class="fas fa-chevron-right"></i></a>
     </div>
