@@ -48,6 +48,14 @@ public class AdminServlet extends HttpServlet {
                 request.setAttribute("requests", dr);
                 ServletUtils.forward("/views/Admin/RequestDetail.jsp", request, response);
                 break;
+            case "/hstry_Detail":
+                int status2 = Integer.parseInt(request.getParameter("s"));
+                int cus_id2 = Integer.parseInt(request.getParameter("cus_id"));
+                List<Detail_Request> dr2 = order_requestModel.FindByCusId(cus_id2);
+                request.setAttribute("requests2", dr2);
+                request.setAttribute("status", status2);
+                ServletUtils.forward("/views/Admin/Hstry_Detail.jsp", request, response);
+                break;
             case "/OrderStatus":
                 int status = Integer.parseInt(request.getParameter("status"));
                 int cus_ID = Integer.parseInt(request.getParameter("cus_id"));
@@ -66,6 +74,11 @@ public class AdminServlet extends HttpServlet {
                 List<Customer> list1 = CustomerModel.FindAll();
                 request.setAttribute("all_customer", list1);
                 ServletUtils.forward("/views/Admin/All_Customer.jsp", request, response);
+                break;
+            case "/Repositories":
+                List<Book> allBooks = BookModel.findAll();
+                request.setAttribute("repo", allBooks);
+                ServletUtils.forward("/views/Admin/BookRepositories.jsp", request, response);
                 break;
             case "/Dashboard":
                 List<Book> newBooks = BookModel.findNewBook(8);
@@ -87,6 +100,13 @@ public class AdminServlet extends HttpServlet {
             case "/AddBooks":
                 ServletUtils.forward("/views/Admin/Add_Books.jsp", request, response);
                 break;
+            case "/DeleteBook":
+                DeleteBook(request, response);
+                break;
+            case "/EditBook":
+                String editBookId = request.getParameter("id");
+                request.setAttribute("bookid", editBookId);
+                ServletUtils.forward("/views/Admin/EditBook.jsp", request, response);
             default:
                 break;
         }
@@ -108,9 +128,36 @@ public class AdminServlet extends HttpServlet {
             case "/AddBooks":
                 AddBook(request, response);
                 break;
+            case "/EditBook":
+                UpdateBook(request, response);
+                break;
             default:
                 break;
         }
+    }
+
+    private void DeleteBook(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        String bookID = request.getParameter("id");
+        BookModel.deleteBook(Integer.parseInt(bookID));
+        ServletUtils.redirect("/Admin/Repositories", request, response);
+    }
+
+    private void UpdateBook(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        request.setCharacterEncoding("UTF-8");
+        String title = request.getParameter("title");
+        int pages = Integer.parseInt(request.getParameter("pages"));
+        String publication_Date = request.getParameter("publication_date");
+        String description = request.getParameter("description");
+        int price = Integer.parseInt(request.getParameter("price"));
+        int discount = Integer.parseInt(request.getParameter("discount"));
+        int book_Language = Integer.parseInt(request.getParameter("book_language"));
+        int book_Category = Integer.parseInt(request.getParameter("Cat_ID"));
+        int book_Publisher = Integer.parseInt(request.getParameter("publisher"));
+        int bookID = Integer.parseInt(request.getParameter("book_id"));
+
+        BookModel.updateBook(bookID,title,pages,publication_Date,description,price,discount,book_Language,book_Publisher,book_Category);
+        Save__new_product_img(request, response, bookID);
+        ServletUtils.redirect("/Admin/Repositories", request, response);
     }
 
     private void AddBook(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

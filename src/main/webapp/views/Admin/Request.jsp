@@ -44,13 +44,18 @@
                                         </c:otherwise>
                                     </c:choose>
                                     <td class="text-right">
-                                            <c:if test="${ar.status==1}">
-                                                <a class="btn btn-sm btn-outline-primary"
-                                                   href="${pageContext.request.contextPath}/Admin/Request_Detail?cus_id=${ar.customer_ID}"
-                                                   role="button">
-                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                </a>
-                                            </c:if>
+                                        <c:if test="${ar.status==1}">
+                                            <a class="btn btn-sm btn-outline-primary"
+                                               href="${pageContext.request.contextPath}/Admin/Request_Detail?cus_id=${ar.customer_ID}"
+                                               role="button">
+                                                <i class="fa fa-pencil" aria-hidden="true" style="color: green"></i>
+                                            </a>
+                                        </c:if>
+                                        <a class="btn btn-sm btn-outline-primary"
+                                           href="${pageContext.request.contextPath}/Admin/hstry_Detail?cus_id=${ar.customer_ID}&s=${ar.status}"
+                                           role="button">
+                                            <i class="fa fa-eye" aria-hidden="true" style="color: red"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             </c:forEach>

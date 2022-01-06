@@ -13,7 +13,14 @@ public class BookModel {
     }
 
     public static List<Book> findAll() {
-        final String query = "select *from books";
+        final String query = "select Book_ID, Title, Pages, Publication_Date, Description, Price, Discount, Img,\n" +
+                "       Language_Name, Category_Name, Publisher_Name, Author_Name\n" +
+                "from  books\n" +
+                "    join author a on a.Author_ID = books.Author_ID\n" +
+                "    join publisher p on p.Publisher_ID = books.Publisher_ID\n" +
+                "    join book_category bc on bc.Category_ID = books.Category_ID\n" +
+                "    join book_language bl on books.Language_ID = bl.Language_ID\n" +
+                "order by bc.Category_ID";
         try (Connection conn = DatabaseUtils.createConnection()) {
             return conn.createQuery(query).executeAndFetch(Book.class);
         }
@@ -206,6 +213,90 @@ public class BookModel {
                     .addParameter("Publisher_ID", b.getBook_Publisher())
                     .addParameter("Author_ID", b.getBook_Author())
                     .addParameter("Img", b.getImg())
+                    .executeUpdate();
+        }
+    }
+
+    public static List<Book> searchByCate(int cateID){
+        String query = "select Book_ID,\n" +
+                "       Title,\n" +
+                "       Pages,\n" +
+                "       Publication_Date,\n" +
+                "       Description,\n" +
+                "       Price,\n" +
+                "       Discount,\n" +
+                "       Img,\n" +
+                "       Language_Name,\n" +
+                "       Category_Name,\n" +
+                "       Publisher_Name,\n" +
+                "       Author_Name\n" +
+                "from books\n" +
+                "         join author a on a.Author_ID = books.Author_ID\n" +
+                "         join publisher p on p.Publisher_ID = books.Publisher_ID\n" +
+                "         join book_category bc on bc.Category_ID = books.Category_ID\n" +
+                "         join book_language bl on books.Language_ID = bl.Language_ID\n" +
+                "where books.Category_ID = :id\n" +
+                "order by Publication_Date desc";
+
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(query).addParameter("id", cateID).executeAndFetch(Book.class);
+        }
+    }
+
+    public static List<Book> timSachBanChay(){
+        String query = "select Book_ID,\n" +
+                "       Title,\n" +
+                "       Pages,\n" +
+                "       Publication_Date,\n" +
+                "       Description,\n" +
+                "       Price,\n" +
+                "       Discount,\n" +
+                "       Img,\n" +
+                "       Language_Name,\n" +
+                "       Category_Name,\n" +
+                "       Publisher_Name,\n" +
+                "       Author_Name\n" +
+                "from books\n" +
+                "         join author a on a.Author_ID = books.Author_ID\n" +
+                "         join publisher p on p.Publisher_ID = books.Publisher_ID\n" +
+                "         join book_category bc on bc.Category_ID = books.Category_ID\n" +
+                "         join book_language bl on books.Language_ID = bl.Language_ID\n" +
+                "where books.Category_ID = :id\n" +
+                "order by Publication_Date desc";
+
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            return conn.createQuery(query).executeAndFetch(Book.class);
+        }
+    }
+
+    public static void deleteBook(int bookID){
+        String query = "delete from order_detail where Book_ID = :id;";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            conn.createQuery(query).addParameter("id", bookID).executeUpdate();
+        }
+        query = "delete from books where Book_ID = :id;";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            conn.createQuery(query).addParameter("id", bookID).executeUpdate();
+        }
+    }
+
+    public static void updateBook(int id, String title, int page, String pubDate, String desc, int price, int dis, int langID, int pubID, int cateID){
+        String query = "update books set Title = :title, Pages = :pages, Publication_Date = :pubDate,\n" +
+                "                 Description = :decs, Price = :price, Discount = :dis,\n" +
+                "                 Language_ID = :lang, Category_ID = :cate, Publisher_ID = :pubID\n" +
+                "where Book_ID = :bookID";
+        try (Connection conn = DatabaseUtils.createConnection()) {
+            conn.createQuery(query)
+                    .addParameter("title", title)
+                    .addParameter("pages", page)
+                    .addParameter("pubDate", pubDate)
+                    .addParameter("decs", desc)
+                    .addParameter("price", price)
+                    .addParameter("dis", dis)
+                    .addParameter("lang", langID)
+                    .addParameter("cate", cateID)
+                    .addParameter("bookID", id)
+                    .addParameter("pubID", pubID)
                     .executeUpdate();
         }
     }

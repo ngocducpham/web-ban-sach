@@ -25,7 +25,7 @@
             el.style.animation = 'none';
             el.offsetHeight; /* trigger reflow */
             el.style.animation = null;
-            arlet("Thêm vào giỏ hàng thành công!");
+            // arlet("Thêm vào giỏ hàng thành công!");
             // event.preventDefault();
         }
     </script>
