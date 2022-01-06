@@ -23,12 +23,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label for="title">Tựa Sách</label>
-                            <input type="text" class="form-control background" name="title" id="title" required>
+                            <input value="Đừng Để Tiền Ngủ Yên Trong Túi (Tái Bản 2021)" type="text" class="form-control background" name="title" id="title" required>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="book_author">Tác Giả</label>
-                            <input type="text" class="form-control background" name="book_author" id="book_author" required>
+                            <input value="Tương Lâm" type="text" class="form-control background" name="book_author" id="book_author" required>
                         </div>
 
                         <div class="form-group col-md-2">
@@ -39,7 +39,7 @@
                                 <option value="3">Nxb Công Thương</option>
                                 <option value="4">NXB Dân Trí</option>
                                 <option value="5">Nxb Lao động</option>
-                                <option value="6">NXB Thanh Niên</option>
+                                <option selected value="6">NXB Thanh Niên</option>
                                 <option value="7">Nxb Hà Nội</option>
                                 <option value="8">NXB Phụ Nữ</option>
                                 <option value="9">NXB Hồng Đức</option>
@@ -49,7 +49,7 @@
 
                         <div class="form-group col-md-1">
                             <label for="pages">Số Trang</label>
-                            <input type="text" class="form-control background" name="pages" id="pages" required>
+                            <input value="200" type="text" class="form-control background" name="pages" id="pages" required>
                         </div>
 
                         <div class="form-group col-md-2">
@@ -63,7 +63,7 @@
                         <div class="form-group col-md-2">
                             <label for="catid">Thể Loại</label>
                             <select class="custom-select" name="Cat_ID" id="catid" required>
-                                <option value="1">Kinh Tế</option>
+                                <option selected value="1">Kinh Tế</option>
                                 <option value="2">Văn Học Nước Ngoài</option>
                                 <option value="3">Văn Học Trong Nước</option>
                                 <option value="4">Thường Thức - Đời Sống</option>
@@ -77,18 +77,18 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="price">Giá Bán</label>
-                            <input type="text" class="form-control background" name="price" id="price"
+                            <input value="418000" type="text" class="form-control background" name="price" id="price"
                                    placeholder="16.000" required>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="discount">Giảm Giá</label>
-                            <input type="text" class="form-control background" name="discount" id="discount"
+                            <input value="5" type="text" class="form-control background" name="discount" id="discount"
                                    placeholder="%" required>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="publication_date">
                                 Ngày Xuất Bản </label> <br/>
-                            <input id="publication_date" name="publication_date" type="date" required
+                            <input value="28/10/2021" id="publication_date" name="publication_date" type="date" required
                                    class="w-full px-2 py-1 outline-none block border-2 rounded-md  border-gray-300 text-gray-700">
                         </div>
                         <div class="form-group col-md-5">
@@ -113,7 +113,7 @@
                     </button>
                     <a role="button" href="${pageContext.request.contextPath}/Admin/DeleteBook?id=${bookid}" class="btn btn-outline-danger mt-3" id="delete_book">
                         <i class="fa fa-times" aria-hidden="true"></i>
-                        Xóa
+                        Xóa Sách
                     </a>
                     <a role="button" href="${pageContext.request.contextPath}/Admin/Repositories" class="btn btn-outline-primary mt-3" id="close_edit">
                         <i class="fa fa-times" aria-hidden="true"></i>
