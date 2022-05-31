@@ -12,10 +12,12 @@ public class MailSender {
 
     public static boolean send(String mail_to, String header, String content) {
         boolean success = false;
-        String fromServer = "doancntt10@gmail.com", password = "giauduchien@";
+        // ngocduc011001@yahoo.com
+        // Pham011001
+        String fromServer = "vinabook_bookstore", password = "lzpdlafsakbdhwrh";
         try {
             Properties prop = new Properties();
-            prop.put("mail.smtp.host", "smtp.gmail.com");
+            prop.put("mail.smtp.host", "smtp.mail.yahoo.com");
             prop.put("mail.smtp.port", "587");
             prop.put("mail.smtp.auth", "true");
             prop.put("mail.smtp.starttls.enable", "true");
@@ -25,7 +27,7 @@ public class MailSender {
                 }
             });
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(fromServer));
+            message.setFrom(new InternetAddress(fromServer+"@yahoo.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail_to));
             message.setHeader("Content-Type", "text/plain; charset=UTF-8");
             message.setSubject(header);
