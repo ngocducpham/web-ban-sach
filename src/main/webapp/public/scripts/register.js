@@ -84,7 +84,7 @@ $('#FormRegister').on('submit', function (e) {
     e.preventDefault();
     const email = $('#email').val();
 
-    $.getJSON('/do_an_cntt/Register/CheckAvailable?email=' + email, function (data) {
+    $.getJSON('/do_an_ooad/Register/CheckAvailable?email=' + email, function (data) {
         if (data === true) {
             alert("Đăng kí thành công !")
             $('#FormRegister').off('submit').submit();
